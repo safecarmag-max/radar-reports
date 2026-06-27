@@ -3,30 +3,225 @@
 
 
 <style>
-:root { --accent-color: #2F5496; }
-@page { size: A4 landscape; margin: 8mm; }
-body { font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 8pt; color: #1a1a1a; line-height: 1.35; }
-h1 { color: #1B3A5C; font-size: 20pt; text-align: center; margin-bottom: 2mm; }
-h2 { color: #2F5496; font-size: 13pt; border-bottom: 2px solid #2F5496; padding-bottom: 1.5mm; margin-top: 6mm; }
-h3 { color: #2F5496; font-size: 10pt; margin-top: 3mm; }
-.subtitle { text-align: center; color: #666; font-size: 10pt; margin-bottom: 6mm; }
-table { width: 100%; border-collapse: collapse; font-size: 7pt; margin-top: 3mm; }
-th { background-color: #1B3A5C; color: white; padding: 4px 5px; text-align: left; font-weight: bold; border: 1px solid #ccc; }
-td { border: 1px solid #ccc; padding: 4px 5px; vertical-align: top; }
-tr:nth-child(even) { background-color: #f0f4fa; }
-.metric { background: #f0f4fa; padding: 4px 8px; border-radius: 4px; display: inline-block; margin: 2px; font-size: 8.5pt; }
-.metric b { color: #1B3A5C; }
-.niche { background: #e8f0e8; border-left: 3px solid #4a7; padding: 3px 6px; margin: 3px 0; }
-.swot-s { background: #d4edda; padding: 8px; border-radius: 4px; margin-bottom: 3mm; }
-.swot-w { background: #f8d7da; padding: 8px; border-radius: 4px; margin-bottom: 3mm; }
-.swot-o { background: #d1ecf1; padding: 8px; border-radius: 4px; margin-bottom: 3mm; }
-.swot-t { background: #fff3cd; padding: 8px; border-radius: 4px; margin-bottom: 3mm; }
-.cols { display: flex; gap: 6mm; }
-.cols > div { flex: 1; }
-ul { margin: 2px 0; padding-left: 15px; }
-li { margin-bottom: 2px; }
-.page-break { page-break-before: always; }
-#map { height: 350px; width: 100%; margin-top: 4mm; border: 1px solid #ccc; border-radius: 4px; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --accent-color: #2563eb;
+    --accent-gradient: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    --primary-color: #0f172a;
+    --text-color: #334155;
+    --border-color: #e2e8f0;
+    --bg-light: #f8fafc;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+@page {
+    size: A4 landscape;
+    margin: 10mm;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 8pt;
+    color: var(--text-color);
+    line-height: 1.45;
+    background-color: white;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 24pt;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1mm;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 14pt;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2mm;
+    margin-top: 8mm;
+    position: relative;
+    letter-spacing: -0.2px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 10pt;
+    font-weight: 600;
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 10pt;
+    font-weight: 400;
+    margin-bottom: 8mm;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7pt;
+    margin-top: 4mm;
+    box-shadow: var(--shadow-sm);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 6px 8px;
+    text-align: left;
+    font-weight: 600;
+    border: none;
+    font-size: 7.5pt;
+}
+
+td {
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    padding: 6px 8px;
+    vertical-align: top;
+    background-color: white;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) td {
+    background-color: var(--bg-light);
+}
+
+tr:hover td {
+    background-color: #f1f5f9;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.metric {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 4px;
+    font-size: 8.5pt;
+    box-shadow: var(--shadow-sm);
+}
+
+.metric b {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.niche {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 8px 12px;
+    margin: 6px 0;
+    border-radius: 4px;
+    font-size: 8pt;
+    box-shadow: var(--shadow-sm);
+}
+
+.swot-s {
+    background: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 4mm;
+    box-shadow: var(--shadow-sm);
+}
+
+.swot-w {
+    background: #fdf2f8;
+    border-left: 4px solid #db2777;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 4mm;
+    box-shadow: var(--shadow-sm);
+}
+
+.swot-o {
+    background: #f0f9ff;
+    border-left: 4px solid #0284c7;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 4mm;
+    box-shadow: var(--shadow-sm);
+}
+
+.swot-t {
+    background: #fffbeb;
+    border-left: 4px solid #d97706;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 4mm;
+    box-shadow: var(--shadow-sm);
+}
+
+.cols {
+    display: flex;
+    gap: 6mm;
+}
+
+.cols > div {
+    flex: 1;
+}
+
+ul {
+    margin: 4px 0;
+    padding-left: 18px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+#map {
+    height: 350px;
+    width: 100%;
+    margin-top: 6mm;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
 </style></head><body>
 
 <h1>Анализ конкурентной среды: Недвижимость</h1>
@@ -2370,127 +2565,5 @@ li { margin-bottom: 2px; }
         </tr>
         
 </table>
-
-<div class="page-break"></div>
-
-<h2>25. Аудит присутствия и стратегия в социальных сетях</h2>
-<p>Сравнительный анализ представленности компаний в социальных сетях, объёма аудитории (ВКонтакте, Telegram, Instagram) и качества SMM-продвижения:</p>
-<table>
-    <tr>
-        <th>Компания</th>
-        <th>VK Подписчики</th>
-        <th>TG Подписчики</th>
-        <th>Instagram</th>
-        <th>SMM Оценка</th>
-        <th>Визуальный стиль</th>
-        <th>Качество контента</th>
-    </tr>
-    
-            <tr style="background-color: rgba(148, 163, 184, 0.15); border: 2px solid var(--accent-color);">
-                <td><b>Аврора Владис</b></td>
-                <td>Нет</td>
-                <td><a href="https://t.me/vladisrussia" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно (редкие посты)</td>
-            </tr>
-            
-            <tr >
-                <td><b>Рио-Люкс</b></td>
-                <td><a href="https://vk.com/ekbriolux" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Монтера группа</b></td>
-                <td><a href="https://vk.com/montera.group?w=app5708398_-137978942" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Этажи</b></td>
-                <td><a href="https://vk.com/wall-19935812_28653" target="_blank">По запросу</a></td>
-                <td><a href="https://t.me/EtagiComSpace_Bot" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Перспектива24</b></td>
-                <td><a href="https://vk.com/regru" target="_blank">По запросу</a></td>
-                <td><a href="https://t.me/regru" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Жилфонд</b></td>
-                <td><a href="https://vk.com/jilfond_official" target="_blank">По запросу</a></td>
-                <td><a href="https://t.me/jilfond_nedvijimost" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Центральное</b></td>
-                <td><a href="https://vk.com/centralnoe.realty" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Владис</b></td>
-                <td>Нет</td>
-                <td><a href="https://t.me/vladisrussia" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Альянс</b></td>
-                <td><a href="https://vk.com/regru" target="_blank">По запросу</a></td>
-                <td><a href="https://t.me/regru" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-            <tr >
-                <td><b>Гарант</b></td>
-                <td><a href="https://vk.com/regru" target="_blank">По запросу</a></td>
-                <td><a href="https://t.me/regru" target="_blank">По запросу</a></td>
-                <td>Нет</td>
-                <td>3.5/5.0</td>
-                <td>Стандартный</td>
-                <td>Удовлетворительно</td>
-            </tr>
-            
-</table>
-
-<h3>💡 Рекомендованные ИИ-офферы и стратегия продвижения в соцсетях:</h3>
-<div class="niche">
-    <b>Пошаговые рекомендации для отстройки:</b> <b>Пошаговая стратегия усиления SMM присутствия:</b><br/>1. <b>Регулярный постинг кейсов сделок:</b> Рассказывать реальные истории ваших клиентов в формате 'Было-Стало' (например, 'Как одобрили ипотеку без первого взноса и сэкономили 400 000 руб.').<br/>2. <b>Съемка коротких видео (VK Клипы):</b> Снимать эстетичные 30-секундные обзоры планировок лучших новостроек с разбором плюсов и скрытых минусов застройщиков.<br/>3. <b>Интеграция ИИ чат-бота:</b> Подключить интерактивного помощника в Telegram для быстрой квалификации и подбора объектов по бюджету пользователя.<br/>4. <b>Личный бренд руководителей и брокеров:</b> Повысить доверие к компании через публикацию видео с экспертным мнением ведущих сотрудников агентства.<br/>5. <b>Лид-магнит:</b> Запустить таргетированную рекламу с полезным материалом: 'ТОП-5 жилых комплексов города для инвестиций в 2026 году'.
-</div>
 
 </body></html>
