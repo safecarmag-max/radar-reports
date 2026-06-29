@@ -27,7 +27,186 @@ ul { margin: 2px 0; padding-left: 15px; }
 li { margin-bottom: 2px; }
 .page-break { page-break-before: always; }
 #map { height: 350px; width: 100%; margin-top: 4mm; border: 1px solid #ccc; border-radius: 4px; }
-</style></head><body>
+
+:root { 
+    --primary-color: #0f172a; 
+    --accent-color: #0284c7; 
+    --bg-light: #f8fafc;
+    --bg-dark: #0f172a;
+}
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    transition: background 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 260px;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 25px 20px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+    border-right: 1px solid #1e293b;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+}
+.sidebar-logo {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #1e293b;
+}
+.sidebar-project-info {
+    background: #1e293b;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    margin-bottom: 10px;
+}
+.sidebar-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    padding: 12px 15px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 9.5pt;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.sidebar-btn:hover {
+    background: #1e293b;
+    color: #fff;
+}
+.sidebar-btn.active {
+    background: #0284c7;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+.theme-toggle-btn {
+    margin-top: auto;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 9pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+.theme-toggle-btn:hover {
+    background: #334155;
+    color: #fff;
+}
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    flex: 1;
+    box-sizing: border-box;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #090d16;
+    color: #cbd5e1;
+}
+body.dark-mode .main-content {
+    background: #090d16;
+}
+body.dark-mode h1 { color: #f8fafc; }
+body.dark-mode h2 { color: #38bdf8; border-bottom-color: #334155; }
+body.dark-mode h3 { color: #38bdf8; }
+body.dark-mode table { background: #0f172a; border-color: #1e293b; }
+body.dark-mode td { border-color: #1e293b; color: #cbd5e1; }
+body.dark-mode th { background-color: #1e293b; border-color: #334155; }
+body.dark-mode tr:nth-child(even) { background-color: #131b2e; }
+body.dark-mode .metric { background: #1e293b; border: 1px solid #334155; }
+body.dark-mode .metric b { color: #38bdf8; }
+body.dark-mode .niche { background: #111827; border-color: #38bdf8; color: #cbd5e1; }
+body.dark-mode .swot-s { background: #064e3b; color: #a7f3d0; }
+body.dark-mode .swot-w { background: #7f1d1d; color: #fca5a5; }
+body.dark-mode .swot-o { background: #0c4a6e; color: #bae6fd; }
+body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
+
+/* Print Overrides */
+@media print {
+    .sidebar { display: none !important; }
+    .main-content { margin-left: 0 !important; padding: 0 !important; }
+    .tab-content { display: block !important; page-break-before: always !important; }
+    .tab-content:first-of-type { page-break-before: avoid !important; }
+    body, body.dark-mode { background: #fff !important; color: #000 !important; }
+}
+
+</style></head>
+<body>
+<div class="dashboard-layout">
+    
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <span style="font-size:18px; font-weight:bold; color:#fff; display:flex; align-items:center; gap:8px;">
+                🐙 ИИ-РАДАР
+            </span>
+            <div style="font-size:9px; color:#64748b; margin-top:2px;">Конкурентная разведка</div>
+        </div>
+        <div style="margin-top:15px;">
+            <div class="sidebar-project-info">
+                <div style="font-size:11px; color:#94a3b8; font-weight:bold; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Недвижимость</div>
+                <div style="font-size:10px; color:#64748b;">г. Магнитогорск</div>
+            </div>
+        </div>
+        <nav style="display:flex; flex-direction:column; gap:8px; margin-top:20px;">
+    
+            <button class="sidebar-btn active" id="btn-tab-overview" onclick="switchTab('tab-overview')">
+                📊 Обзор рынка
+            </button>
+            <button class="sidebar-btn" id="btn-tab-marketing" onclick="switchTab('tab-marketing')">
+                📢 Трафик и Маркетинг
+            </button>
+            <button class="sidebar-btn" id="btn-tab-reputation" onclick="switchTab('tab-reputation')">
+                ⭐ Репутация и Упоминания
+            </button>
+            <button class="sidebar-btn" id="btn-tab-ai-automation" onclick="switchTab('tab-ai-automation')">
+                🤖 ИИ и Автоматизация
+            </button>
+        
+        </nav>
+        
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+            🌓 Сменить тему
+        </button>
+    </div>
+    
+    <div class="main-content">
+        
+        <div class="tab-content active" id="tab-overview">
+            
 
 <h1>Анализ конкурентной среды: Недвижимость</h1>
 <div class="subtitle">г. Магнитогорск &bull; ТОП-32 компаний &bull; Отчет системы РАДАР &bull; 2026</div>
@@ -2996,4 +3175,46 @@ li { margin-bottom: 2px; }
         </div>
         
 
-</body></html>
+
+        
+</div>
+
+    </div>
+</div>
+
+<script>
+function switchTab(tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(c => c.classList.remove('active'));
+    
+    const buttons = document.querySelectorAll('.sidebar-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) targetTab.classList.add('active');
+    
+    const targetBtn = document.getElementById('btn-' + tabId);
+    if (targetBtn) targetBtn.classList.add('active');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    localStorage.setItem('radar_theme', isDark ? 'dark' : 'light');
+}
+
+function loadTheme() {
+    const saved = localStorage.getItem('radar_theme');
+    if (saved === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+}
+window.addEventListener('DOMContentLoaded', loadTheme);
+setTimeout(loadTheme, 100);
+</script>
+
+</body>
+</html>
