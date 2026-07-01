@@ -186,6 +186,11 @@ tr:nth-child(even) {
     border-bottom: 1px solid #cfd8dc !important;
     color: #2d3748 !important;
 }
+.pestel-card {
+    background: #ffffff;
+    border: 1px solid #cfd8dc;
+    border-left-width: 4px !important;
+}
 
 /* Dark Mode Styles */
 body.dark-mode {
@@ -205,6 +210,10 @@ body.dark-mode tr:nth-child(even) { background-color: #212329; }
 body.dark-mode .metric { background: var(--card-dark); border-color: var(--border-dark); }
 body.dark-mode .metric b { color: #fbbf24; }
 body.dark-mode .niche { background: var(--card-dark); border-color: var(--border-dark); color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02); }
+body.dark-mode .pestel-card { background: var(--card-dark) !important; border-color: var(--border-dark) !important; border-left-width: 4px !important; }
+body.dark-mode .pestel-text { color: #cbd5e1 !important; }
+body.dark-mode .pestel-danger { color: #f87171 !important; }
+body.dark-mode .pestel-action { color: #4ade80 !important; }
 body.dark-mode .swot-s { background: rgba(16, 185, 129, 0.15); color: #a7f3d0; }
 body.dark-mode .swot-w { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
 body.dark-mode .swot-o { background: rgba(59, 130, 246, 0.15); color: #bae6fd; }
@@ -1834,34 +1843,105 @@ body.dark-mode .finance-efficiency-badge {
             </ul>
         </div>
     </div>
-    <h2>7. PESTEL-анализ макросреды ниши</h2>
-<p>Анализ внешних факторов макросреды (политических, экономических, социальных, технологических, экологических и юридических), влияющих на развитие бизнеса в регионе:</p>
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 4mm;">
-    <div style="background: #eef3f7; border-left: 4px solid #1b3a5c; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #1b3a5c; font-size: 8.5pt;">P — Политические факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Изменение льготных ипотечных программ (семейная, IT-ипотека), государственное субсидирование застройщиков и регулирование ставок.</p>
-    </div>
-    <div style="background: #eef7ee; border-left: 4px solid #28a745; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #28a745; font-size: 8.5pt;">E — Экономические факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Рост ключевой ставки ЦБ РФ, инфляция стоимости стройматериалов, колебания реальных доходов населения и цен на жилье.</p>
-    </div>
-    <div style="background: #f6f0fa; border-left: 4px solid #6f42c1; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #6f42c1; font-size: 8.5pt;">S — Социальные факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Увеличение спроса на квартиры с готовой отделкой и меблировкой, тренд на загородное жилье, рост урбанизации.</p>
-    </div>
-    <div style="background: #eef7f9; border-left: 4px solid #17a2b8; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #17a2b8; font-size: 8.5pt;">T — Технологические факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Внедрение ИИ-подбора квартир, VR-экскурсии, онлайн-регистрация сделок через Росреестр, автоматизация CRM.</p>
-    </div>
-    <div style="background: #fdf5ee; border-left: 4px solid #fd7e14; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #fd7e14; font-size: 8.5pt;">E — Экологические факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Внедрение стандартов зеленого строительства (ГОСТ Р), энергоэффективность зданий, экологичность материалов.</p>
-    </div>
-    <div style="background: #fdeeef; border-left: 4px solid #dc3545; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
-        <b style="color: #dc3545; font-size: 8.5pt;">L — Юридические факторы</b>
-        <p style="margin: 1.5mm 0 0 0; line-height: 1.3;">Ужесточение правил работы по 214-ФЗ (эскроу-счета), новые требования к проектным декларациям и рекламе жилья.</p>
-    </div>
-</div>
+    <h2>7. Анализ рыночных трендов и внешних угроз: Влияние на ваши продажи</h2>
+<p>Анализ ключевых внешних факторов макросреды (законы, экономика, социум, технологии, экология, юриспруденция), которые напрямую влияют на маржинальность и объём продаж бизнеса в регионе:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px;">\n
+        <div class="pestel-card" style="border-left: 4px solid #1b3a5c; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #1b3a5c; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Political</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Изменение льготных ипотечных программ (семейная, IT-ипотека), государственное субсидирование застройщиков и регулирование ставок.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        
+        <div class="pestel-card" style="border-left: 4px solid #28a745; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #28a745; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Economic</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Рост ключевой ставки ЦБ РФ, инфляция стоимости стройматериалов, колебания реальных доходов населения и цен на жилье.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        
+        <div class="pestel-card" style="border-left: 4px solid #6f42c1; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #6f42c1; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Social</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Увеличение спроса на квартиры с готовой отделкой и меблировкой, тренд на загородное жилье, рост урбанизации.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        
+        <div class="pestel-card" style="border-left: 4px solid #17a2b8; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #17a2b8; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Technological</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Внедрение ИИ-подбора квартир, VR-экскурсии, онлайн-регистрация сделок через Росреестр, автоматизация CRM.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        
+        <div class="pestel-card" style="border-left: 4px solid #fd7e14; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #fd7e14; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Environmental</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Внедрение стандартов зеленого строительства (ГОСТ Р), энергоэффективность зданий, экологичность материалов.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        
+        <div class="pestel-card" style="border-left: 4px solid #dc3545; padding: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box;">
+            <b style="color: #dc3545; font-size: 10pt; font-weight: bold; margin-bottom: 2px;">Фактор Legal</b>
+            <div style="font-size: 8.5pt; line-height: 1.4;">
+                <span style="color: #64748b; font-weight: 500; display: block; margin-bottom: 2px;">📍 Что происходит:</span>
+                <span class="pestel-text">Ужесточение правил работы по 214-ФЗ (эскроу-счета), новые требования к проектным декларациям и рекламе жилья.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(220, 53, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.08);">
+                <span style="color: #dc3545; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ В чем опасность (Угроза):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-danger">Влияние на продажи и маржинальность бизнеса.</span>
+            </div>
+            <div style="font-size: 8.5pt; line-height: 1.4; background: rgba(40, 167, 69, 0.04); padding: 6px 8px; border-radius: 4px; border: 1px solid rgba(40, 167, 69, 0.08); margin-top: auto;">
+                <span style="color: #28a745; font-weight: 700; display: block; margin-bottom: 2px;">💡 Как на этом заработать (Что делать):</span>
+                <span style="font-weight: 500; color: #1e293b;" class="pestel-action">Адаптировать бизнес-модель под текущие изменения.</span>
+            </div>
+        </div>
+        </div>\n
 
 <div class="page-break"></div>
 
