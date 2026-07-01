@@ -399,6 +399,81 @@ body.dark-mode .ceo-badge {
     background: rgba(52, 211, 153, 0.15);
 }
 
+/* Financial Dashboard Widgets */
+.financial-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .financial-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.finance-widget-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+body.dark-mode .finance-widget-card {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: #334155;
+}
+.finance-row {
+    margin-bottom: 12px;
+}
+.finance-row:last-child {
+    margin-bottom: 0;
+}
+.finance-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8.5pt;
+    margin-bottom: 4px;
+}
+.finance-bar-outer {
+    width: 100%;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+body.dark-mode .finance-bar-outer {
+    background: #334155;
+}
+.finance-bar-inner-rev {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+}
+.finance-bar-inner-profit {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 4px;
+}
+.finance-bar-inner-staff {
+    height: 100%;
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    border-radius: 4px;
+}
+.finance-efficiency-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: #16a34a;
+    font-size: 7.5pt;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+body.dark-mode .finance-efficiency-badge {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+}
+
 </style></head>
 <body>
 <div class="dashboard-layout">
@@ -1405,166 +1480,142 @@ body.dark-mode .ceo-badge {
     <h2>5. Финансовый реверс-инжиниринг и Юнит-экономика</h2>
 <p>Оценка финансовых показателей, оборотов и примерной структуры расходов конкурентов на основе открытых данных, численности персонала и рекламной активности:</p>
 
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Рио-Люкс</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 17.9 млн руб. &bull; Чистая прибыль: 3.9 млн руб. &bull; Штат (HH.ru): 9 чел. &bull; Рекламный бюджет (оценка): 0.9 млн руб./год.
+    <div class="financial-dashboard-grid">
+        <div class="finance-widget-card">
+            <b style="color: #0f172a; font-size: 9.5pt; display: block; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; display:flex; align-items:center; gap:6px;">
+                💵 1) Выручка и Чистая прибыль за 2025 г.
+            </b>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Рио-Люкс</span>
+                <span style="color: #64748b;">Выручка: <b>17.9 млн</b> • Прибыль: <b style="color: #16a34a;">3.9 млн</b></span>
+            </div>
+            <div class="finance-bar-outer" title="Рекламный бюджет: 0.9 млн/год">
+                <div class="finance-bar-inner-rev" style="width: 9.798112793504497%; display: flex; align-items: center; justify-content: flex-end;">
+                    <div class="finance-bar-inner-profit" style="width: 22.0%; height: 100%;"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Аврора Владис</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 7.7 млн руб. &bull; Чистая прибыль: 1.5 млн руб. &bull; Штат (HH.ru): 7 чел. &bull; Рекламный бюджет (оценка): 0.8 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #0284c7;">Аврора Владис <span style='background:#0284c7; color:#fff; font-size:6.5pt; padding:1px 3px; border-radius:3px;'>Ваша компания</span></span>
+                <span style="color: #64748b;">Выручка: <b>7.7 млн</b> • Прибыль: <b style="color: #16a34a;">1.5 млн</b></span>
+            </div>
+            <div class="finance-bar-outer" title="Рекламный бюджет: 0.8 млн/год">
+                <div class="finance-bar-inner-rev" style="width: 4.216589861751152%; display: flex; align-items: center; justify-content: flex-end;">
+                    <div class="finance-bar-inner-profit" style="width: 20.0%; height: 100%;"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Владис</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 63.0 млн руб. &bull; Чистая прибыль: 13.2 млн руб. &bull; Штат (HH.ru): 16 чел. &bull; Рекламный бюджет (оценка): 4.4 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Владис</span>
+                <span style="color: #64748b;">Выручка: <b>63.0 млн</b> • Прибыль: <b style="color: #16a34a;">13.2 млн</b></span>
+            </div>
+            <div class="finance-bar-outer" title="Рекламный бюджет: 4.4 млн/год">
+                <div class="finance-bar-inner-rev" style="width: 34.58415624314241%; display: flex; align-items: center; justify-content: flex-end;">
+                    <div class="finance-bar-inner-profit" style="width: 21.000000000000004%; height: 100%;"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Самолет Плюс</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 152.4 млн руб. &bull; Чистая прибыль: 22.9 млн руб. &bull; Штат (HH.ru): 50 чел. &bull; Рекламный бюджет (оценка): 13.7 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Самолет Плюс</span>
+                <span style="color: #64748b;">Выручка: <b>152.4 млн</b> • Прибыль: <b style="color: #16a34a;">22.9 млн</b></span>
+            </div>
+            <div class="finance-bar-outer" title="Рекламный бюджет: 13.7 млн/год">
+                <div class="finance-bar-inner-rev" style="width: 83.6295808646039%; display: flex; align-items: center; justify-content: flex-end;">
+                    <div class="finance-bar-inner-profit" style="width: 15.0%; height: 100%;"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Премьера</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 182.3 млн руб. &bull; Чистая прибыль: 34.6 млн руб. &bull; Штат (HH.ru): 60 чел. &bull; Рекламный бюджет (оценка): 18.2 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Премьера</span>
+                <span style="color: #64748b;">Выручка: <b>182.3 млн</b> • Прибыль: <b style="color: #16a34a;">34.6 млн</b></span>
+            </div>
+            <div class="finance-bar-outer" title="Рекламный бюджет: 18.2 млн/год">
+                <div class="finance-bar-inner-rev" style="width: 100.0%; display: flex; align-items: center; justify-content: flex-end;">
+                    <div class="finance-bar-inner-profit" style="width: 19.000000000000004%; height: 100%;"></div>
+                </div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Статус-М</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 80.5 млн руб. &bull; Чистая прибыль: 13.7 млн руб. &bull; Штат (HH.ru): 12 чел. &bull; Рекламный бюджет (оценка): 8.0 млн руб./год.
+            </div>
+            <div style="margin-top: 15px; font-size: 7.5pt; color: #64748b; line-height: 1.3;">
+                💡 <span style="background:linear-gradient(90deg, #3b82f6, #1d4ed8); color:transparent; -webkit-background-clip:text; font-weight:bold;">Синяя полоса</span> показывает масштаб выручки. <span style="background:linear-gradient(90deg, #10b981, #059669); color:transparent; -webkit-background-clip:text; font-weight:bold;">Зеленая полоса внутри</span> — долю чистой прибыли.
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Единство</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 72.1 млн руб. &bull; Чистая прибыль: 13.0 млн руб. &bull; Штат (HH.ru): 19 чел. &bull; Рекламный бюджет (оценка): 3.6 млн руб./год.
+        <div class="finance-widget-card">
+            <b style="color: #0f172a; font-size: 9.5pt; display: block; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; display:flex; align-items:center; gap:6px;">
+                👥 2) Численность команды и отдача на человека
+            </b>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Рио-Люкс</span>
+                <span style="color: #64748b;">Штат: <b>9 чел.</b> <span class="finance-efficiency-badge" title="Выручка на одного сотрудника">2.0 млн/чел</span></span>
+            </div>
+            <div class="finance-bar-outer">
+                <div class="finance-bar-inner-staff" style="width: 15.0%;"></div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Ковчег</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 80.5 млн руб. &bull; Чистая прибыль: 13.7 млн руб. &bull; Штат (HH.ru): 18 чел. &bull; Рекламный бюджет (оценка): 4.8 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #0284c7;">Аврора Владис <span style='background:#0284c7; color:#fff; font-size:6.5pt; padding:1px 3px; border-radius:3px;'>Ваша компания</span></span>
+                <span style="color: #64748b;">Штат: <b>7 чел.</b> <span class="finance-efficiency-badge" title="Выручка на одного сотрудника">1.1 млн/чел</span></span>
+            </div>
+            <div class="finance-bar-outer">
+                <div class="finance-bar-inner-staff" style="width: 11.666666666666666%;"></div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Визит</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 42.8 млн руб. &bull; Чистая прибыль: 5.6 млн руб. &bull; Штат (HH.ru): 14 чел. &bull; Рекламный бюджет (оценка): 3.0 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Владис</span>
+                <span style="color: #64748b;">Штат: <b>16 чел.</b> <span class="finance-efficiency-badge" title="Выручка на одного сотрудника">3.9 млн/чел</span></span>
+            </div>
+            <div class="finance-bar-outer">
+                <div class="finance-bar-inner-staff" style="width: 26.666666666666668%;"></div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Новый дом</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 54.8 млн руб. &bull; Чистая прибыль: 9.3 млн руб. &bull; Штат (HH.ru): 24 чел. &bull; Рекламный бюджет (оценка): 4.4 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Самолет Плюс</span>
+                <span style="color: #64748b;">Штат: <b>50 чел.</b> <span class="finance-efficiency-badge" title="Выручка на одного сотрудника">3.0 млн/чел</span></span>
+            </div>
+            <div class="finance-bar-outer">
+                <div class="finance-bar-inner-staff" style="width: 83.33333333333334%;"></div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Агентство 21</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 64.4 млн руб. &bull; Чистая прибыль: 14.2 млн руб. &bull; Штат (HH.ru): 17 чел. &bull; Рекламный бюджет (оценка): 5.2 млн руб./год.
+        <div class="finance-row">
+            <div class="finance-bar-label">
+                <span style="font-weight: bold; color: #1e293b;">Премьера</span>
+                <span style="color: #64748b;">Штат: <b>60 чел.</b> <span class="finance-efficiency-badge" title="Выручка на одного сотрудника">3.0 млн/чел</span></span>
+            </div>
+            <div class="finance-bar-outer">
+                <div class="finance-bar-inner-staff" style="width: 100.0%;"></div>
+            </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>История</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 63.3 млн руб. &bull; Чистая прибыль: 8.2 млн руб. &bull; Штат (HH.ru): 14 чел. &bull; Рекламный бюджет (оценка): 3.2 млн руб./год.
+            </div>
+            <div style="margin-top: 15px; font-size: 7.5pt; color: #64748b; line-height: 1.3;">
+                💡 <span style="background:linear-gradient(90deg, #f59e0b, #d97706); color:transparent; -webkit-background-clip:text; font-weight:bold;">Желтая полоса</span> показывает размер штата. Зеленый индикатор в углу отражает выручку, приносимую 1 сотрудником.
+            </div>
         </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Магдом</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 6.2 млн руб. &bull; Чистая прибыль: 1.1 млн руб. &bull; Штат (HH.ru): 8 чел. &bull; Рекламный бюджет (оценка): 0.4 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Перспектива24</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 59.4 млн руб. &bull; Чистая прибыль: 12.5 млн руб. &bull; Штат (HH.ru): 16 чел. &bull; Рекламный бюджет (оценка): 4.8 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Жилфонд</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 40.3 млн руб. &bull; Чистая прибыль: 8.1 млн руб. &bull; Штат (HH.ru): 27 чел. &bull; Рекламный бюджет (оценка): 4.0 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Форум</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 15.8 млн руб. &bull; Чистая прибыль: 2.2 млн руб. &bull; Штат (HH.ru): 9 чел. &bull; Рекламный бюджет (оценка): 1.6 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Авторитет</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 12.2 млн руб. &bull; Чистая прибыль: 2.2 млн руб. &bull; Штат (HH.ru): 5 чел. &bull; Рекламный бюджет (оценка): 0.5 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Недвижка.ру</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 54.8 млн руб. &bull; Чистая прибыль: 9.3 млн руб. &bull; Штат (HH.ru): 12 чел. &bull; Рекламный бюджет (оценка): 2.7 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>ДДА Риал</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 63.0 млн руб. &bull; Чистая прибыль: 9.5 млн руб. &bull; Штат (HH.ru): 28 чел. &bull; Рекламный бюджет (оценка): 5.7 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Мегаполис</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 54.8 млн руб. &bull; Чистая прибыль: 6.0 млн руб. &bull; Штат (HH.ru): 12 чел. &bull; Рекламный бюджет (оценка): 2.2 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Этажи</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 17.7 млн руб. &bull; Чистая прибыль: 2.1 млн руб. &bull; Штат (HH.ru): 7 чел. &bull; Рекламный бюджет (оценка): 1.4 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Альянс</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 19.4 млн руб. &bull; Чистая прибыль: 2.1 млн руб. &bull; Штат (HH.ru): 6 чел. &bull; Рекламный бюджет (оценка): 1.0 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Гарант</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 21.5 млн руб. &bull; Чистая прибыль: 3.2 млн руб. &bull; Штат (HH.ru): 6 чел. &bull; Рекламный бюджет (оценка): 1.9 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Монтера группа</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 22.7 млн руб. &bull; Чистая прибыль: 2.7 млн руб. &bull; Штат (HH.ru): 7 чел. &bull; Рекламный бюджет (оценка): 0.9 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Центральное</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 7.8 млн руб. &bull; Чистая прибыль: 1.3 млн руб. &bull; Штат (HH.ru): 7 чел. &bull; Рекламный бюджет (оценка): 0.5 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>На трёх китах</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 9.1 млн руб. &bull; Чистая прибыль: 1.3 млн руб. &bull; Штат (HH.ru): 9 чел. &bull; Рекламный бюджет (оценка): 0.7 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Brend Realty</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 14.6 млн руб. &bull; Чистая прибыль: 2.0 млн руб. &bull; Штат (HH.ru): 5 чел. &bull; Рекламный бюджет (оценка): 1.0 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Квадратный метр</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 21.5 млн руб. &bull; Чистая прибыль: 4.1 млн руб. &bull; Штат (HH.ru): 2 чел. &bull; Рекламный бюджет (оценка): 0.9 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Тандем</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 8.3 млн руб. &bull; Чистая прибыль: 1.7 млн руб. &bull; Штат (HH.ru): 3 чел. &bull; Рекламный бюджет (оценка): 0.4 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Ключи</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 15.8 млн руб. &bull; Чистая прибыль: 3.2 млн руб. &bull; Штат (HH.ru): 7 чел. &bull; Рекламный бюджет (оценка): 1.1 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Стратегия</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 16.3 млн руб. &bull; Чистая прибыль: 2.3 млн руб. &bull; Штат (HH.ru): 5 чел. &bull; Рекламный бюджет (оценка): 1.0 млн руб./год.
-        </div>
-        
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
-            <b>Родной дом</b> &bull; Юнит-экономика за 2025 г.<br/>
-            Выручка: 14.7 млн руб. &bull; Чистая прибыль: 2.4 млн руб. &bull; Штат (HH.ru): 3 чел. &bull; Рекламный бюджет (оценка): 0.9 млн руб./год.
-        </div>
-        
+    </div>
+    
 
 <div class="page-break"></div>
 
