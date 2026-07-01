@@ -191,6 +191,10 @@ tr:nth-child(even) {
     border: 1px solid #cfd8dc;
     border-left-width: 4px !important;
 }
+.metric-entry-card {
+    background: #ffffff !important;
+    border: 1px solid #cfd8dc !important;
+}
 
 /* Dark Mode Styles */
 body.dark-mode {
@@ -211,6 +215,7 @@ body.dark-mode .metric { background: var(--card-dark); border-color: var(--borde
 body.dark-mode .metric b { color: #fbbf24; }
 body.dark-mode .niche { background: var(--card-dark); border-color: var(--border-dark); color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02); }
 body.dark-mode .pestel-card { background: var(--card-dark) !important; border-color: var(--border-dark) !important; border-left-width: 4px !important; }
+body.dark-mode .metric-entry-card { background: var(--card-dark) !important; border-color: var(--border-dark) !important; }
 body.dark-mode .pestel-text { color: #cbd5e1 !important; }
 body.dark-mode .pestel-danger { color: #f87171 !important; }
 body.dark-mode .pestel-action { color: #4ade80 !important; }
@@ -1946,24 +1951,52 @@ body.dark-mode .finance-efficiency-badge {
 <div class="page-break"></div>
 
 
-    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:20px; margin-top:6mm; margin-bottom:6mm; font-family:sans-serif; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
-        <h3 style="margin-top:0; color:#0f172a; font-size:11pt; border-bottom:1px solid #e2e8f0; padding-bottom:8px; display:flex; align-items:center; gap:8px;">
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:20px; margin-top:6mm; margin-bottom:6mm; font-family:sans-serif; box-shadow:0 4px 10px rgba(0,0,0,0.05);" class="price-card">
+        <h3 style="margin-top:0; color:#fbbf24; font-size:11pt; border-bottom:1px solid #e2e8f0; padding-bottom:8px; display:flex; align-items:center; gap:8px;">
             🚪 Скоринг лёгкости входа в нишу (Market Entry Score)
         </h3>
         
-        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:25px; margin-bottom:20px; background:#f8fafc; padding:15px; border-radius:6px; border:1px solid #e2e8f0;">
-            <div style="position:relative; width:100px; height:100px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:50%; border:6px solid #e2e8f0; box-shadow:inset 0 2px 4px rgba(0,0,0,0.05);">
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:25px; margin-bottom:20px; background:#f8fafc; padding:15px; border-radius:6px; border:1px solid #e2e8f0;" class="metric">
+            <div style="position:relative; width:100px; height:100px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:50%; border:6px solid #e2e8f0; box-shadow:inset 0 2px 4px rgba(0,0,0,0.05);" class="metric">
                 <div style="position:absolute; width:100%; height:100%; border-radius:50%; border:6px solid #f59e0b; clip-path: polygon(0 0, 100% 0, 100% 72%, 0 72%); top:-6px; left:-6px;"></div>
                 <div style="text-align:center;">
-                    <div style="font-size:20pt; font-weight:bold; color:#0f172a;">72</div>
+                    <div style="font-size:20pt; font-weight:bold; color:#0f172a;" class="pestel-text">72</div>
                     <div style="font-size:7pt; color:#64748b; font-weight:bold; text-transform:uppercase; margin-top:-2px;">из 100</div>
                 </div>
             </div>
             <div style="flex:1; min-width:200px;">
-                <h4 style="margin:0 0 5px 0; color:#0f172a; font-size:11pt;">Индекс привлекательности рынка: <span style="color:#f59e0b; font-weight:bold;">Средняя сложность / Высокий LTV</span></h4>
+                <h4 style="margin:0 0 5px 0; color:#0f172a; font-size:11pt;" class="pestel-text">Индекс привлекательности рынка: <span style="color:#f59e0b; font-weight:bold;">Средняя сложность / Высокий LTV</span></h4>
                 <p style="margin:0; font-size:9.5pt; color:#64748b; line-height:1.4;">
                     Агрегированная оценка барьеров входа на рынок г. Магнитогорск на основе плотности конкурентов, рекламного давления лидеров и объема свободного органического спроса.
                 </p>
+            </div>
+        </div>
+
+        <!-- Сетка ключевых метрик входа -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">💰 Стартовый капитал (CAPEX)</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">₽₽₽ Средний (от 1 млн ₽)</div>
+            </div>
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">⏱️ Срок окупаемости</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">6-12 месяцев</div>
+            </div>
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">📈 Маржинальность бизнеса</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">30-45% маржи</div>
+            </div>
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">🔥 Уровень конкуренции</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">Высокий (плотный рынок)</div>
+            </div>
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">🔁 Пожизненная ценность (LTV)</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">Высокий (рекомендации/повторные)</div>
+            </div>
+            <div class="metric-entry-card" style="padding: 10px 12px; border-radius: 6px; border: 1px solid #cfd8dc; background: #fff;">
+                <div style="font-size: 7.5pt; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 3px;">👤 Кадровый барьер (HR)</div>
+                <div style="font-size: 9.5pt; font-weight: 700;" class="pestel-text">Высокий (дефицит сильных агентов)</div>
             </div>
         </div>
         
