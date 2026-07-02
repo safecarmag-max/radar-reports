@@ -2187,27 +2187,37 @@ body.dark-mode .finance-efficiency-badge {
     <h2>10. Безопасность и SSL-compliance</h2>
 <p>Проверка наличия актуальных SSL-сертификатов, отсутствия Mixed Content и защиты от DDoS-атак:</p>
 
-    <table>
-    <tr>
-        <th>Показатель безопасности</th>
-        <th>Уровень соответствия рынка</th>
-        <th>Уязвимость</th>
-        <th>Защитные меры</th>
-    </tr>
-    <tr>
-        <td>Наличие SSL (HTTPS)</td>
-        <td style="color:green; font-weight:bold;">95% (Соответствует)</td>
-        <td>Ошибки Mixed Content на старых страницах.</td>
-        <td>Принудительный редирект в .htaccess.</td>
-    </tr>
-    <tr>
-        <td>Защита от DDoS (Cloudflare/Qrator)</td>
-        <td style="color:red; font-weight:bold;">15% (Низкий уровень)</td>
-        <td>Сайты падают при простейших нагрузках.</td>
-        <td>Подключение бесплатного тарифа Cloudflare.</td>
-    </tr>
-    </table>
-    
+        <table>
+        <tr>
+            <th>Показатель безопасности</th>
+            <th>Статус у Аврора Владис</th>
+            <th>Уровень соответствия рынка</th>
+            <th>Уязвимость / Анализ риска</th>
+            <th>Защитные меры и рекомендации</th>
+        </tr>
+        <tr>
+            <td><b>Наличие SSL (HTTPS)</b></td>
+            <td style="color:green; font-weight:bold;">✓ Безопасно (HTTPS подключен)</td>
+            <td>95% сайтов рынка</td>
+            <td>Риски отсутствуют. Сертификат действителен.</td>
+            <td>Автопродление настроено корректно. Регулярный аудит раз в год.</td>
+        </tr>
+        <tr>
+            <td><b>Защита от DDoS (Cloudflare/Qrator)</b></td>
+            <td style="color:green; font-weight:bold;">✓ Защищен (Высокий уровень)</td>
+            <td>15% сайтов рынка</td>
+            <td>Защита активна. Риск падения сайта минимален.</td>
+            <td>Рекомендуется мониторинг пиковых всплесков мусорного трафика.</td>
+        </tr>
+        <tr>
+            <td><b>Защита персональных данных (152-ФЗ)</b></td>
+            <td style="color:green; font-weight:bold;">✓ Соответствует</td>
+            <td>35% сайтов рынка</td>
+            <td>Все формы сбора лидов содержат ссылку на политику конфиденциальности.</td>
+            <td>Своевременно обновлять ссылки при переносе форм на новые платформы.</td>
+        </tr>
+        </table>
+        
 
 
     <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
