@@ -29,16 +29,23 @@ li { margin-bottom: 2px; }
 #map { height: 350px; width: 100%; margin-top: 4mm; border: 1px solid #ccc; border-radius: 4px; }
 
 :root { 
-    --primary-color: #0f172a; 
-    --accent-color: #0284c7; 
-    --bg-light: #f8fafc;
-    --bg-dark: #0f172a;
+    --primary-color: #1e2025;      /* Dark graphite */
+    --accent-color: #d97706;       /* Gold/Amber */
+    --accent-light: #fbbf24;      /* Bright Gold */
+    --bg-light: #eceff1;          /* Matte silver-grey background */
+    --bg-dark: #121316;           /* Pure matte graphite black */
+    --card-light: #ffffff;
+    --card-dark: #1c1d22;
+    --border-light: #cfd8dc;
+    --border-dark: #2a2c33;
 }
 body { 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
     transition: background 0.3s, color 0.3s;
     margin: 0;
     padding: 0;
+    background: var(--bg-light);
+    color: #2d3748;
 }
 .dashboard-layout {
     display: flex;
@@ -46,8 +53,11 @@ body {
 }
 .sidebar {
     width: 260px;
-    background: #0f172a;
-    color: #f8fafc;
+    background: 
+        linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.008) 0px, rgba(255,255,255,0.008) 1px, transparent 1px, transparent 6px),
+        linear-gradient(145deg, #2c2f37 0%, #111215 100%);
+    color: #eceff1;
     padding: 25px 20px;
     position: fixed;
     height: 100vh;
@@ -58,18 +68,20 @@ body {
     flex-direction: column;
     gap: 20px;
     z-index: 100;
-    border-right: 1px solid #1e293b;
-    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    border-right: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.15);
 }
 .sidebar-logo {
     padding-bottom: 15px;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-weight: bold;
+    color: #fff;
 }
 .sidebar-project-info {
-    background: #1e293b;
+    background: rgba(255,255,255,0.03);
     padding: 10px 12px;
     border-radius: 6px;
-    border: 1px solid #334155;
+    border: 1px solid rgba(255,255,255,0.06);
     margin-bottom: 10px;
 }
 .sidebar-btn {
@@ -89,19 +101,19 @@ body {
     width: 100%;
 }
 .sidebar-btn:hover {
-    background: #1e293b;
+    background: rgba(255,255,255,0.05);
     color: #fff;
 }
 .sidebar-btn.active {
-    background: #0284c7;
-    color: #fff;
+    background: linear-gradient(90deg, rgba(217,119,6,0.15), transparent);
+    color: #fbbf24;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    border-left: 3px solid #fbbf24;
 }
 .theme-toggle-btn {
     margin-top: auto;
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     color: #cbd5e1;
     padding: 10px 15px;
     border-radius: 8px;
@@ -114,7 +126,7 @@ body {
     transition: all 0.2s;
 }
 .theme-toggle-btn:hover {
-    background: #334155;
+    background: rgba(255,255,255,0.1);
     color: #fff;
 }
 .main-content {
@@ -122,7 +134,7 @@ body {
     padding: 30px;
     flex: 1;
     box-sizing: border-box;
-    background: #f8fafc;
+    background: var(--bg-light);
     min-height: 100vh;
 }
 .tab-content {
@@ -132,28 +144,85 @@ body {
     display: block;
 }
 
+/* Light Mode Overrides (to override default blue style) */
+h1 {
+    color: #1e2025 !important;
+}
+h2 {
+    color: #1e2025 !important;
+    border-bottom: 2px solid #cfd8dc !important;
+}
+h3 {
+    color: #d97706 !important;
+}
+th {
+    background-color: #2a2c33 !important;
+    color: #ffffff !important;
+    border: 1px solid #cfd8dc !important;
+}
+td {
+    border: 1px solid #cfd8dc !important;
+    color: #2d3748 !important;
+}
+tr:nth-child(even) {
+    background-color: #f4f6f8 !important;
+}
+.tab-content {
+    background: #ffffff !important;
+    border: 1px solid #cfd8dc !important;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(30, 32, 37, 0.05);
+}
+.metric {
+    background: #ffffff !important;
+    border: 1px solid #cfd8dc !important;
+}
+.niche {
+    background: #f8fafc !important;
+    border-left: 4px solid #d97706 !important;
+    border-top: 1px solid #cfd8dc !important;
+    border-right: 1px solid #cfd8dc !important;
+    border-bottom: 1px solid #cfd8dc !important;
+    color: #2d3748 !important;
+}
+.pestel-card {
+    background: #ffffff;
+    border: 1px solid #cfd8dc;
+    border-left-width: 4px !important;
+}
+.metric-entry-card {
+    background: #ffffff !important;
+    border: 1px solid #cfd8dc !important;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
-    background: #090d16;
+    background: var(--bg-dark);
     color: #cbd5e1;
 }
 body.dark-mode .main-content {
-    background: #090d16;
+    background: var(--bg-dark);
 }
 body.dark-mode h1 { color: #f8fafc; }
-body.dark-mode h2 { color: #38bdf8; border-bottom-color: #334155; }
-body.dark-mode h3 { color: #38bdf8; }
-body.dark-mode table { background: #0f172a; border-color: #1e293b; }
-body.dark-mode td { border-color: #1e293b; color: #cbd5e1; }
-body.dark-mode th { background-color: #1e293b; border-color: #334155; }
-body.dark-mode tr:nth-child(even) { background-color: #131b2e; }
-body.dark-mode .metric { background: #1e293b; border: 1px solid #334155; }
-body.dark-mode .metric b { color: #38bdf8; }
-body.dark-mode .niche { background: #111827; border-color: #38bdf8; color: #cbd5e1; }
-body.dark-mode .swot-s { background: #064e3b; color: #a7f3d0; }
-body.dark-mode .swot-w { background: #7f1d1d; color: #fca5a5; }
-body.dark-mode .swot-o { background: #0c4a6e; color: #bae6fd; }
-body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
+body.dark-mode h2 { color: #fbbf24; border-bottom-color: var(--border-dark); }
+body.dark-mode h3 { color: #fbbf24; }
+body.dark-mode table { background: var(--card-dark); border-color: var(--border-dark); }
+body.dark-mode td { border-color: var(--border-dark); color: #cbd5e1; }
+body.dark-mode th { background-color: #2a2c33; border-color: var(--border-dark); color: #fbbf24; }
+body.dark-mode tr:nth-child(even) { background-color: #212329; }
+body.dark-mode .metric { background: var(--card-dark); border-color: var(--border-dark); }
+body.dark-mode .metric b { color: #fbbf24; }
+body.dark-mode .niche { background: var(--card-dark); border-color: var(--border-dark); color: #cbd5e1; border-top: 1px solid rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02); }
+body.dark-mode .pestel-card { background: var(--card-dark) !important; border-color: var(--border-dark) !important; border-left-width: 4px !important; }
+body.dark-mode .metric-entry-card { background: var(--card-dark) !important; border-color: var(--border-dark) !important; }
+body.dark-mode .pestel-text { color: #cbd5e1 !important; }
+body.dark-mode .pestel-danger { color: #f87171 !important; }
+body.dark-mode .pestel-action { color: #4ade80 !important; }
+body.dark-mode .swot-s { background: rgba(16, 185, 129, 0.15); color: #a7f3d0; }
+body.dark-mode .swot-w { background: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+body.dark-mode .swot-o { background: rgba(59, 130, 246, 0.15); color: #bae6fd; }
+body.dark-mode .swot-t { background: rgba(245, 158, 11, 0.15); color: #fde68a; }
 
 /* Print Overrides */
 @media print {
@@ -163,6 +232,7 @@ body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
     .tab-content:first-of-type { page-break-before: avoid !important; }
     body, body.dark-mode { background: #fff !important; color: #000 !important; }
     .chat-widget-container { display: none !important; }
+    input[type=range] { display: none !important; }
 }
 
 /* Floating Chat Widget Styles */
@@ -177,22 +247,24 @@ body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #0284c7;
-    color: #fff;
+    background: linear-gradient(135deg, #2b2e36, #121316);
+    border: 2px solid #fbbf24;
+    color: #fbbf24;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.25);
     transition: transform 0.2s, background 0.2s;
-    border: none;
     outline: none;
     position: relative;
 }
 .chat-trigger:hover {
     transform: scale(1.05);
-    background: #0369a1;
+    background: #fbbf24;
+    color: #121316;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.45);
 }
 .chat-trigger .badge {
     position: absolute;
@@ -260,8 +332,9 @@ body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
     border: 1px solid #e2e8f0;
 }
 .message-user {
-    background: #0284c7;
-    color: #fff;
+    background: #fbbf24;
+    color: #121316;
+    font-weight: 500;
     align-self: flex-end;
 }
 .chat-chips {
@@ -303,8 +376,8 @@ body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
     outline: none;
 }
 .chat-send-btn {
-    background: #0284c7;
-    color: #fff;
+    background: #fbbf24;
+    color: #121316;
     border: none;
     border-radius: 6px;
     padding: 8px 15px;
@@ -313,7 +386,7 @@ body.dark-mode .swot-t { background: #78350f; color: #fde68a; }
     font-size: 9pt;
 }
 .chat-send-btn:hover {
-    background: #0369a1;
+    background: #d97706;
 }
 
 /* Dark mode compatibility */
@@ -1179,7 +1252,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>3. Анализ распределения и плотности конкурентов по районам города</h2>
+    <h2>4. Анализ распределения и плотности конкурентов по районам города</h2>
 <p>Гео-маркетинговый анализ территориального распределения конкурентов и концентрации офисов компаний в ключевых районах г. Магнитогорск:</p>
 
         <div class="cols">
@@ -1239,7 +1312,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>4. Финансовый реверс-инжиниринг и Юнит-экономика</h2>
+    <h2>5. Финансовый реверс-инжиниринг и Юнит-экономика</h2>
 <p>Оценка финансовых показателей, оборотов и примерной структуры расходов конкурентов на основе открытых данных, численности персонала и рекламной активности:</p>
 
         <div class="niche" style="background:#f9f9f9; border-left:3px solid #31708f; margin-bottom:3mm; padding:6px 10px;">
@@ -1411,7 +1484,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>5. Ценовой бенчмаркинг и прайс-листы</h2>
+    <h2>6. Ценовой бенчмаркинг и прайс-листы</h2>
 <p>Медианные тарифы, пороговые значения и структура ценообразования основных услуг в сегменте:</p>
 
     <table>
@@ -1453,7 +1526,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>6. PESTEL-анализ макросреды ниши</h2>
+    <h2>7. PESTEL-анализ макросреды ниши</h2>
 <p>Анализ внешних факторов макросреды (политических, экономических, социальных, технологических, экологических и юридических), влияющих на развитие бизнеса в регионе:</p>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 4mm;">
     <div style="background: #eef3f7; border-left: 4px solid #1b3a5c; padding: 8px 12px; border-radius: 4px; font-size: 7.5pt; height: 100%;">
@@ -1532,7 +1605,85 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>7. Перспективный аналитический прогноз рынка недвижимости на 3–5 лет (2026–2030 гг.)</h2>
+    <h2>3. E-E-A-T аудит коммерческих факторов доверия</h2>
+<p>Сводный анализ коммерческих факторов доверия, определяющих авторитетность, экспертность и надежность (E-E-A-T) сайтов конкурентов в глазах пользователей и поисковых систем (Яндекс, Google):</p>
+<table>
+    <tr>
+        <th>Компания <span class="factcheck-badge" title="Сводный чек-лист юридических и технических данных на основе анализа сайтов и реестров">ⓘ Фактчекинг</span></th>
+        <th>Юр. реквизиты (ИНН/ОГРН)</th>
+        <th>Лицензии / Сертификаты</th>
+        <th>Подробный прайс-лист</th>
+        <th>Фотографии реальной команды</th>
+        <th>Отзывы с ответами компании</th>
+        <th>E-E-A-T Индекс</th>
+    </tr>
+    
+        <tr>
+            <td><b>Рио-Люкс</b></td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Стоковые фото</td>
+            <td>✅ Частично</td>
+            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
+        </tr>
+        
+        <tr>
+            <td><b>Аврора Владис</b></td>
+            <td>✅ Да</td>
+            <td>✅ Все лицензии</td>
+            <td>❌ Скрыты</td>
+            <td>✅ Реальные фото</td>
+            <td>✅ Регулярно</td>
+            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐⭐</td>
+        </tr>
+        
+        <tr>
+            <td><b>Самолет Плюс</b></td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Стоковые фото</td>
+            <td>✅ Частично</td>
+            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
+        </tr>
+        
+        <tr>
+            <td><b>Премьера</b></td>
+            <td>✅ Да</td>
+            <td>✅ Все лицензии</td>
+            <td>❌ Скрыты</td>
+            <td>✅ Реальные фото</td>
+            <td>✅ Регулярно</td>
+            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐⭐</td>
+        </tr>
+        
+        <tr>
+            <td><b>Статус-М</b></td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Скрыты</td>
+            <td>❌ Стоковые фото</td>
+            <td>✅ Частично</td>
+            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
+        </tr>
+        
+</table>
+
+<div class="page-break"></div>
+
+
+    <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
+        <div style="font-size:8pt; line-height:1.4;">
+            <b style="color:#0f172a; font-size:8.5pt; display:block; margin-bottom:4px;">🎯 Бизнес-выжимка:</b>
+            <ul style="margin:0; padding-left:15px; list-style-type:disc;">
+                <li style="margin-bottom:3px; color:#334155;"><b>Суть:</b> Отсутствие юридических реквизитов на сайте срезает конверсию на 15%.</li>
+                <li style="margin-bottom:3px; color:#334155;"><b>Рекомендация:</b> Разместить ОГРН, ИНН, лицензии и фотографии команды на сайте.</li>
+                <li style="margin-bottom:0; color:#334155;"><b>Эффект (ROI):</b> <span style="color:#16a34a; font-weight:bold;">Рост доверия и конверсии в заявку на +20%.</span></li>
+            </ul>
+        </div>
+    </div>
+    <h2>8. Перспективный аналитический прогноз рынка недвижимости на 3–5 лет (2026–2030 гг.)</h2>
 
     <div style="margin-bottom:6mm;">
         <h3 style="margin-top:15px; color:#333; font-size:10.5pt; font-weight:bold;">📈 Сезонность спроса в Яндекс (Wordstat) по г. Магнитогорск</h3>
@@ -1652,7 +1803,7 @@ body.dark-mode .ceo-badge {
     
         </div>
         <div class="tab-content" id="tab-marketing">
-            <h2>8. Техническая скорость и производительность сайтов</h2>
+            <h2>9. Техническая скорость и производительность сайтов</h2>
 <p>Анализ скорости загрузки страниц по методологии Google PageSpeed Insights и Core Web Vitals:</p>
 
     <table>
@@ -1690,7 +1841,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>9. Безопасность и SSL-compliance</h2>
+    <h2>10. Безопасность и SSL-compliance</h2>
 <p>Проверка наличия актуальных SSL-сертификатов, отсутствия Mixed Content и защиты от DDoS-атак:</p>
 
     <table>
@@ -1726,7 +1877,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>10. Анализ омниканальности и чат-ботов</h2>
+    <h2>11. Анализ омниканальности и чат-ботов</h2>
 <p>Оценка доступности компании во всех цифровых каналах коммуникации (WhatsApp, Telegram) и скорости первого ответа:</p>
 
     <table>
@@ -1764,7 +1915,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>11. Технический SEO-аудит (On-Page SEO)</h2>
+    <h2>12. Технический SEO-аудит (On-Page SEO)</h2>
 <p>Качество внутренней оптимизации сайтов, структуры тегов и файлов sitemap/robots:</p>
 
     <table>
@@ -1864,7 +2015,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>12. Анализ рекламных связок и шпион Директа (Ad Spy)</h2>
+    <h2>13. Анализ рекламных связок и шпион Директа (Ad Spy)</h2>
 <p>Анализ активных объявлений конкурентов в Яндекс.Директ и используемых лид-магнитов:</p>
 
         <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:15px; margin-bottom:4mm;">
@@ -2040,7 +2191,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>13. Анализ конверсионных слоев сайта (CRO Audit)</h2>
+    <h2>14. Анализ конверсионных слоев сайта (CRO Audit)</h2>
 <p>Наличие лид-форм, квизов, калькуляторов и элементов вовлечения посетителей:</p>
 
     <table>
@@ -2073,7 +2224,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>14. Скрытые бизнес-связи и аффилированность юрлиц</h2>
+    <h2>15. Скрытые бизнес-связи и аффилированность юрлиц</h2>
 <p>Анализ учредителей компаний, пересечения собственников и потенциальных аффилированных сетей:</p>
 
         <div class="niche" style="background:#f9f9f9; border-left:3px solid #777; margin-bottom:3mm; padding:6px 10px;">
@@ -2110,7 +2261,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>15. ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)</h2>
+    <h2>16. ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)</h2>
 <p>Автоматическая классификация отзывов клиентов на картах, выявление главных триггеров недовольства и сильных сторон:</p>
 
         <div class="cols" style="margin-bottom: 4mm;">
@@ -2758,7 +2909,7 @@ body.dark-mode .ceo-badge {
             </ul>
         </div>
     </div>
-    <h2>16. GEO-аудит и видимость бренда в ИИ-выдаче</h2>
+    <h2>17. GEO-аудит и видимость бренда в ИИ-выдаче</h2>
 <p>Анализ присутствия и тональности упоминаний брендов в ИИ-ассистентах (Яндекс Нейро, ChatGPT, Perplexity) по ключевым запросам ниши. ИИ-выдача формируется на основе внешних авторитетных источников:</p>
 <table>
     <tr>
@@ -2801,84 +2952,6 @@ body.dark-mode .ceo-badge {
                 <li style="margin-bottom:3px; color:#334155;"><b>Суть:</b> ИИ-ассистенты рекомендуют только компании с сильным контентом на vc.ru/картах.</li>
                 <li style="margin-bottom:3px; color:#334155;"><b>Рекомендация:</b> Начать системную работу по наполнению авторитетных площадок упоминаниями.</li>
                 <li style="margin-bottom:0; color:#334155;"><b>Эффект (ROI):</b> <span style="color:#16a34a; font-weight:bold;">Попадание в топ-3 рекомендаций Яндекс Нейро и ChatGPT.</span></li>
-            </ul>
-        </div>
-    </div>
-    <h2>17. E-E-A-T аудит коммерческих факторов доверия</h2>
-<p>Сводный анализ коммерческих факторов доверия, определяющих авторитетность, экспертность и надежность (E-E-A-T) сайтов конкурентов в глазах пользователей и поисковых систем (Яндекс, Google):</p>
-<table>
-    <tr>
-        <th>Компания <span class="factcheck-badge" title="Сводный чек-лист юридических и технических данных на основе анализа сайтов и реестров">ⓘ Фактчекинг</span></th>
-        <th>Юр. реквизиты (ИНН/ОГРН)</th>
-        <th>Лицензии / Сертификаты</th>
-        <th>Подробный прайс-лист</th>
-        <th>Фотографии реальной команды</th>
-        <th>Отзывы с ответами компании</th>
-        <th>E-E-A-T Индекс</th>
-    </tr>
-    
-        <tr>
-            <td><b>Рио-Люкс</b></td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Стоковые фото</td>
-            <td>✅ Частично</td>
-            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
-        </tr>
-        
-        <tr>
-            <td><b>Аврора Владис</b></td>
-            <td>✅ Да</td>
-            <td>✅ Все лицензии</td>
-            <td>❌ Скрыты</td>
-            <td>✅ Реальные фото</td>
-            <td>✅ Регулярно</td>
-            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐⭐</td>
-        </tr>
-        
-        <tr>
-            <td><b>Самолет Плюс</b></td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Стоковые фото</td>
-            <td>✅ Частично</td>
-            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
-        </tr>
-        
-        <tr>
-            <td><b>Премьера</b></td>
-            <td>✅ Да</td>
-            <td>✅ Все лицензии</td>
-            <td>❌ Скрыты</td>
-            <td>✅ Реальные фото</td>
-            <td>✅ Регулярно</td>
-            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐⭐</td>
-        </tr>
-        
-        <tr>
-            <td><b>Статус-М</b></td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Скрыты</td>
-            <td>❌ Стоковые фото</td>
-            <td>✅ Частично</td>
-            <td style="color:#f0ad4e; font-weight:bold;">⭐⭐⭐</td>
-        </tr>
-        
-</table>
-
-<div class="page-break"></div>
-
-
-    <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
-        <div style="font-size:8pt; line-height:1.4;">
-            <b style="color:#0f172a; font-size:8.5pt; display:block; margin-bottom:4px;">🎯 Бизнес-выжимка:</b>
-            <ul style="margin:0; padding-left:15px; list-style-type:disc;">
-                <li style="margin-bottom:3px; color:#334155;"><b>Суть:</b> Отсутствие юридических реквизитов на сайте срезает конверсию на 15%.</li>
-                <li style="margin-bottom:3px; color:#334155;"><b>Рекомендация:</b> Разместить ОГРН, ИНН, лицензии и фотографии команды на сайте.</li>
-                <li style="margin-bottom:0; color:#334155;"><b>Эффект (ROI):</b> <span style="color:#16a34a; font-weight:bold;">Рост доверия и конверсии в заявку на +20%.</span></li>
             </ul>
         </div>
     </div>
