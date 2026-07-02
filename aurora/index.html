@@ -489,7 +489,7 @@ body.dark-mode .chart-container {
                         🎯 Executive Summary: 3 ключевых вывода для владельца бизнеса (Аврора Владис)
                     </h3>
                     <div style="background:rgba(248,113,113,0.12); border:1px solid rgba(248,113,113,0.25); color:#f87171; font-weight:bold; font-size:9.5pt; padding:4px 10px; border-radius:4px;">
-                        ⚠️ Упущенная прибыль: ~14.8 млн руб./год
+                        ⚠️ Упущенная прибыль: ~10.4 млн руб./год
                     </div>
                 </div>
                 <p style="font-size:9.5pt; color:#94a3b8; line-height:1.5; margin: 0 0 20px 0;">
@@ -4094,7 +4094,7 @@ function initCharts() {
     var ctx = document.getElementById('financialChart');
     if (!ctx) return;
     
-    var compData = {"labels": ["Рио-Люкс", "Аврора Владис", "Самолет Плюс", "Статус-М", "Недвижка.ру", "Магдом", "Единство"], "revenues": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "ad_budgets": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]};
+    var compData = {"labels": ["Ключи", "На трёх китах", "Форум", "Квадратный метр", "Рио-Люкс", "Авторитет", "История"], "revenues": [188.1, 168.6, 148.3, 147.5, 143.8, 138.7, 124.9], "ad_budgets": [19.7, 17.7, 15.6, 16.2, 15.8, 11.8, 11.9]};
     if (!compData || !compData.labels || compData.labels.length === 0) {
         ctx.parentNode.style.display = 'none';
         return;
