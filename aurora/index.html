@@ -848,6 +848,70 @@ body.dark-mode .response-scale {
     border-top: 4px solid #ef4444;
 }
 
+/* Price Bar & Range Gauge Styles */
+.price-card {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(30,32,37,0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.price-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.price-bar-container {
+    position: relative;
+    height: 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    margin: 30px 0 25px 0;
+}
+body:not(.dark-mode) .price-bar-container {
+    background: rgba(0,0,0,0.08);
+}
+.price-bar-fill {
+    position: absolute;
+    background: linear-gradient(90deg, #d97706, #fbbf24);
+    height: 100%;
+    border-radius: 6px;
+}
+.price-bar-marker {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 3px solid #d97706;
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(251,191,36,0.8);
+    z-index: 2;
+}
+.price-bar-marker-label {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d97706;
+    color: #ffffff;
+    font-size: 7.5pt;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.price-bar-limit {
+    position: absolute;
+    top: 18px;
+    font-size: 8pt;
+    color: #94a3b8;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+body:not(.dark-mode) .price-bar-limit {
+    color: #64748b;
+}
+
 </style>
 </head>
 
@@ -893,7 +957,7 @@ body.dark-mode .response-scale {
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 04.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: eaea506</div>
+            <div>Хэш: 086a032</div>
         </div>
     </div>
     
