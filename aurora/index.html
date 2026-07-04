@@ -912,6 +912,20 @@ body:not(.dark-mode) .price-bar-limit {
     color: #64748b;
 }
 
+/* Print Media Styles for Owner's Battle Sheet */
+@media print {
+    body { background: #fff !important; color: #000 !important; font-size: 10pt !important; }
+    .sidebar, .theme-toggle-btn, .chat-widget-container, .print-button, .sidebar-subscription-card, .action-plan-subscription-banner {
+        display: none !important;
+    }
+    .dashboard-layout { display: block !important; }
+    .main-content { margin-left: 0 !important; padding: 0 !important; width: 100% !important; }
+    .tab-content { display: none !important; }
+    .tab-content#tab-action-plan { display: block !important; }
+    .tab-content#tab-action-plan section { page-break-inside: avoid; border: none !important; box-shadow: none !important; }
+    input[type="checkbox"] { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
 </style>
 </head>
 
@@ -951,13 +965,25 @@ body:not(.dark-mode) .price-bar-limit {
         
         </nav>
         
+        <div class="sidebar-subscription-card" style="background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(217,119,6,0.12) 100%); border: 1px dashed var(--accent-color); padding: 10px; border-radius: 6px; margin: 15px 0 10px 0; font-family: sans-serif; font-size: 10px; line-height: 1.35; box-sizing: border-box;">
+            <div style="font-weight: bold; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; color: #fbbf24;">
+                <span>🔄</span> Данные устаревают!
+            </div>
+            <div style="color: #cbd5e1; font-size: 9px; margin-bottom: 8px;">
+                За последние 7 дней конкуренты обновили более 12 отзывов и изменили 2 тарифа.
+            </div>
+            <a href="https://t.me/radar_sales_bot" target="_blank" style="display: block; background: var(--accent-color); color: #fff; font-weight: bold; text-align: center; padding: 5px 8px; border-radius: 4px; text-decoration: none; font-size: 9px; transition: background 0.2s;">
+                Подключить автоскан (9 900 ₽)
+            </a>
+        </div>
+        
         <button class="theme-toggle-btn" style="margin-bottom:10px;" onclick="toggleTheme()">
             🌓 Сменить тему
         </button>
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 04.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: 2846d5f</div>
+            <div>Хэш: 8ac90d2</div>
         </div>
     </div>
     
@@ -2465,7 +2491,60 @@ body:not(.dark-mode) .price-bar-limit {
     </section>
         </div>
         <div class="tab-content" id="tab-marketing">
-            <section id="performance" data-title="Техническая скорость и производительность сайтов" data-tab="marketing"><h2>9. Техническая скорость и производительность сайтов</h2>
+            <section id="anti_blind_zone" data-title="Анти-слепая зона: Ключевые упущенные выгоды и риски" data-tab="marketing"><h2>9. Анти-слепая зона: Ключевые упущенные выгоды и риски</h2>
+
+    <p>Анализ скрытых критических рисков и зон упущенной выгоды, которые обычно остаются незамеченными руководством компании:</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:15px; margin-bottom:15px; margin-top:10px;">
+        
+        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.1) 100%); border: 1px solid rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+            <div style="font-weight: bold; color: #ef4444; font-size: 10pt; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">📱</span> Мобильная скорость сайта
+            </div>
+            <p style="font-size: 8.5pt; margin: 0; line-height: 1.4; color: inherit; opacity: 0.85;">
+                Сайт загружается дольше 3.5 секунд. Потери мобильного трафика из платной рекламы составляют до <b>25%</b> еще до полной отрисовки экрана.
+            </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.1) 100%); border: 1px solid rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+            <div style="font-weight: bold; color: #ef4444; font-size: 10pt; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">⏱️</span> Скорость ответов в чатах
+            </div>
+            <p style="font-size: 8.5pt; margin: 0; line-height: 1.4; color: inherit; opacity: 0.85;">
+                Ответ менеджера дольше 15 минут в Авито или мессенджерах сливает до <b>60%</b> входящих лидов. Клиент уходит к мгновенно отвечающему конкуренту.
+            </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.1) 100%); border: 1px solid rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+            <div style="font-weight: bold; color: #ef4444; font-size: 10pt; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">💬</span> Игнорирование отзывов
+            </div>
+            <p style="font-size: 8.5pt; margin: 0; line-height: 1.4; color: inherit; opacity: 0.85;">
+                Отсутствие регулярной работы с отзывами снижает видимость в гео-сервисах. Карточки конкурентов с высокой оценкой забирают до <b>20%</b> вашего трафика.
+            </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.1) 100%); border: 1px solid rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+            <div style="font-weight: bold; color: #ef4444; font-size: 10pt; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 14px;">🤖</span> Слепая зона в ИИ-выдаче
+            </div>
+            <p style="font-size: 8.5pt; margin: 0; line-height: 1.4; color: inherit; opacity: 0.85;">
+                Бренд отсутствует в рекомендациях Яндекс Нейро по коммерческим запросам. Самые горячие лиды уходят к конкурентам.
+            </p>
+        </div>
+        
+    </div>
+    
+    <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
+        <div style="font-size:8pt; line-height:1.4;">
+            <b style="color:#0f172a; font-size:8.5pt; display:block; margin-bottom:4px;">🎯 Бизнес-выжимка:</b>
+            <ul style="margin:0; padding-left:15px; list-style-type:disc;">
+                <li style="margin-bottom:3px; color:#334155;"><b>Суть:</b> Собственник не замечает до 40% скрытых потерь в маркетинге и сервисе.</li>
+                <li style="margin-bottom:3px; color:#334155;"><b>Рекомендация:</b> Внедрить сквозной мониторинг критических зон и автоответчики.</li>
+                <li style="margin-bottom:0; color:#334155;"><b>Эффект (ROI):</b> <span style="color:#16a34a; font-weight:bold;">Предотвращение слива бюджета и рост конверсии на +20%.</span></li>
+            </ul>
+        </div>
+    </div>
+    </section><section id="performance" data-title="Техническая скорость и производительность сайтов" data-tab="marketing"><h2>10. Техническая скорость и производительность сайтов</h2>
 
     <p>Анализ скорости загрузки страниц по методологии Google PageSpeed Insights and Core Web Vitals:</p>
     
@@ -2553,7 +2632,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="security" data-title="Безопасность и SSL-compliance" data-tab="marketing"><h2>10. Безопасность и SSL-compliance</h2>
+    </section><section id="security" data-title="Безопасность и SSL-compliance" data-tab="marketing"><h2>11. Безопасность и SSL-compliance</h2>
 
     <p>Проверка наличия актуальных SSL-сертификатов, отсутствия Mixed Content и защиты от DDoS-атак:</p>
     
@@ -2626,7 +2705,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="omnichannel" data-title="Анализ омниканальности и чат-ботов" data-tab="marketing"><h2>11. Анализ омниканальности и чат-ботов</h2>
+    </section><section id="omnichannel" data-title="Анализ омниканальности и чат-ботов" data-tab="marketing"><h2>12. Анализ омниканальности и чат-ботов</h2>
 
     <p>Оценка доступности компании во всех цифровых каналах коммуникации (WhatsApp, Telegram) и скорости первого ответа:</p>
     
@@ -2749,7 +2828,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="seo_audit" data-title="Анализ видимости в поисковых системах (SEO)" data-tab="marketing"><h2>12. Анализ видимости в поисковых системах (SEO)</h2>
+    </section><section id="seo_audit" data-title="Анализ видимости в поисковых системах (SEO)" data-tab="marketing"><h2>13. Анализ видимости в поисковых системах (SEO)</h2>
 
     <p>Качество внутренней оптимизации сайтов, структуры тегов и файлов sitemap/robots:</p>
     
@@ -2850,7 +2929,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="ad_spy" data-title="Мониторинг контекстной и таргетированной рекламы" data-tab="marketing"><h2>13. Мониторинг контекстной и таргетированной рекламы</h2>
+    </section><section id="ad_spy" data-title="Мониторинг контекстной и таргетированной рекламы" data-tab="marketing"><h2>14. Мониторинг контекстной и таргетированной рекламы</h2>
 
     <p>Анализ активных объявлений конкурентов в Яндекс.Директ и используемых лид-магнитов:</p>
     
@@ -3025,7 +3104,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="cro_conversion" data-title="Анализ конверсионных слоев сайта (CRO Audit)" data-tab="marketing"><h2>14. Анализ конверсионных слоев сайта (CRO Audit)</h2>
+    </section><section id="cro_conversion" data-title="Анализ конверсионных слоев сайта (CRO Audit)" data-tab="marketing"><h2>15. Анализ конверсионных слоев сайта (CRO Audit)</h2>
 
     <p>Наличие лид-форм, квизов, калькуляторов и элементов вовлечения посетителей:</p>
     
@@ -3058,7 +3137,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="legal_check" data-title="Скрытые бизнес-связи и аффилированность юрлиц" data-tab="marketing"><h2>15. Скрытые бизнес-связи и аффилированность юрлиц</h2>
+    </section><section id="legal_check" data-title="Скрытые бизнес-связи и аффилированность юрлиц" data-tab="marketing"><h2>16. Скрытые бизнес-связи и аффилированность юрлиц</h2>
 
     <p>Анализ учредителей компаний, пересечения собственников и потенциальных аффилированных сетей:</p>
     
@@ -3093,7 +3172,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="sentiment" data-title="ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)" data-tab="marketing"><h2>16. ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)</h2>
+    </section><section id="sentiment" data-title="ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)" data-tab="marketing"><h2>17. ИИ-анализ тональности, боли клиентов и анализ рыночных клише (штампов)</h2>
 
     <p>Автоматическая классификация отзывов клиентов на картах, выявление главных триггеров недовольства и сильных сторон:</p>
     
@@ -3741,7 +3820,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="geo_ai_audit" data-title="GEO-аудит и видимость бренда в ИИ-выдаче" data-tab="marketing"><h2>17. GEO-аудит и видимость бренда в ИИ-выдаче</h2>
+    </section><section id="geo_ai_audit" data-title="GEO-аудит и видимость бренда в ИИ-выдаче" data-tab="marketing"><h2>18. GEO-аудит и видимость бренда в ИИ-выдаче</h2>
 
     <p>Анализ присутствия и тональности упоминаний брендов в ИИ-ассистентах (Яндекс Нейро, ChatGPT, Perplexity) по ключевым запросам ниши. ИИ-выдача формируется на основе внешних авторитетных источников:</p>
     <table>
@@ -3785,7 +3864,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="smm_strategy" data-title="Аудит присутствия и стратегия в социальных сетях" data-tab="marketing"><h2>18. Аудит присутствия и стратегия в социальных сетях</h2>
+    </section><section id="smm_strategy" data-title="Аудит присутствия и стратегия в социальных сетях" data-tab="marketing"><h2>19. Аудит присутствия и стратегия в социальных сетях</h2>
 
     <table>
         <tr>
@@ -3948,7 +4027,7 @@ body:not(.dark-mode) .price-bar-limit {
     </section>
         </div>
         <div class="tab-content" id="tab-reputation">
-            <section id="swot" data-title="Сводный SWOT-анализ рынка" data-tab="reputation"><h2>19. Сводный SWOT-анализ рынка</h2>
+            <section id="swot" data-title="Сводный SWOT-анализ рынка" data-tab="reputation"><h2>20. Сводный SWOT-анализ рынка</h2>
 
     
         <div class="cols">
@@ -3997,7 +4076,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="benchmarks" data-title="Бенчмарк-матрица: Сравнение с лидером" data-tab="reputation"><h2>20. Бенчмарк-матрица: Сравнение с лидером</h2>
+    </section><section id="benchmarks" data-title="Бенчмарк-матрица: Сравнение с лидером" data-tab="reputation"><h2>21. Бенчмарк-матрица: Сравнение с лидером</h2>
 
     <table>
     <tr>
@@ -4038,7 +4117,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="positioning" data-title="Пошаговые стратегии отстройки, свободные ниши и гипотезы позиционирования под разные сегменты ЦА" data-tab="reputation"><h2>21. Пошаговые стратегии отстройки, свободные ниши и гипотезы позиционирования под разные сегменты ЦА</h2>
+    </section><section id="positioning" data-title="Пошаговые стратегии отстройки, свободные ниши и гипотезы позиционирования под разные сегменты ЦА" data-tab="reputation"><h2>22. Пошаговые стратегии отстройки, свободные ниши и гипотезы позиционирования под разные сегменты ЦА</h2>
 
     <p>Фокус на автоматизации первого контакта и позиционировании в качестве экспертного партнера. Свободные ниши в регионе:</p>
     <div class="niche"><b>Элитное загородное строительство с фокусом на эко-технологии в регионе</b> Описание перспективности данной бизнес-идеи в текущей конкурентной среде.</div><div class="niche"><b>Доходные апартаменты под ключ с управляющей компанией в регионе</b> Описание перспективности данной бизнес-идеи в текущей конкурентной среде.</div><div class="niche"><b>Агентство недвижимости, специализирующееся исключительно на трейд-ин и военной ипотеке</b> Описание перспективности данной бизнес-идеи в текущей конкурентной среде.</div>
@@ -4081,7 +4160,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="collabs" data-title="Рекомендуемые кросс-индустриальные коллаборации" data-tab="reputation"><h2>22. Рекомендуемые кросс-индустриальные коллаборации</h2>
+    </section><section id="collabs" data-title="Рекомендуемые кросс-индустриальные коллаборации" data-tab="reputation"><h2>23. Рекомендуемые кросс-индустриальные коллаборации</h2>
 
     <p>Не менее 10-15 перспективных идей для кросс-маркетинга и совместных коллабораций, адаптированных под специфику ниши:</p>
     <div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 1: Коллаборация с бригадами по ремонту и отделке квартир</b><br/>Коллаборация с бригадами по ремонту и отделке квартир (партнерские сертификаты на замер/дизайн-проект + скидки на работы)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 2: Коллаборация со студиями дизайна интерьеров</b><br/>Коллаборация со студиями дизайна интерьеров (совместная 3D-визуализация объектов без отделки для ускорения продаж)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 3: Коллаборация с клининговыми компаниями</b><br/>Коллаборация с клининговыми компаниями (услуги 'Чистый переезд' или предпродажная подготовка квартиры)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 4: Коллаборация с мебельными салонами</b><br/>Коллаборация с мебельными салонами (персональные ваучеры со скидкой до 15% на новоселье под ключ)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 5: Коллаборация с кадастровыми инженерами</b><br/>Коллаборация с кадастровыми инженерами (быстрое межевание и оформление сложных земельных участков)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 6: Коллаборация с банками и ипотечными брокерами</b><br/>Коллаборация с банками и ипотечными брокерами (совместные выездные ипотечные субботы)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 7: Коллаборация со страховыми компаниями</b><br/>Коллаборация со страховыми компаниями (льготные полисы ипотечного и имущественного страхования)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 8: Коллаборация с локальными блогерами и лидерами мнений</b><br/>Коллаборация с локальными блогерами и лидерами мнений (lifestyle-обзоры микрорайонов в формате 'тест-драйв района')</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 9: Коллаборация с загородными отелями и глэмпингами</b><br/>Коллаборация с загородными отелями и глэмпингами (акция 'Попробуй загородную жизнь' - уикенд в подарок при покупке коттеджа)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 10: Коллаборация с ландшафтными дизайнерами и садовыми центрами</b><br/>Коллаборация с ландшафтными дизайнерами и садовыми центрами (бесплатный эскиз планировки участка и скидки на крупномеры)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 11: Коллаборация с установщиками систем безопасности и умного дома</b><br/>Коллаборация с установщиками систем безопасности и умного дома (бесплатный базовый монтаж комплекта датчиков и замков)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 12: Коллаборация с коворкингами и коливингами</b><br/>Коллаборация с коворкингами и коливингами (абонемент на месяц в подарок для удаленных сотрудников)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #28a745; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Идея 13: Коллаборация с сервисами переезда и грузоперевозок</b><br/>Коллаборация с сервисами переезда и грузоперевозок (пакет 'Переезд без стресса' с разборкой мебели со скидкой 20%)</div>
@@ -4099,7 +4178,7 @@ body:not(.dark-mode) .price-bar-limit {
     </section>
         </div>
         <div class="tab-content" id="tab-ai-automation">
-            <section id="ai_offers" data-title="Карта ИИ-автоматизации и коммерческие офферы" data-tab="ai-automation"><h2>23. Карта ИИ-автоматизации и коммерческие офферы</h2>
+            <section id="ai_offers" data-title="Карта ИИ-автоматизации и коммерческие офферы" data-tab="ai-automation"><h2>24. Карта ИИ-автоматизации и коммерческие офферы</h2>
 
     <p>Индивидуальные технологические решения и коммерческие предложения (офферы) по интеграции искусственного интеллекта для каждого конкурента:</p>
     
@@ -4239,6 +4318,26 @@ body:not(.dark-mode) .price-bar-limit {
         <div>
             <div style="font-size:8.5pt; color:#94a3b8;">ROI окупаемости:</div>
             <div id="roi_res_pct" style="font-size:13pt; font-weight:bold; color:#fb923c; margin-top:3px;">662%</div>
+        </div>
+    </div>
+    
+    <!-- Сравнение ФОТ с живыми менеджерами -->
+    <div style="margin-top:20px; background:rgba(255,255,255,0.03); padding:15px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:15px; text-align: left;">
+        <div style="border-right:1px solid rgba(255,255,255,0.1); padding-right:15px;">
+            <b style="color:#f87171; font-size:9.5pt; display:block; margin-bottom:6px;">🔴 Расходы на ночных менеджеров (ФОТ):</b>
+            <div style="font-size:9pt; color:#cbd5e1; line-height:1.4;">
+                • Оплата ночных смен/выходных (1.5 сотр.): <b>~90 000 ₽/мес</b><br/>
+                • Человеческий фактор: пропуски смен, выгорание, долгие ответы.<br/>
+                • Стоимость упущенных клиентов: до <b>30% от входящих лидов</b>.
+            </div>
+        </div>
+        <div style="padding-left:5px;">
+            <b style="color:#4ade80; font-size:9.5pt; display:block; margin-bottom:6px;">🟢 Решение на базе ИИ-ассистента:</b>
+            <div style="font-size:9pt; color:#cbd5e1; line-height:1.4;">
+                • Сопровождение ИИ-бота: всего <b>15 000 ₽/мес</b><br/>
+                • Режим работы: <b>24/7/365</b> без больничных и отпусков.<br/>
+                • <b>Чистая экономия на ФОТ: ~75 000 ₽/мес</b> (~900 000 ₽ в год!).
+            </div>
         </div>
     </div>
     
@@ -4513,7 +4612,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="upsells" data-title="Дополнительные сопутствующие продукты и услуги (Up-sell / Cross-sell)" data-tab="ai-automation"><h2>24. Дополнительные сопутствующие продукты и услуги (Up-sell / Cross-sell)</h2>
+    </section><section id="upsells" data-title="Дополнительные сопутствующие продукты и услуги (Up-sell / Cross-sell)" data-tab="ai-automation"><h2>25. Дополнительные сопутствующие продукты и услуги (Up-sell / Cross-sell)</h2>
 
     <p>Не менее 10 сопутствующих продуктов или дополнительных услуг для повышения среднего чека и LTV клиентов:</p>
     <div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 1: Услуги предпродажной подготовки</b><br/>Услуги предпродажной подготовки (хоумстейджинг квартир для увеличения ценности и скорости продажи)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 2: Юридическое сопровождение сделок без риелтора</b><br/>Юридическое сопровождение сделок без риелтора (проверка документов, составление договоров, безопасные расчеты)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 3: Управление арендной недвижимостью</b><br/>Управление арендной недвижимостью (доверительное управление квартирами инвесторов за процент от аренды под ключ)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 4: Помощь в оформлении налогового вычета</b><br/>Помощь в оформлении налогового вычета (заполнение деклараций 3-НДФЛ для покупателей жилья)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 5: Сопровождение рефинансирования ипотеки</b><br/>Сопровождение рефинансирования ипотеки (снижение процентной ставки по текущему кредиту за фиксированную комиссию)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 6: Оценка рыночной стоимости недвижимости для банков</b><br/>Оценка рыночной стоимости недвижимости для банков (сертифицированные отчеты об оценке)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 7: Приемка квартир в новостройках</b><br/>Приемка квартир в новостройках (профессиональный строительный аудит при получении ключей от застройщика)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 8: Услуги помощи при банкротстве физлиц</b><br/>Услуги помощи при банкротстве физлиц (БФЛ для списания долгов закредитованных клиентов через партнерский отдел)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 9: Продажа готовых инвестиционных стратегий</b><br/>Продажа готовых инвестиционных стратегий (инвест-пакеты под ключ с расчетом доходности на котловане)</div><div class="niche" style="background:#f4f6f9; border-left:3px solid #d35400; margin-bottom: 4mm; padding: 8px 12px; border-radius: 4px;"><b>Решение 10: Программы титульного страхования сделок</b><br/>Программы титульного страхования сделок (защита от потери права собственности на вторичном рынке непосредственно в офисе)</div>
@@ -4528,7 +4627,7 @@ body:not(.dark-mode) .price-bar-limit {
             </ul>
         </div>
     </div>
-    </section><section id="chatbot_automation" data-title="Индекс применения ИИ-технологий" data-tab="ai-automation"><h2>25. Индекс применения ИИ-технологий</h2>
+    </section><section id="chatbot_automation" data-title="Индекс применения ИИ-технологий" data-tab="ai-automation"><h2>26. Индекс применения ИИ-технологий</h2>
 
     <p>Итоговая оценка технологической зрелости конкурентов и уровня готовности к цифровизации:</p>
     
@@ -4670,7 +4769,7 @@ body:not(.dark-mode) .price-bar-limit {
     </section>
         </div>
         <div class="tab-content" id="tab-action-plan">
-            <section id="profit_advices" data-title="Рекомендации по увеличению прибыли компании" data-tab="action-plan"><h2>26. Рекомендации по увеличению прибыли компании</h2>
+            <section id="profit_advices" data-title="Рекомендации по увеличению прибыли компании" data-tab="action-plan"><h2>27. Рекомендации по увеличению прибыли компании</h2>
 
     <p>Комплексный перечень из 15 практических и применимых шагов для роста доходности, оптимизации юнит-экономики и снижения издержек для компании Аврора Владис:</p>
     <div class="niche" style="background:#fcf8e3; border-left:3px solid #f0ad4e; margin-bottom:4mm; padding:8px 12px; border-radius:4px;">
@@ -4695,11 +4794,16 @@ body:not(.dark-mode) .price-bar-limit {
     </div>
     
     <div style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:20px; margin-top:6mm; margin-bottom:6mm; font-family:sans-serif; box-shadow:0 4px 10px rgba(0,0,0,0.05);">
-        <h3 style="margin-top:0; color:#0f172a; font-size:11pt; border-bottom:1px solid #e2e8f0; padding-bottom:8px; display:flex; align-items:center; gap:8px;">
-            📋 Интерактивный Action-план внедрения изменений для «Аврора Владис»
-        </h3>
-        <p style="font-size:9.5pt; color:#64748b; margin:5px 0 15px 0;">
-            Отмечайте выполненные задачи кликом по чекбоксу. Прогресс сохраняется в вашем браузере автоматически:
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; padding-bottom:8px; margin-bottom:15px; margin-top:0;">
+            <h3 style="margin:0; color:#0f172a; font-size:11pt; display:flex; align-items:center; gap:8px; border:none; padding:0;">
+                📋 Боевой лист собственника: План внедрения изменений для «Аврора Владис»
+            </h3>
+            <button onclick="window.print()" class="print-button" style="background:#0284c7; color:#fff; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; cursor:pointer; font-size:9pt; display:flex; align-items:center; gap:6px;">
+                🖨️ Распечатать Боевой Лист
+            </button>
+        </div>
+        <p class="print-button" style="font-size:9.5pt; color:#64748b; margin:5px 0 15px 0;">
+            Отмечайте выполненные задачи кликом по чекбоксу. Прогресс сохраняется в вашем браузере автоматически. Нажмите «Распечатать», чтобы получить чистую печатную версию плана:
         </p>
     
         <div style="margin-bottom:15px;">
