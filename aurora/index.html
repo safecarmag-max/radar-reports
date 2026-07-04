@@ -957,7 +957,7 @@ body:not(.dark-mode) .price-bar-limit {
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 04.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: 086a032</div>
+            <div>Хэш: 2846d5f</div>
         </div>
     </div>
     
@@ -4165,6 +4165,122 @@ body:not(.dark-mode) .price-bar-limit {
 
     </div>
     
+    
+    <div style="background: linear-gradient(135deg, #1e2025, #0f1013); border: 1px solid rgba(255,255,255,0.06); color: #fff; border-radius: 8px; padding: 20px; margin-top: 5mm; margin-bottom: 6mm; font-family: sans-serif; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+        <div style="flex: 1; min-width: 250px;">
+            <h3 style="margin-top:0; color:#fbbf24; font-size:12pt; margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+                🤖 Протестируйте живое демо ИИ-ассистента прямо сейчас!
+            </h3>
+            <p style="font-size:9.5pt; color:#cbd5e1; line-height:1.4; margin: 0 0 15px 0;">
+                Мы разработали готового демонстрационного ИИ-ассистента под нишу <b>Недвижимость</b>. Вы можете мгновенно оценить качество ответов, логику удержания клиента и скорость работы робота.
+            </p>
+            <a href="https://t.me/radar_estate_demo_bot" target="_blank" style="display: inline-block; background: #fbbf24; color: #121316; font-weight: bold; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 9.5pt; transition: background 0.2s;">
+                💬 Запустить тест в Telegram
+            </a>
+        </div>
+        <div style="text-align: center; background: #fff; padding: 10px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 140px; height: 140px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/radar_estate_demo_bot" alt="Telegram QR Code" style="width: 120px; height: 120px;" />
+            <span style="font-size: 7.5pt; color: #64748b; margin-top: 4px; font-weight: bold;">Наведите камеру</span>
+        </div>
+    </div>
+    
+    
+<div style="background: linear-gradient(135deg, #1e2025, #0f1013); border: 1px solid rgba(255,255,255,0.05); color: #fff; border-radius: 8px; padding: 20px; margin-top: 5mm; margin-bottom: 6mm; font-family: sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+    <h3 style="margin-top:0; color:#fbbf24; font-size:12pt; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; display:flex; align-items:center; gap:8px;">
+        🧮 Интерактивный калькулятор ROI внедрения ИИ-решений
+    </h3>
+    <p style="font-size:9.5pt; color:#cbd5e1; margin: 5px 0 15px 0;">
+        Настройте показатели вашего бизнеса с помощью ползунков, чтобы увидеть финансовую эффективность ИИ-автоматизации:
+    </p>
+    
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-bottom:20px;">
+        <div style="background:rgba(255,255,255,0.02); padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="display:flex; justify-content:space-between; font-size:9pt; color:#cbd5e1; margin-bottom:5px;">
+                <span>Средний чек сделки:</span>
+                <b id="roi_val_deal" style="color:#fbbf24;">150 000 руб.</b>
+            </div>
+            <input type="range" id="roi_slider_deal" min="10000" max="500000" step="5000" value="150000" style="width:100%; accent-color:#fbbf24; cursor:pointer;" oninput="updateROICalculator()"/>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.02); padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="display:flex; justify-content:space-between; font-size:9pt; color:#cbd5e1; margin-bottom:5px;">
+                <span>Лидов в месяц:</span>
+                <b id="roi_val_leads" style="color:#fbbf24;">100 шт.</b>
+            </div>
+            <input type="range" id="roi_slider_leads" min="10" max="500" step="5" value="100" style="width:100%; accent-color:#fbbf24; cursor:pointer;" oninput="updateROICalculator()"/>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.02); padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="display:flex; justify-content:space-between; font-size:9pt; color:#cbd5e1; margin-bottom:5px;">
+                <span>Текущая конверсия:</span>
+                <b id="roi_val_conv" style="color:#fbbf24;">5%</b>
+            </div>
+            <input type="range" id="roi_slider_conv" min="1" max="30" step="0.5" value="5" style="width:100%; accent-color:#fbbf24; cursor:pointer;" oninput="updateROICalculator()"/>
+        </div>
+    </div>
+    
+    <div style="background:#0e0f12; padding:15px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:10px; text-align:center;">
+        <div>
+            <div style="font-size:8.5pt; color:#94a3b8;">Упущенные лиды/мес:</div>
+            <div id="roi_res_lost" style="font-size:13pt; font-weight:bold; color:#f87171; margin-top:3px;">30 шт.</div>
+        </div>
+        <div>
+            <div style="font-size:8.5pt; color:#94a3b8;">Спасенные ИИ лиды:</div>
+            <div id="roi_res_saved" style="font-size:13pt; font-weight:bold; color:#4ade80; margin-top:3px;">7.5 шт.</div>
+        </div>
+        <div>
+            <div style="font-size:8.5pt; color:#94a3b8;">Доп. доход в месяц:</div>
+            <div id="roi_res_revenue" style="font-size:13pt; font-weight:bold; color:#fbbf24; margin-top:3px;">562 500 руб.</div>
+        </div>
+        <div>
+            <div style="font-size:8.5pt; color:#94a3b8;">Окупаемость проекта:</div>
+            <div id="roi_res_payback" style="font-size:13pt; font-weight:bold; color:#4ade80; margin-top:3px;">0.2 / 0.2 мес.</div>
+        </div>
+        <div>
+            <div style="font-size:8.5pt; color:#94a3b8;">ROI окупаемости:</div>
+            <div id="roi_res_pct" style="font-size:13pt; font-weight:bold; color:#fb923c; margin-top:3px;">662%</div>
+        </div>
+    </div>
+    
+    <div style="font-size:8pt; color:#64748b; margin-top:12px; text-align:right;">
+        * Расчет основан на потере 30% лидов из-за задержек и возврате 25% из них с помощью мгновенных ИИ-ответов 24/7. Внедрение: 70 000 руб., сопровождение: 15 000 руб./мес.
+    </div>
+    
+    <script>
+    function updateROICalculator() {
+        const deal = parseFloat(document.getElementById('roi_slider_deal').value);
+        const leads = parseFloat(document.getElementById('roi_slider_leads').value);
+        const conv = parseFloat(document.getElementById('roi_slider_conv').value) / 100;
+        
+        document.getElementById('roi_val_deal').innerText = deal.toLocaleString() + ' руб.';
+        document.getElementById('roi_val_leads').innerText = leads.toLocaleString() + ' шт.';
+        document.getElementById('roi_val_conv').innerText = (conv * 100).toFixed(1) + '%';
+        
+        const lostLeads = Math.round(leads * 0.3);
+        const savedLeads = Math.round(lostLeads * 0.25 * 10) / 10;
+        const addSales = Math.round(savedLeads * conv * 10) / 10;
+        const addRevenue = Math.round(addSales * deal);
+        
+        const setupCost = 70000;
+        const monthlyCost = 15000;
+        
+        const payback = addRevenue > monthlyCost ? Math.round((setupCost / (addRevenue - monthlyCost)) * 10) / 10 : 99;
+        const roiPct = Math.round(((addRevenue - monthlyCost - (setupCost/12)) / (monthlyCost + (setupCost/12))) * 100);
+        
+        document.getElementById('roi_res_lost').innerText = lostLeads + ' шт.';
+        document.getElementById('roi_res_saved').innerText = savedLeads + ' шт.';
+        document.getElementById('roi_res_revenue').innerText = addRevenue.toLocaleString() + ' руб.';
+        document.getElementById('roi_res_payback').innerText = (payback > 12 ? 'более года' : payback + ' мес.');
+        document.getElementById('roi_res_pct').innerText = (roiPct > 0 ? '+' + roiPct + '%' : roiPct + '%');
+    }
+    
+    window.addEventListener('DOMContentLoaded', () => {
+        updateROICalculator();
+    });
+    setTimeout(updateROICalculator, 100);
+    </script>
+</div>
+
     <div style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px;">
         <h4 style="color: #fbbf24; margin-bottom: 15px;">Детальный каталог решений для участников рынка:</h4>
         
