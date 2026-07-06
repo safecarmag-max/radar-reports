@@ -10494,45 +10494,105 @@ function runINNCheck() {
             var revenue = '0₽';
             
             // 1. Поиск названия и статуса компании
-            var statusMatch = text.match(/(Действует|В процессе ликвидации|Ликвидировано|Есть решение ФНС о ликвидации)\\[(.*?)\\]/);
-            if (statusMatch) {
-                statusStr = statusMatch[1];
-                companyName = statusMatch[2].replace(/_/g, '').replace(/"/g, '').trim();
-            } else {
-                var nameMatch = text.match(/\\[(.*?)\\]\\(https:\\/\\/companies\\.rbc\\.ru\\/id\\//);
-                if (nameMatch) {
-                    companyName = nameMatch[1].replace(/_/g, '').replace(/"/g, '').trim();
+            var statuses = ['Действует', 'В процессе ликвидации', 'Ликвидировано', 'Есть решение ФНС о ликвидации'];
+            for (var i = 0; i < statuses.length; i++) {
+                var st = statuses[i];
+                var idx = text.indexOf(st + '[');
+                if (idx !== -1) {
+                    statusStr = st;
+                    var start = idx + st.length + 1;
+                    var end = text.indexOf(']', start);
+                    if (end !== -1) {
+                        companyName = text.substring(start, end).replace(/_/g, '').replace(/"/g, '').trim();
+                        break;
+                    }
+                }
+            }
+            if (companyName === 'Не указано') {
+                var idIdx = text.indexOf('](https://companies.rbc.ru/id/');
+                if (idIdx !== -1) {
+                    var startIdx = text.lastIndexOf('[', idIdx);
+                    if (startIdx !== -1) {
+                        companyName = text.substring(startIdx + 1, idIdx).replace(/_/g, '').replace(/"/g, '').trim();
+                    }
                 }
             }
             
             // 2. Руководитель
-            var dirMatch = text.match(/(?:Генеральный Директор|Директор|Президент|Руководитель|Ликвидатор|Конкурсный управляющий):([^\n\r]+)/);
-            if (dirMatch) {
-                director = dirMatch[1].trim();
+            var dirLabels = ['Генеральный Директор:', 'Директор:', 'Президент:', 'Руководитель:', 'Ликвидатор:', 'Конкурсный управляющий:'];
+            for (var i = 0; i < dirLabels.length; i++) {
+                var lbl = dirLabels[i];
+                var idx = text.indexOf(lbl);
+                if (idx !== -1) {
+                    var start = idx + lbl.length;
+                    var end = text.indexOf('
+', start);
+                    if (end === -1) end = text.indexOf('
+', start);
+                    if (end !== -1) {
+                        director = text.substring(start, end).trim();
+                    } else {
+                        director = text.substring(start).trim();
+                    }
+                    break;
+                }
             }
             
             // 3. Адрес
-            var addrMatch = text.match(/Юридический адрес:([^\n\r]+)/);
-            if (addrMatch) {
-                address = addrMatch[1].trim();
+            var addrIdx = text.indexOf('Юридический адрес:');
+            if (addrIdx !== -1) {
+                var start = addrIdx + 'Юридический адрес:'.length;
+                var end = text.indexOf('
+', start);
+                if (end === -1) end = text.indexOf('
+', start);
+                if (end !== -1) {
+                    address = text.substring(start, end).trim();
+                } else {
+                    address = text.substring(start).trim();
+                }
             }
             
             // 4. Уставной капитал
-            var capMatch = text.match(/Уставной капитал:\s*([^\n\r]+)/);
-            if (capMatch) {
-                capital = capMatch[1].trim();
+            var capIdx = text.indexOf('Уставной капитал:');
+            if (capIdx !== -1) {
+                var start = capIdx + 'Уставной капитал:'.length;
+                var end = text.indexOf('
+', start);
+                if (end === -1) end = text.indexOf('
+', start);
+                if (end !== -1) {
+                    capital = text.substring(start, end).trim();
+                } else {
+                    capital = text.substring(start).trim();
+                }
             }
             
             // 5. ОГРН
-            var ogrnMatch = text.match(/ОГРН:(\d+)/);
-            if (ogrnMatch) {
-                ogrn = ogrnMatch[1].trim();
+            var ogrnIdx = text.indexOf('ОГРН:');
+            if (ogrnIdx !== -1) {
+                var start = ogrnIdx + 'ОГРН:'.length;
+                var end = text.indexOf('
+', start);
+                if (end === -1) end = text.indexOf('
+', start);
+                var rawOgrn = (end !== -1) ? text.substring(start, end) : text.substring(start);
+                ogrn = rawOgrn.replace(/\D/g, '').trim();
             }
             
             // 6. Выручка
-            var revMatch = text.match(/Выручка:([^\n\r]+)/);
-            if (revMatch) {
-                revenue = revMatch[1].trim();
+            var revIdx = text.indexOf('Выручка:');
+            if (revIdx !== -1) {
+                var start = revIdx + 'Выручка:'.length;
+                var end = text.indexOf('
+', start);
+                if (end === -1) end = text.indexOf('
+', start);
+                if (end !== -1) {
+                    revenue = text.substring(start, end).trim();
+                } else {
+                    revenue = text.substring(start).trim();
+                }
             }
             
             var isLiquidating = statusStr.indexOf('ликвида') !== -1 || statusStr.indexOf('Ликвидир') !== -1;
@@ -10541,7 +10601,7 @@ function runINNCheck() {
             // Очистка выручки для числового анализа
             var revNum = 0;
             if (!isZeroRev) {
-                var cleanRev = revenue.replace(/\s/g, '').replace('₽', '').replace(/,/g, '');
+                var cleanRev = revenue.replace(/\D/g, '');
                 revNum = parseFloat(cleanRev) || 0;
             }
             
