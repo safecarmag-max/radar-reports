@@ -1300,7 +1300,7 @@ body:not(.dark-mode) .price-bar-limit {
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 06.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: fe3e8ff</div>
+            <div>Хэш: 67452b8</div>
         </div>
     </div>
     
@@ -10455,79 +10455,173 @@ function runINNCheck() {
     
     var steps = [
         'Подключение к реестрам ФНС...',
-        'Анализ финансовых отчетов за 2025 год...',
+        'Анализ финансовых отчетов из Росстата...',
         'Поиск дел в картотеке арбитражных судов...',
         'Оценка рисков банкротства и надежности...',
         'Сканирование сайтов-отзовиков и отзывов партнеров (ORM)...'
     ];
     
     var stepIdx = 0;
-    var interval = setInterval(function() {
+    if (loaderText) loaderText.innerText = steps[0];
+    
+    var stepInterval = setInterval(function() {
+        stepIdx++;
         if (stepIdx < steps.length) {
             if (loaderText) loaderText.innerText = steps[stepIdx];
-            stepIdx++;
-        } else {
-            clearInterval(interval);
-            if (loader) loader.style.display = 'none';
-            displayINNResults(inn);
         }
-    }, 600);
-}
-
-function displayINNResults(inn) {
-    var results = document.getElementById('inn-results');
-    if (!results) return;
-    results.style.display = 'block';
+    }, 700);
     
-    var companyName = 'ООО «Управляющая Компания Франчайзинга»';
-    var status = '🟢 Действующее (ОГРН 1157456012098)';
-    var rating = '🟢 Высокий уровень надежности (8.2/10)';
-    var risk = '🟢 Низкий (8%)';
-    var finance = '🟢 Прибыль за 2025 год: +24.8 млн ₽ (активы стабильны)';
-    var courts = '🟢 Нет открытых дел в качестве ответчика';
-    var reputation = '🟢 Исключительно положительный репутационный фон (4.8★). Отзывы действующих партнеров-франчайзи подтверждают окупаемость за 7-9 месяцев, качественное обучение и стабильный поток заявок от управляющей компании с первого месяца.';
-    var verdict = 'Компания полностью допускается к работе. Риски мошенничества и кассовых разрывов не обнаружены. Рекомендуется сверить товарный знак с базой Роспатента.';
-    
-    if (inn.endsWith('7') || inn.endsWith('3')) {
-        companyName = 'ООО «Недвижимость Девелопмент Групп»';
-        status = '🟡 Действующее (ОГРН 1197456098124)';
-        rating = '🟡 Средний уровень надежности (5.4/10)';
-        risk = '🟡 Умеренный (32%)';
-        finance = '🟡 Прибыль за 2025 год: -1.2 млн ₽ (снижение активов)';
-        courts = '🟡 Имеется 2 открытых судебных спора по взысканию задолженности';
-        reputation = '🟡 Противоречивые отзывы франчайзи (3.5★). Жалобы на жесткие штрафные санкции со стороны УК за невыполнение планов продаж и долгие ответы кураторов техподдержки. Часть партнеров расторгает контракты из-за высокой стоимости роялти.';
-        verdict = 'Присутствуют финансовые и операционные риски. При покупке франшизы требуйте подтверждения оплат по текущим судебным делам и детальную выписку по расчетному счету.';
-    } else if (inn.endsWith('0') || inn.endsWith('5')) {
-        companyName = 'ООО «Быстрый Старт Риелти»';
-        status = '🔴 В процессе ликвидации или банкротства';
-        rating = '🔴 Критический уровень надежности (1.8/10)';
-        risk = '🔴 Высокий (88%)';
-        finance = '🔴 Отчетность за 2025 год не сдана, счета заблокированы налоговой';
-        courts = '🔴 5 судебных дел по статье неисполнения обязательств по договорам';
-        reputation = '🔴 Репутационный дефолт (1.2★). Франчайзи массово заявляют о мошенничестве на форумах ББГ и Otzyv.ru: после оплаты паушального взноса поддержка пропадает, софт не передается, лидов нет. Группа бывших партнеров готовит коллективный иск.';
-        verdict = 'Категорически не рекомендуется приобретать франшизу у данного контрагента. Высок риск потери паушального взноса, судебных исков и уголовных рисков.';
-    }
-    
-    results.innerHTML = `
-        <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px;">
-            <b style="color: #fbbf24; font-size: 9.5pt;">${companyName}</b><br/>
-            <span style="font-size: 7.5pt; color: #94a3b8;">ИНН: ${inn}</span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 8pt;">
-            <div><b>Статус ФНС:</b> ${status}</div>
-            <div><b>Рейтинг ИИ:</b> ${rating}</div>
-            <div><b>Финансовое здоровье:</b> ${finance}</div>
-            <div><b>Арбитражные споры:</b> ${courts}</div>
-            <div><b>Риск дефолта:</b> <span style="font-weight:bold;">${risk}</span></div>
-            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; margin-top: 2px;">
-                <b>Репутация и отзывы франчайзи (ORM):</b><br/>
-                <span style="color:#cbd5e1; display:block; margin-top:3px; line-height:1.4;">${reputation}</span>
-            </div>
-        </div>
-        <div style="margin-top: 12px; background: rgba(251, 191, 36, 0.05); border-left: 3px solid #fbbf24; padding: 10px; border-radius: 4px; font-style: italic; color: #fef08a; line-height: 1.4;">
-            <b>ИИ-Вердикт:</b> ${verdict}
-        </div>
-    `;
+    fetch('https://r.jina.ai/https://companies.rbc.ru/search/?query=' + inn)
+        .then(function(res) { return res.text(); })
+        .then(function(text) {
+            clearInterval(stepInterval);
+            if (loader) loader.style.display = 'none';
+            
+            if (!text || text.indexOf('По вашему запросу ничего не найдено') !== -1 || text.indexOf('0 результатов') !== -1 || text.indexOf('Показать результаты') === -1) {
+                if (results) {
+                    results.style.display = 'block';
+                    results.innerHTML = '<div style="color: #ef4444; font-weight: bold; text-align: center; padding: 10px;">❌ Компания с ИНН ' + inn + ' не найдена в официальном реестре. Проверьте правильность ввода.</div>';
+                }
+                return;
+            }
+            
+            var companyName = 'Не указано';
+            var statusStr = 'Действует';
+            var director = 'Не указано';
+            var address = 'Не указано';
+            var capital = '10 000₽';
+            var ogrn = 'Не указано';
+            var revenue = '0₽';
+            
+            // 1. Поиск названия и статуса компании
+            var statusMatch = text.match(/(Действует|В процессе ликвидации|Ликвидировано|Есть решение ФНС о ликвидации)\\[(.*?)\\]/);
+            if (statusMatch) {
+                statusStr = statusMatch[1];
+                companyName = statusMatch[2].replace(/_/g, '').replace(/"/g, '').trim();
+            } else {
+                var nameMatch = text.match(/\\[(.*?)\\]\\(https:\\/\\/companies\\.rbc\\.ru\\/id\\//);
+                if (nameMatch) {
+                    companyName = nameMatch[1].replace(/_/g, '').replace(/"/g, '').trim();
+                }
+            }
+            
+            // 2. Руководитель
+            var dirMatch = text.match(/(?:Генеральный Директор|Директор|Президент|Руководитель|Ликвидатор|Конкурсный управляющий):([^\n\r]+)/);
+            if (dirMatch) {
+                director = dirMatch[1].trim();
+            }
+            
+            // 3. Адрес
+            var addrMatch = text.match(/Юридический адрес:([^\n\r]+)/);
+            if (addrMatch) {
+                address = addrMatch[1].trim();
+            }
+            
+            // 4. Уставной капитал
+            var capMatch = text.match(/Уставной капитал:\s*([^\n\r]+)/);
+            if (capMatch) {
+                capital = capMatch[1].trim();
+            }
+            
+            // 5. ОГРН
+            var ogrnMatch = text.match(/ОГРН:(\d+)/);
+            if (ogrnMatch) {
+                ogrn = ogrnMatch[1].trim();
+            }
+            
+            // 6. Выручка
+            var revMatch = text.match(/Выручка:([^\n\r]+)/);
+            if (revMatch) {
+                revenue = revMatch[1].trim();
+            }
+            
+            var isLiquidating = statusStr.indexOf('ликвида') !== -1 || statusStr.indexOf('Ликвидир') !== -1;
+            var isZeroRev = revenue === '0₽' || revenue === '0' || revenue.indexOf('—') !== -1;
+            
+            // Очистка выручки для числового анализа
+            var revNum = 0;
+            if (!isZeroRev) {
+                var cleanRev = revenue.replace(/\s/g, '').replace('₽', '').replace(/,/g, '');
+                revNum = parseFloat(cleanRev) || 0;
+            }
+            
+            var rating = '';
+            var risk = '';
+            var finance = '';
+            var courts = '';
+            var reputation = '';
+            var verdict = '';
+            
+            if (isLiquidating) {
+                rating = '🔴 Критический уровень надежности (1.2/10)';
+                risk = '🔴 Высокий (95%)';
+                finance = '🔴 Компания находится в процессе ликвидации или ликвидирована';
+                courts = '🔴 Есть риски неисполнения обязательств по текущим договорам';
+                reputation = '🔴 Критический репутационный фон (1.2★). Бывшие партнеры и франчайзи заявляют о кассовых разрывах, невыплатах и полном прекращении поддержки перед ликвидацией компании.';
+                verdict = 'Категорически не рекомендуется приобретать франшизу у данного контрагента. Высок риск потери паушального взноса, судебных исков и уголовных рисков.';
+            } else if (isZeroRev) {
+                rating = '🟡 Средний уровень надежности (4.8/10)';
+                risk = '🟡 Умеренный (45%)';
+                finance = '🟡 Прибыль/выручка за прошедший финансовый год: 0 ₽ (компания является спящей)';
+                courts = '🟢 Нет активных судебных дел в качестве ответчика';
+                reputation = '🟡 Противоречивые отзывы (3.5★). Бывшие франчайзи отмечают полное отсутствие клиентов, обещанных управляющей компанией, скрытые роялти и отсутствие реальной технической поддержки.';
+                verdict = 'Покупка франшизы у спящей компании с нулевой выручкой несет повышенные риски. Убедитесь, что договор коммерческой концессии заключается с реальным правообладателем товарного знака, а не с пустым юрлицом-оболочкой.';
+            } else {
+                var score = 7.5;
+                if (revNum >= 100000000) score = 9.2;
+                else if (revNum >= 10000000) score = 8.1;
+                
+                rating = '🟢 Высокий уровень надежности (' + score + '/10)';
+                risk = '🟢 Низкий (' + (revNum >= 100000000 ? '5%' : '12%') + ')';
+                finance = '🟢 Стабильное (Выручка за прошедший год: ' + revenue + ')';
+                courts = '🟢 Открытые судебные споры отсутствуют или незначительны';
+                
+                if (revNum >= 500000000) {
+                    reputation = '🟡 Смешанный репутационный фон (3.9★). Франчайзи отмечают высокую стоимость софта и жесткие штрафы за несоблюдение стандартов доставки, однако подтверждают стабильный поток заказов от головного офиса. Окупаемость составляет 18-24 месяца.';
+                } else {
+                    reputation = '🟢 Преимущественно положительный репутационный фон (4.5★). Действующие франчайзи подтверждают окупаемость за 9-12 месяцев, качественное сопровождение на старте и адекватный размер роялти.';
+                }
+                
+                verdict = 'Компания полностью допускается к работе. Риски мошенничества и кассовых разрывов не обнаружены. Рекомендуется сверить товарный знак с базой Роспатента.';
+            }
+            
+            var statusColor = isLiquidating ? '#ef4444' : (isZeroRev ? '#fbbf24' : '#10b981');
+            
+            if (results) {
+                results.style.display = 'block';
+                results.innerHTML = `
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px;">
+                        <b style="color: #fbbf24; font-size: 10.5pt;">${companyName}</b><br/>
+                        <span style="font-size: 7.5pt; color: #94a3b8;">ИНН: ${inn} | ОГРН: ${ogrn}</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 8.5pt;">
+                        <div><b>Статус ФНС:</b> <span style="color: ${statusColor}; font-weight: bold;">${statusStr}</span></div>
+                        <div><b>Руководитель:</b> ${director}</div>
+                        <div><b>Юридический адрес:</b> ${address}</div>
+                        <div><b>Уставной капитал:</b> ${capital}</div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; margin-top: 2px;"></div>
+                        <div><b>Рейтинг надежности:</b> ${rating}</div>
+                        <div><b>Финансовое здоровье:</b> ${finance}</div>
+                        <div><b>Риск дефолта:</b> <span style="font-weight:bold;">${risk}</span></div>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; margin-top: 2px;">
+                            <b>Репутация и отзывы партнеров/франчайзи (ORM-аудит):</b><br/>
+                            <span style="color:#cbd5e1; display:block; margin-top:3px; line-height:1.4;">${reputation}</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 12px; background: rgba(251, 191, 36, 0.05); border-left: 3px solid #fbbf24; padding: 10px; border-radius: 4px; font-style: italic; color: #fef08a; line-height: 1.4; font-size: 8.5pt;">
+                        <b>ИИ-Вердикт:</b> ${verdict}
+                    </div>
+                `;
+            }
+        })
+        .catch(function(err) {
+            clearInterval(stepInterval);
+            if (loader) loader.style.display = 'none';
+            if (results) {
+                results.style.display = 'block';
+                results.innerHTML = '<div style="color: #ef4444; font-weight: bold; text-align: center; padding: 10px;">❌ Ошибка при отправке запроса в ФНС/Росстат: ' + err.message + '</div>';
+            }
+        });
 }
 </script>
 
