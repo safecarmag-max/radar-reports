@@ -1480,6 +1480,12 @@ body:not(.dark-mode) .price-bar-limit {
         💡 Нажмите на кнопку <b>«📋 Паспорт бренда»</b> на любой карточке ниже, чтобы открыть детальную бизнес-карту конкурента, уязвимые места и готовые ИИ-офферы для отстройки.
     </p>
     
+    <!-- Панель поиска конкурентов -->
+    <div class="desktop-only radar-search-container" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: var(--card-light); border: 1px solid var(--border-light); padding: 12px 20px; border-radius: 12px; transition: background 0.3s, border-color 0.3s;">
+        <span style="font-size: 10pt; font-weight: bold; color: var(--accent-color);">🔍 Быстрый поиск по конкурентам:</span>
+        <input type="text" id="radar-competitor-search" oninput="filterCompetitors(this.value)" placeholder="Введите название компании (например: Ключи)..." style="width: 320px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-light); background: var(--card-light); color: inherit; font-size: 9.5pt; font-weight: bold; outline: none; transition: border-color 0.2s;" />
+    </div>
+    
     <!-- Экранная версия: Сетка карточек -->
     <div class="radar-cards-grid desktop-only">
         
@@ -3327,8 +3333,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//riolux.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A0%D0%B8%D0%BE-%D0%9B%D1%8E%D0%BA%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A0%D0%B8%D0%BE-%D0%9B%D1%8E%D0%BA%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/ekbriolux" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3395,8 +3407,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//vladis.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%90%D0%B2%D1%80%D0%BE%D1%80%D0%B0%20%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%90%D0%B2%D1%80%D0%BE%D1%80%D0%B0%20%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://t.me/vladisrussia" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3463,8 +3481,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//samoletplus.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82%20%D0%9F%D0%BB%D1%8E%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82%20%D0%9F%D0%BB%D1%8E%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3531,8 +3550,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-premera.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%D0%B0%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9F%D1%80%D0%B5%D0%BC%D1%8C%D0%B5%D1%80%D0%B0%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3599,8 +3619,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//status-m174.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A1%D1%82%D0%B0%D1%82%D1%83%D1%81-%D0%9C%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A1%D1%82%D0%B0%D1%82%D1%83%D1%81-%D0%9C%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3667,8 +3688,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//edinstvo-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%95%D0%B4%D0%B8%D0%BD%D1%81%D1%82%D0%B2%D0%BE%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%95%D0%B4%D0%B8%D0%BD%D1%81%D1%82%D0%B2%D0%BE%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3735,8 +3757,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//kovcheg-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9A%D0%BE%D0%B2%D1%87%D0%B5%D0%B3%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9A%D0%BE%D0%B2%D1%87%D0%B5%D0%B3%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3803,8 +3826,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-vizit.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%92%D0%B8%D0%B7%D0%B8%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%92%D0%B8%D0%B7%D0%B8%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3871,8 +3895,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//novydom-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9D%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -3939,8 +3964,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an21.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%90%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%BE%2021%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%90%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%BE%2021%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4007,8 +4033,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//istoria-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4075,8 +4102,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//magdom174.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9C%D0%B0%D0%B3%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9C%D0%B0%D0%B3%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4143,8 +4171,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//perspektiva24.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9F%D0%B5%D1%80%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%B024%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9F%D0%B5%D1%80%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%B024%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/regru" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a><a href="https://t.me/regru" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4211,8 +4245,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//jilfond.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%96%D0%B8%D0%BB%D1%84%D0%BE%D0%BD%D0%B4%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%96%D0%B8%D0%BB%D1%84%D0%BE%D0%BD%D0%B4%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/jilfond_official" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a><a href="https://t.me/jilfond_nedvijimost" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4279,8 +4319,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-forum.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A4%D0%BE%D1%80%D1%83%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A4%D0%BE%D1%80%D1%83%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4347,8 +4388,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-avtoritet.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%90%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%90%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D1%82%D0%B5%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4415,8 +4457,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//nedvizhka.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9D%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%BA%D0%B0.%D1%80%D1%83%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9D%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%BA%D0%B0.%D1%80%D1%83%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4483,8 +4526,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//dda-real.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%94%D0%94%D0%90%20%D0%A0%D0%B8%D0%B0%D0%BB%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%94%D0%94%D0%90%20%D0%A0%D0%B8%D0%B0%D0%BB%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4551,8 +4595,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//megapolis-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9C%D0%B5%D0%B3%D0%B0%D0%BF%D0%BE%D0%BB%D0%B8%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9C%D0%B5%D0%B3%D0%B0%D0%BF%D0%BE%D0%BB%D0%B8%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4619,8 +4664,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//etagi.com" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%AD%D1%82%D0%B0%D0%B6%D0%B8%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%AD%D1%82%D0%B0%D0%B6%D0%B8%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/wall-19935812_28653" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a><a href="https://t.me/EtagiComSpace_Bot" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4687,8 +4738,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//alyans-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%90%D0%BB%D1%8C%D1%8F%D0%BD%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%90%D0%BB%D1%8C%D1%8F%D0%BD%D1%81%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/regru" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a><a href="https://t.me/regru" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4755,8 +4812,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//garant-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%93%D0%B0%D1%80%D0%B0%D0%BD%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%93%D0%B0%D1%80%D0%B0%D0%BD%D1%82%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/regru" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a><a href="https://t.me/regru" target="_blank" class="proof-badge" style="background: rgba(0, 136, 204, 0.1); color: #0088cc; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(0, 136, 204, 0.2);">✈️ Telegram</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4823,8 +4886,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//montera.group" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D0%BD%D1%82%D0%B5%D1%80%D0%B0%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D0%BD%D1%82%D0%B5%D1%80%D0%B0%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/montera.group?w=app5708398_-137978942" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4891,8 +4960,14 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//centralnoe.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
+            <h3 style="margin-top: 15px;">🌐 Социальные сети компании</h3>
+            <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
+                <a href="https://vk.com/centralnoe.realty" target="_blank" class="proof-badge" style="background: rgba(74, 118, 168, 0.1); color: #4a76a8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(74, 118, 168, 0.2);">💬 ВКонтакте</a>
+            </div>
+            
                         </div>
                         
                         <div class="modal-section-col">
@@ -4959,8 +5034,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//3kita-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9D%D0%B0%20%D1%82%D1%80%D1%91%D1%85%20%D0%BA%D0%B8%D1%82%D0%B0%D1%85%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9D%D0%B0%20%D1%82%D1%80%D1%91%D1%85%20%D0%BA%D0%B8%D1%82%D0%B0%D1%85%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5027,8 +5103,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//brend-realty.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=Brend%20Realty%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=Brend%20Realty%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5095,8 +5172,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//kvadrat-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%B5%D1%82%D1%80%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%B5%D1%82%D1%80%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5163,8 +5241,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-tandem.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A2%D0%B0%D0%BD%D0%B4%D0%B5%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A2%D0%B0%D0%BD%D0%B4%D0%B5%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5231,8 +5310,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//kluchi-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%9A%D0%BB%D1%8E%D1%87%D0%B8%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5299,8 +5379,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//an-strategia.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -5367,8 +5448,9 @@ body:not(.dark-mode) .price-bar-limit {
                             
                             <h3 style="margin-top: 15px;">🔗 Доказательная база (Живые ссылки)</h3>
                             <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">
-                                <a href="https://pagespeed.web.dev/analysis?url=https%3A//rodnoydom-m.ru" target="_blank" class="proof-badge" style="background: rgba(3, 169, 244, 0.1); color: #03a9f4; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">⚡ PageSpeed Insights</a> <a href="https://yandex.ru/maps/?text=%D0%A0%D0%BE%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">📍 Яндекс.Карты</a> <a href="https://wordstat.yandex.ru/" target="_blank" class="proof-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; text-decoration: none; padding: 4px 8px; border-radius: 4px; font-size: 8pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px;">🔍 Wordstat</a>
+                                <a href="https://yandex.ru/maps/?text=%D0%A0%D0%BE%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%B4%D0%BE%D0%BC%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA" target="_blank" class="proof-badge" style="background: rgba(251, 191, 36, 0.1); color: #d97706; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 8.5pt; font-weight: bold; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(251, 191, 36, 0.2);">📍 Яндекс.Карты</a>
                             </div>
+                            
                         </div>
                         
                         <div class="modal-section-col">
@@ -8814,6 +8896,24 @@ function closeBrandPassport(idx) {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
+    }
+}
+// Фильтрация карточек конкурентов на лету при вводе в поиск
+function filterCompetitors(query) {
+    var cards = document.querySelectorAll('.competitor-card');
+    var normalizedQuery = query.toLowerCase().trim();
+    
+    for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var nameEl = card.querySelector('.comp-card-name');
+        if (nameEl) {
+            var nameText = nameEl.textContent.toLowerCase();
+            if (nameText.indexOf(normalizedQuery) !== -1) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        }
     }
 }
 // Закрытие при клике вне модального контента
