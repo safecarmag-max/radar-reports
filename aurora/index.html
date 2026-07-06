@@ -1251,13 +1251,14 @@ body:not(.dark-mode) .price-bar-limit {
             </div>
         </div>
         
-        <!-- Селектор режимов просмотра -->
+        <!-- Селектор продуктов (тарифов) -->
         <div style="margin: 5px 0 10px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 6px; font-family: sans-serif;">
-            <div style="font-size: 8px; color: #94a3b8; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Режим просмотра:</div>
+            <div style="font-size: 8px; color: #94a3b8; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Продукт ИИ-Радар:</div>
             <select id="view-mode-selector" onchange="changeViewMode()" style="width: 100%; background: #1a1b1f; color: #fff; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 4px; font-size: 8pt; cursor: pointer; outline: none;">
-                <option value="all">👨‍💼 Маркетолог (Всё)</option>
-                <option value="owner">👔 Собственник (Сжатый)</option>
-                <option value="contractor">🛠️ Подрядчик (ТЗ)</option>
+                <option value="market_audit">📊 1. Общий анализ рынка</option>
+                <option value="target_audit" selected>🎯 2. Компания против рынка</option>
+                <option value="niche_entry">🚀 3. Открытие бизнеса</option>
+                <option value="franchise_eval">🏪 4. Оценка франшизы</option>
             </select>
         </div>
         
@@ -10518,8 +10519,41 @@ body:not(.dark-mode) .price-bar-limit {
     </div>
 </div>
 
+<!-- Модальное окно допродаж -->
+<div id="upsellModal" class="brand-passport-modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; font-family: sans-serif;">
+    <div class="brand-passport-modal-content" style="background-color: #1e293b; color: #fff; margin: auto; padding: 30px; border: 1px solid #334155; width: 90%; max-width: 460px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); position: relative; text-align: center;">
+        <span onclick="closeUpsellModal()" style="position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; color: #94a3b8; font-weight: bold;">&times;</span>
+        <div style="font-size: 44px; margin-bottom: 15px; display: inline-block;">🔒</div>
+        <h2 id="upsell-modal-title" style="margin-top: 0; color: #fbbf24; font-size: 13pt; border: none; padding: 0; font-weight: bold; margin-bottom: 10px;">Раздел заблокирован</h2>
+        <p id="upsell-modal-desc" style="font-size: 9pt; color: #cbd5e1; line-height: 1.5; margin: 10px 0 25px 0;">
+            Этот аналитический блок и интерактивные виджеты доступны только в рамках специального тарифа.
+        </p>
+        <a href="https://t.me/carmag_max" target="_blank" style="display: inline-block; background: #fbbf24; color: #121316; font-weight: bold; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 9.5pt; box-shadow: 0 4px 10px rgba(251,191,36,0.25); transition: background 0.2s;">
+            💬 Разблокировать тариф в Telegram
+        </a>
+    </div>
+</div>
+
 
 <script>
+function closeUpsellModal() {
+    var modal = document.getElementById('upsellModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function showUpsellModal(tierName) {
+    var modal = document.getElementById('upsellModal');
+    var title = document.getElementById('upsell-modal-title');
+    var desc = document.getElementById('upsell-modal-desc');
+    if (modal && title && desc) {
+        title.innerText = '🔒 Раздел заблокирован';
+        desc.innerText = 'Этот аналитический блок и интерактивные виджеты доступны только в тарифе «' + tierName + '». Вы можете моментально разблокировать этот и другие скрытые разделы.';
+        modal.style.display = 'flex';
+    }
+}
+
 function toggleChatWindow() {
     var win = document.getElementById('chatWindow');
     var badge = document.getElementById('chatBadge');
@@ -10589,41 +10623,59 @@ function changeViewMode() {
     var sections = document.querySelectorAll('section');
     var buttons = document.querySelectorAll('.sidebar-btn');
     
-    if (mode === 'all') {
-        sections.forEach(function(s) { s.style.display = ''; });
-        buttons.forEach(function(b) { b.style.display = ''; });
-    } else if (mode === 'owner') {
+    // Сброс блокировок кнопок
+    buttons.forEach(function(b) {
+        b.style.opacity = '';
+        b.title = '';
+        var tabId = b.id.replace('btn-', '');
+        b.setAttribute('onclick', "switchTab('" + tabId + "')");
+    });
+
+    if (mode === 'market_audit') {
         sections.forEach(function(s) {
-            if (s.id === 'market_pulse' || s.id === 'comp_table' || s.id === 'profit_advices') {
-                s.style.display = '';
-            } else {
-                s.style.display = 'none';
-            }
+            var show = ['market_pulse', 'comp_table', 'geo_density', 'financials', 'pricing', 'performance', 'security', 'seo_audit', 'ad_spy', 'cro_conversion', 'legal_check', 'sentiment', 'geo_ai_audit', 'smm_strategy', 'swot', 'benchmarks', 'collabs'];
+            s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
         });
         buttons.forEach(function(b) {
-            if (b.id === 'btn-tab-overview' || b.id === 'btn-tab-action-plan') {
-                b.style.display = '';
-            } else {
-                b.style.display = 'none';
+            if (b.id === 'btn-tab-ai-automation' || b.id === 'btn-tab-action-plan') {
+                b.style.opacity = '0.4';
+                b.title = 'Требуется тариф «Компания против рынка»';
+                b.setAttribute('onclick', "showUpsellModal('🎯 2. Компания против рынка')");
             }
         });
         switchTab('tab-overview');
-    } else if (mode === 'contractor') {
+    } else if (mode === 'target_audit') {
         sections.forEach(function(s) {
-            if (s.id === 'eeat_checklist' || s.id === 'cro_conversion' || s.id === 'omnichannel' || s.id === 'positioning' || s.id === 'profit_advices') {
-                s.style.display = '';
-            } else {
-                s.style.display = 'none';
-            }
+            var hide = ['market_entry', 'pestel'];
+            s.style.display = hide.indexOf(s.id) === -1 ? '' : 'none';
+        });
+        switchTab('tab-overview');
+    } else if (mode === 'niche_entry') {
+        sections.forEach(function(s) {
+            var show = ['market_entry', 'pestel', 'geo_density', 'pricing', 'financials', 'profit_advices'];
+            s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
         });
         buttons.forEach(function(b) {
-            if (b.id === 'btn-tab-overview' || b.id === 'btn-tab-marketing' || b.id === 'btn-tab-reputation' || b.id === 'btn-tab-action-plan') {
-                b.style.display = '';
-            } else {
-                b.style.display = 'none';
+            if (b.id !== 'btn-tab-overview' && b.id !== 'btn-tab-action-plan') {
+                b.style.opacity = '0.4';
+                b.title = 'Требуется тариф «Открытие бизнеса»';
+                b.setAttribute('onclick', "showUpsellModal('🚀 3. Открытие бизнеса')");
             }
         });
-        switchTab('tab-marketing');
+        switchTab('tab-overview');
+    } else if (mode === 'franchise_eval') {
+        sections.forEach(function(s) {
+            var show = ['comp_table', 'eeat_checklist', 'pricing', 'collabs', 'chatbot_automation'];
+            s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
+        });
+        buttons.forEach(function(b) {
+            if (b.id !== 'btn-tab-overview' && b.id !== 'btn-tab-reputation' && b.id !== 'btn-tab-ai-automation') {
+                b.style.opacity = '0.4';
+                b.title = 'Требуется тариф «Оценка франшизы»';
+                b.setAttribute('onclick', "showUpsellModal('🏪 4. Оценка франшизы')");
+            }
+        });
+        switchTab('tab-overview');
     }
 }
 </script>
