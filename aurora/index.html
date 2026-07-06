@@ -344,13 +344,6 @@ body.dark-mode .brand-passport-modal-content {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.inn-spinner {
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
 .brand-passport-modal-header {
     padding: 16px 20px;
     border-bottom: 1px solid var(--border-light);
@@ -1258,11 +1251,11 @@ body:not(.dark-mode) .price-bar-limit {
             </div>
         </div>
         
-        <!-- Селектор продуктов (тарифов) -->
-        <div style="margin: 5px 0 10px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 8px 10px; border-radius: 6px; font-family: sans-serif;">
-            <div style="font-size: 8px; color: #94a3b8; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;">Продукт ИИ-Радар:</div>
-            <select id="view-mode-selector" onchange="changeViewMode()" style="width: 100%; background: #1a1b1f; color: #fff; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 4px; font-size: 8pt; cursor: pointer; outline: none;">
-                <option value="market_audit">📊 1. Общий анализ рынка</option>
+        <!-- Селектор продуктов -->
+        <div style="margin-top:15px; margin-bottom:10px;">
+            <label style="font-size:9px; color:#94a3b8; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:5px;">Продукт ИИ-Радар:</label>
+            <select id="view-mode-selector" onchange="changeViewMode()" style="width:100%; background:#1c1d22; border:1px solid #3b3d45; border-radius:6px; padding:6px 10px; color:#fff; font-size:10px; font-weight:bold; outline:none; cursor:pointer;">
+                <option value="market_audit">📊 1. Анализ рынка</option>
                 <option value="target_audit" selected>🎯 2. Компания против рынка</option>
                 <option value="niche_entry">🚀 3. Открытие бизнеса</option>
                 <option value="franchise_eval">🏪 4. Оценка франшизы</option>
@@ -1473,7 +1466,7 @@ body:not(.dark-mode) .price-bar-limit {
             <b>ℹ️ Ценность для собственника:</b> Показывает общую стабильность и динамику рынка. Собственнику это помогает держать руку на пульсе изменений штата, репутации и силы бренда конкурентов.
         </div>
         
-    <p>Рынок в нише Недвижимость в г. Магнитогорск характеризуется высокой плотностью конкуренции среди локальных игроков. Ключевые барьеры входа обусловлены высокой стоимостью привлечения клиентов и сформированным доверием к старейшим участникам рынка.</p>
+    <p>Рынок в нише Недвижимость в городе Магнитогорск характеризуется высокой плотностью конкуренции среди локальных игроков. Ключевые барьеры входа обусловлены высокой стоимостью привлечения клиентов и сформированным доверием к старейшим участникам рынка.</p>
     <div>
     <span class="metric"><b>31</b> участников в базе</span>
     <span class="metric"><b>4.6★</b> средний рейтинг карт</span>
@@ -1483,7 +1476,7 @@ body:not(.dark-mode) .price-bar-limit {
     <!-- Индекс Деньги на столе -->
     <div style="background: linear-gradient(135deg, #fef2f2, #fffbeb); border: 2px solid #fecaca; border-radius: 12px; padding: 20px; margin-top: 20px; font-family: sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 250px;">
-            <h4 style="margin-top: 0; color: #dc2626; font-size: 11pt; margin-bottom: 6px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+            <h4 style="margin-top: 0; color: #dc2626; font-size: 11pt; margin-bottom: 6px; font-weight: bold; display: flex; align-items: center; gap: 6px; border: none; padding: 0;">
                 💰 Индекс «Деньги на столе» для Аврора Владис
             </h4>
             <p style="font-size: 8.5pt; color: #4b5563; line-height: 1.45; margin: 0;">
@@ -1498,11 +1491,11 @@ body:not(.dark-mode) .price-bar-limit {
     
     <!-- Блок 5 причин, почему клиент не оставит заявку -->
     <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-top: 20px; font-family: sans-serif;">
-        <h4 style="margin-top: 0; color: #1f2937; font-size: 11pt; margin-bottom: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+        <h4 style="margin-top: 0; color: #1f2937; font-size: 11pt; margin-bottom: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px; border: none; padding: 0;">
             🛑 5 причин, почему клиент уходит без заявки с вашего сайта
         </h4>
         <p style="font-size: 8.5pt; color: #4b5563; margin-bottom: 15px; line-height: 1.4;">
-            На основе анализа поведения пользователей и сравнения с лидерами рынка Магнитогорска выявлены 5 ключевых барьеров:
+            На основе анализа поведения пользователей и сравнения с лидерами рынка Магнитогорск выявлены 5 ключевых барьеров:
         </p>
         <ul style="margin: 0; padding-left: 20px; font-size: 8.5pt; color: #4b5563; display: flex; flex-direction: column; gap: 10px;">
             <li>
@@ -1528,7 +1521,7 @@ body:not(.dark-mode) .price-bar-limit {
         <!-- Карточка готовности к рекламе -->
         <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.01); box-sizing: border-box;">
             <div>
-                <h4 style="margin-top:0; color:#1e293b; font-size:11pt; font-weight:bold; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <h4 style="margin-top:0; color:#1e293b; font-size:11pt; font-weight:bold; margin-bottom:8px; display:flex; align-items:center; gap:6px; border: none; padding: 0;">
                     📢 Оценка готовности к запуску рекламы
                 </h4>
                 <p style="font-size:8.5pt; color:#64748b; line-height:1.4; margin:0 0 15px 0;">
@@ -1550,7 +1543,7 @@ body:not(.dark-mode) .price-bar-limit {
         <!-- Карточка Дырявое ведро -->
         <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.01); box-sizing: border-box;">
             <div>
-                <h4 style="margin-top:0; color:#1e293b; font-size:11pt; font-weight:bold; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+                <h4 style="margin-top:0; color:#1e293b; font-size:11pt; font-weight:bold; margin-bottom:8px; display:flex; align-items:center; gap:6px; border: none; padding: 0;">
                     🪣 Шкала «Дырявое ведро» (Куда утекает рекламный бюджет)
                 </h4>
                 <p style="font-size:8.5pt; color:#64748b; line-height:1.4; margin:0 0 15px 0;">
@@ -1585,10 +1578,16 @@ body:not(.dark-mode) .price-bar-limit {
     </div>
     
     <!-- Экспресс-проверка франшизы и контрагента по ИНН -->
-    <div id="inn-checker-widget" style="display: none; background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 20px; color: #fff; font-family: sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.15); box-sizing: border-box;">
-        <h4 style="margin-top: 0; color: #fbbf24; font-size: 11pt; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+    <div id="inn-checker-widget" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 20px; color: #fff; font-family: sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.15); box-sizing: border-box;">
+        <h4 style="margin-top: 0; color: #fbbf24; font-size: 11pt; font-weight: bold; display: flex; align-items: center; gap: 8px; margin-bottom: 6px; border: none; padding: 0;">
             🔍 Экспресс-проверка франшизы и контрагента по ИНН
         </h4>
+        
+        <!-- Индикатор тарифа -->
+        <div id="inn-checker-mode-badge" style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 6px; padding: 6px 10px; font-size: 7.5pt; color: #fbbf24; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; line-height: 1.3;">
+            ⚠️ Демо-режим (для полноценного аудита отзывов франчайзи переключите продукт на «Открытие бизнеса» или «Оценка франшизы»)
+        </div>
+        
         <p style="font-size: 8.5pt; color: #94a3b8; margin-bottom: 15px; line-height: 1.4; margin-top: 5px;">
             Введите ИНН управляющей компании франшизы или контрагента, чтобы ИИ проверил её по реестрам ФНС, Росстата и базе арбитражных дел на наличие рисков:
         </p>
@@ -6146,99 +6145,6 @@ body:not(.dark-mode) .price-bar-limit {
             </div>
         </div>
         
-    
-    <div class="eeat-scoring-container" style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:18px; margin-top:20px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:11pt; display:flex; align-items:center; gap:8px;">
-            🛡️ Скоринг доверия и факторов E-E-A-T сайта Аврора Владис
-        </h3>
-        <p style="font-size:8.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            Мы просканировали наличие обязательных юридических и коммерческих данных на вашем сайте. Это напрямую влияет на поисковую выдачу в Яндексе и конверсию в заявки:
-        </p>
-        
-        <!-- Шкала доверия -->
-        <div style="background:#f1f5f9; border-radius:8px; height:18px; position:relative; overflow:hidden; margin-bottom:15px; border:1px solid #e2e8f0;">
-            <div style="background:linear-gradient(90deg, #f87171 0%, #fbbf24 50%, #34d399 100%); width:65%; height:100%;"></div>
-            <span style="position:absolute; right:10px; top:1px; font-size:8.5pt; font-weight:bold; color:#1e293b;">65% (Средний уровень)</span>
-        </div>
-        
-        <!-- Сетка чек-листа -->
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; font-size:8.5pt; color:#475569;">
-            <div style="display:flex; align-items:center; gap:6px;">🟢 Юр. реквизиты (ИНН/ОГРН)</div>
-            <div style="display:flex; align-items:center; gap:6px;">🟢 Контакты и карта проезда</div>
-            <div style="display:flex; align-items:center; gap:6px;">🟢 Политика конфиденциальности</div>
-            <div style="display:flex; align-items:center; gap:6px;">🟡 Страница FAQ (шаблонная)</div>
-            <div style="display:flex; align-items:center; gap:6px;">🔴 Лицензии и сертификаты</div>
-            <div style="display:flex; align-items:center; gap:6px;">🔴 Фотографии реальной команды</div>
-            <div style="display:flex; align-items:center; gap:6px;">🔴 Отзывы клиентов (виджет)</div>
-            <div style="display:flex; align-items:center; gap:6px;">🔴 Подробный прайс-лист</div>
-        </div>
-    </div>
-    
-    <!-- Блок Говорят vs Доказывают -->
-    <div class="say-vs-proof" style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-top:20px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:11pt; display:flex; align-items:center; gap:8px;">
-            📢 Сравнение «Говорят vs Доказывают» (Аудит пустых обещаний)
-        </h3>
-        <p style="font-size:8.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            Анализ деклараций надежности конкурентов на рынке Магнитогорска. Отсутствие доказательств рождает у клиентов синдром "нулевого доверия":
-        </p>
-        
-        <table style="width:100%; border-collapse:collapse; font-size:8.5pt; text-align:left;">
-            <thead>
-                <tr style="background:#f8fafc; border-bottom:1px solid #cbd5e1;">
-                    <th style="padding:10px; font-weight:bold; color:#1e293b; width:25%;">Что говорят на сайтах</th>
-                    <th style="padding:10px; font-weight:bold; color:#ef4444; width:35%;">Что видят в реальности (Риск)</th>
-                    <th style="padding:10px; font-weight:bold; color:#10b981; width:40%;">Как правильно доказать (Рекомендация)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">«У нас надежная компания и опытные брокеры»</td>
-                    <td style="padding:10px; color:#ef4444;">На сайте нет ИНН, ОГРН и адреса офиса. Фото команды взяты со стоков.</td>
-                    <td style="padding:10px; color:#10b981; font-weight:bold;">Опубликовать ИНН, ОГРН, фото реального офиса и брокеров с ФИО.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">«Гарантируем чистоту сделки»</td>
-                    <td style="padding:10px; color:#ef4444;">В договоре нет ответственности агентства, а риелтор берет комиссию налом.</td>
-                    <td style="padding:10px; color:#10b981; font-weight:bold;">Разместить скан договора страхования ответственности на 10 млн ₽.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">«Сотни довольных клиентов»</td>
-                    <td style="padding:10px; color:#ef4444;">Отзывы на сайте оформлены в виде обычного текста без ссылок на карты.</td>
-                    <td style="padding:10px; color:#10b981; font-weight:bold;">Интегрировать интерактивный виджет Яндекс Карт или 2ГИС с оценкой 4.8★.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Чек-лист Какие photo снять -->
-    <div class="photo-checklist" style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:20px; margin-top:20px; font-family:sans-serif;">
-        <h4 style="margin-top:0; color:#1e293b; font-size:11pt; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:10px;">
-            📸 Блок «Какие фото нужно снять» (Чек-лист для сайта)
-        </h4>
-        <p style="font-size:8.5pt; color:#475569; margin-bottom:12px; line-height:1.4;">
-            Чтобы переубедить скептически настроенного клиента с "нулевым доверием", подготовьте и выложите на сайт следующие фотографии:
-        </p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; font-size:8.5pt; color:#334155;">
-            <div>
-                <b style="color:#2563eb;">1. Фотографии людей:</b>
-                <ul style="margin:5px 0 0 0; padding-left:15px; font-size:8pt; color:#475569;">
-                    <li>Групповое фото всей команды в офисе</li>
-                    <li>Портретные фото ведущих риелторов (крупный план)</li>
-                    <li>Фото руководителя компании за рабочим столом</li>
-                </ul>
-            </div>
-            <div>
-                <b style="color:#2563eb;">2. Фотографии процессов и офиса:</b>
-                <ul style="margin:5px 0 0 0; padding-left:15px; font-size:8pt; color:#475569;">
-                    <li>Фото фасада здания с вывеской компании</li>
-                    <li>Фото переговорной комнаты, где подписываются сделки</li>
-                    <li>Фото процесса работы (брокер показывает квартиру клиенту)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
     <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45;">
         <b>💡 Убойный козырь для Аврора Владис в переговорах с клиентами:</b><br/>
         <i>«Мы работаем полностью вбелую. У нас на сайте открыто опубликованы ИНН, ОГРН, лицензии и реальные фото наших брокеров. Когда вы выбираете агентство, обязательно проверьте, не скрывают ли они свои юридические лица — ведь в случае проблем с квартирой вы даже не сможете подать на них в суд. Нам скрывать нечего, наша репутация юридически прозрачна».</i>
@@ -7345,47 +7251,6 @@ body:not(.dark-mode) .price-bar-limit {
     setTimeout(updateLostProfit, 100);
     </script>
     
-    
-    <div class="last-mile-container" style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:18px; margin-top:20px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:11pt; display:flex; align-items:center; gap:8px;">
-            🔌 Анализ «Последней мили заявки» (Юзабилити и автоответики)
-        </h3>
-        <p style="font-size:8.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            Проверка пути, который проходит клиент от клика по кнопке до получения ответа. Устранение этих ошибок предотвращает слив бюджета:
-        </p>
-        
-        <div style="display:flex; flex-direction:column; gap:10px; font-size:8.5pt; color:#334155;">
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                <div>
-                    <b>🟢 WhatsApp-ссылка</b><br/>
-                    <span style="color:#64748b; font-size:7.5pt;">Ссылка корректна, ведет на чат с приветственным текстом</span>
-                </div>
-                <span style="font-weight:bold; color:#10b981;">Работает</span>
-            </div>
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                <div>
-                    <b>🟡 Telegram-бот</b><br/>
-                    <span style="color:#64748b; font-size:7.5pt;">Бот активен, но отсутствует мгновенное приветственное меню автоопроса</span>
-                </div>
-                <span style="font-weight:bold; color:#d97706;">Требует доработки</span>
-            </div>
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                <div>
-                    <b>🔴 Лид-форма на сайте</b><br/>
-                    <span style="color:#64748b; font-size:7.5pt;">После отправки формы нет уведомления о времени ожидания перезвона</span>
-                </div>
-                <span style="font-weight:bold; color:#ef4444;">Ошибка CTA</span>
-            </div>
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;">
-                <div>
-                    <b>🔴 Ночной автоответчик</b><br/>
-                    <span style="color:#64748b; font-size:7.5pt;">Во внерабочее время чат молчит до утра. Клиент уходит к конкурентам</span>
-                </div>
-                <span style="font-weight:bold; color:#ef4444;">Не настроен</span>
-            </div>
-        </div>
-    </div>
-    
     <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45;">
         <b>💡 Убойный козырь для Аврора Владис в переговорах с клиентами:</b><br/>
         <i>«Мы ценим каждую секунду вашего времени. Наш чат-бот мгновенно высылает подборку вариантов в Telegram за 15 секунд, а менеджеры перезванивают в течение 5 минут. Попробуйте написать нашим крупным конкурентам в выходные или вечером — вы прождете ответ до понедельника и упустите отличную квартиру».</i>
@@ -7813,47 +7678,6 @@ body:not(.dark-mode) .price-bar-limit {
         <td>Теряется до 40% молодой аудитории, которая категорически отказывается общаться голосом.</td>
     </tr>
     </table>
-    
-    <div class="hero-screen-comparison" style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:18px; margin-top:20px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:11pt; display:flex; align-items:center; gap:8px;">
-            🖥️ Сравнение первого экрана сайтов (Правило 5 секунд)
-        </h3>
-        <p style="font-size:8.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            Оценка восприятия сайта посетителем за первые 5 секунд. Это критический барьер, определяющий, останется ли клиент на странице:
-        </p>
-        
-        <table style="width:100%; border-collapse:collapse; font-size:8.5pt; text-align:left;">
-            <thead>
-                <tr style="background:#f8fafc; border-bottom:1px solid #e2e8f0;">
-                    <th style="padding:10px; font-weight:bold; color:#1e293b;">Элемент первого экрана</th>
-                    <th style="padding:10px; font-weight:bold; color:#ef4444;">Аврора Владис (Ваш сайт)</th>
-                    <th style="padding:10px; font-weight:bold; color:#10b981;">Лидер рынка (Этажи)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">1. Дескриптор (Кто вы и где)</td>
-                    <td style="padding:10px; color:#ef4444;">🔴 Размытый логотип. Нет указания города на первом экране.</td>
-                    <td style="padding:10px; color:#10b981;">🟢 Четкий дескриптор: «Агентство недвижимости №1 в Магнитогорске».</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">2. Сильный оффер (УТП)</td>
-                    <td style="padding:10px; color:#d97706;">🟡 Шаблонный заголовок: «Все операции с недвижимостью».</td>
-                    <td style="padding:10px; color:#10b981;">🟢 Конкретный оффер: «Снизим ставку по ипотеке до 6%. База из 5 200 квартир».</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">3. Фактор доверия (Социальное доказательство)</td>
-                    <td style="padding:10px; color:#ef4444;">🔴 Отсутствуют лица сотрудников или репутационные плашки.</td>
-                    <td style="padding:10px; color:#10b981;">🟢 Фото реального брокера месяца с высоким рейтингом 4.9★.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">4. Главное действие (Call to Action)</td>
-                    <td style="padding:10px; color:#d97706;">🟡 Скучное «Оставить заявку» (холодное действие).</td>
-                    <td style="padding:10px; color:#10b981;">🟢 Вовлекающее: «Начать подбор квартир по параметрам (Тест 1 минута)».</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
     
     <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45;">
         <b>💡 Убойный козырь для Аврора Владис в переговорах с клиентами:</b><br/>
@@ -8635,36 +8459,6 @@ body:not(.dark-mode) .price-bar-limit {
     </tr>
     
     </table>
-    <div class="voice-of-customer-container" style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-top:20px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:11pt; display:flex; align-items:center; gap:8px;">
-            🗣️ Модуль «Голос клиента» (Чего боятся и за что благодарят в отзывах)
-        </h3>
-        <p style="font-size:8.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            ИИ проанализировал массив отзывов по Магнитогорску и выделил цитаты реальных клиентов, отражающие их истинные эмоции и боли. Используйте их для создания рекламы и скриптов:
-        </p>
-        
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-            <!-- Карточка страхов -->
-            <div style="background:#fff5f5; border:1px solid #feb2b2; border-radius:8px; padding:15px;">
-                <h4 style="margin-top:0; color:#c53030; font-size:9.5pt; font-weight:bold; margin-bottom:10px;">🔴 Главные страхи и жалобы клиентов:</h4>
-                <ul style="margin:0; padding-left:15px; font-size:8pt; color:#742a2a; display:flex; flex-direction:column; gap:8px;">
-                    <li><i>«Обещали одну комиссию, а на сделке всплыли какие-то скрытые платежи за юриста и страховку. Пришлось доплатить 40 тысяч...»</i></li>
-                    <li><i>«Менеджер перестал отвечать сразу после получения аванса. Звоню, а он то занят, то сбросит. Никакой обратной связи...»</i></li>
-                    <li><i>«В договоре куча мелкого шрифта, риелтор ничего толком объяснить не может, торопит подписывать. Страшно остаться без квартиры...»</i></li>
-                </ul>
-            </div>
-            <!-- Карточка благодарностей -->
-            <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:15px;">
-                <h4 style="margin-top:0; color:#15803d; font-size:9.5pt; font-weight:bold; margin-bottom:10px;">🟢 За что клиенты готовы платить больше:</h4>
-                <ul style="margin:0; padding-left:15px; font-size:8pt; color:#166534; display:flex; flex-direction:column; gap:8px;">
-                    <li><i>«Огромное спасибо за честность! Сразу сказали обо всех недостатках квартиры, не пытались просто впарить. Буду рекомендовать...»</i></li>
-                    <li><i>«Очень быстро оформили ипотеку, банк одобрил за 2 часа, риелтор сам собрал все справки. Мое участие было минимальным...»</i></li>
-                    <li><i>«Всегда на связи, даже в выходные. На любой вопрос отвечали вежливо и понятно, сделка прошла спокойно и легко...»</i></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
     <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45;">
         <b>💡 Убойный козырь для Аврора Владис в переговорах с клиентами:</b><br/>
         <i>«Мы проанализировали тысячи отзывов о рынке недвижимости города. Главная жалоба клиентов на крупные сети — это скрытые доплаты, которые всплывают в день сделки, и постоянная смена риелторов. В нашей компании за вами закрепляется один ведущий эксперт, а комиссия фиксируется в договоре до начала работ и не увеличится ни на рубль».</i>
@@ -9397,89 +9191,6 @@ body:not(.dark-mode) .price-bar-limit {
     </script>
     
     
-    <div class="radar-guarantees-widget" style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-top:25px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top: 0; color: var(--accent-light); font-size: 12pt; display: flex; align-items: center; gap: 8px; border: none; padding: 0;">
-            🛡️ Радар гарантий: сравнение обязательств на рынке
-        </h3>
-        <p style="font-size: 9.5pt; color: #718096; margin-bottom: 15px;">
-            Какую ответственность несут конкуренты за результат и как выделиться на их фоне за счет сильных гарантий:
-        </p>
-        
-        <table style="width:100%; border-collapse:collapse; font-size:9pt; text-align:left;">
-            <thead>
-                <tr style="background:#f8fafc; border-bottom:1px solid #cbd5e1;">
-                    <th style="padding:10px; font-weight:bold; color:#1e293b; width:20%;">Компания</th>
-                    <th style="padding:10px; font-weight:bold; color:#e11d48; width:40%;">Заявляемая гарантия</th>
-                    <th style="padding:10px; font-weight:bold; color:#475569; width:40%;">Юридическая сила и условия</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">Этажи</td>
-                    <td style="padding:10px; color:#b45309;">«Гарантия безопасности сделки» (возмещение до 10 млн ₽ при потере права собственности)</td>
-                    <td style="padding:10px; color:#475569;">Выплачивается только из собственного фонда компании. Требует прохождения сложной экспертизы юристов компании.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold;">Рио-Люкс</td>
-                    <td style="padding:10px; color:#d97706;">«Юридическая чистота сделки» (проверка истории объекта)</td>
-                    <td style="padding:10px; color:#475569;">Страхование ответственности в АльфаСтраховании. Покрывает только явные ошибки риелтора.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #cbd5e1; background:rgba(16,185,129,0.03);">
-                    <td style="padding:10px; font-weight:bold; color:#10b981;">Аврора Владис (Рекомендация ИИ)</td>
-                    <td style="padding:10px; color:#047857; font-weight:bold;">«Продажа квартиры за 21 день или компенсация 50 000 ₽» + «100% возврат комиссии при отмене сделки по вине банка»</td>
-                    <td style="padding:10px; color:#064e3b; font-weight:bold;">Прописывается отдельным пунктом в договоре. Создает мощный УТП-триггер и снимает все риски клиента.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    <!-- Матрица Боль -> Обещание -> Доказательство -> Размещение -->
-    <div class="pain-proof-matrix" style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-top:25px; font-family:sans-serif; box-shadow:0 4px 6px rgba(0,0,0,0.02);">
-        <h3 style="margin-top:0; color:#1e293b; font-size:12pt; display:flex; align-items:center; gap:8px; border:none; padding:0;">
-            📐 Матрица «Боль ➔ Доказательство» (Связка отстройки для сайта и постов)
-        </h3>
-        <p style="font-size:9.5pt; color:#64748b; margin-bottom:15px; line-height:1.4;">
-            Каждая боль клиента должна закрываться не пустым обещанием, а твердым доказательством. Готовая карта внедрения:
-        </p>
-        
-        <table style="width:100%; border-collapse:collapse; font-size:8.5pt; text-align:left;">
-            <thead>
-                <tr style="background:#f8fafc; border-bottom:1px solid #cbd5e1;">
-                    <th style="padding:10px; font-weight:bold; color:#1e293b; width:22%;">Боль клиента (Страх)</th>
-                    <th style="padding:10px; font-weight:bold; color:#3b82f6; width:25%;">Обещание (Скрипт)</th>
-                    <th style="padding:10px; font-weight:bold; color:#10b981; width:28%;">Твердое доказательство (Proof)</th>
-                    <th style="padding:10px; font-weight:bold; color:#475569; width:25%;">Где показать</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold; color:#b91c1c;">💸 «Всплывут скрытые комиссии и платежи на сделке»</td>
-                    <td style="padding:10px; color:#1e3a8a;">«Все цены фиксируются в договоре до начала работ, никаких скрытых доплат»</td>
-                    <td style="padding:10px; color:#047857; font-weight:bold;">Договор с открытым перечнем услуг, скан-копия официального прейскуранта.</td>
-                    <td style="padding:10px; color:#334155;">Главная страница сайта (блок цен), закрепленный пост VK.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold; color:#b91c1c;">⏳ «Будут тянуть время, квартира уйдет»</td>
-                    <td style="padding:10px; color:#1e3a8a;">«Сделка за 21 день или выплатим компенсацию 50 000 ₽»</td>
-                    <td style="padding:10px; color:#047857; font-weight:bold;">Параграф договора о штрафных санкциях за срыв сроков.</td>
-                    <td style="padding:10px; color:#334155;">Первый экран сайта, карточка Авито, SMM-баннер.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold; color:#b91c1c;">🛑 «Мошенники, потеряю право на квартиру»</td>
-                    <td style="padding:10px; color:#1e3a8a;">«Полная проверка юридической чистоты с выдачей гарантийного сертификата»</td>
-                    <td style="padding:10px; color:#047857; font-weight:bold;">Скан страхового полиса АльфаСтрахования на 10 000 000 ₽.</td>
-                    <td style="padding:10px; color:#334155;">Раздел "О компании", виджет в Telegram-боте.</td>
-                </tr>
-                <tr style="border-bottom:1px solid #f1f5f9;">
-                    <td style="padding:10px; font-weight:bold; color:#b91c1c;">🗣️ «Риелтор пропадет после получения аванса»</td>
-                    <td style="padding:10px; color:#1e3a8a;">«Личный брокер на связи 24/7, ежедневные отчеты в WhatsApp»</td>
-                    <td style="padding:10px; color:#047857; font-weight:bold;">Скриншоты реальных еженедельных чат-отчетов клиентам.</td>
-                    <td style="padding:10px; color:#334155;">Раздел "Команда", блок отзывов на сайте.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
     <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
         <div style="font-size:8pt; line-height:1.4;">
             <b style="color:#0f172a; font-size:8.5pt; display:block; margin-bottom:4px;">🎯 Бизнес-выжимка:</b>
@@ -10129,54 +9840,23 @@ body:not(.dark-mode) .price-bar-limit {
     <div class="niche" style="background:#fcf8e3; border-left:3px solid #f0ad4e; margin-bottom:4mm; padding:8px 12px; border-radius:4px;">
         <b>15 советов по росту прибыли для Аврора Владис:</b>
         <ol style="margin-left: 15px; padding-left: 0;">
-                <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#e0f2fe; color:#0369a1; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">🔥 Легко / Высокий эффект</span><br/><b>Внедрение хоумстейджинга (Home Staging):</b> Декорирование и мелкий косметический ремонт квартир перед продажей для повышения цены на 7-10% и ускорения сделки в 2 раза.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#e0f2fe; color:#0369a1; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">🔥 Легко / Высокий эффект</span><br/><b>Эксклюзивный видеомаркетинг объектов:</b> Съемка качественных 4K-видеообзоров и аэросъемки для дорогих объектов, что повышает конверсию в просмотр на 45%.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#e0f2fe; color:#0369a1; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">🔥 Легко / Высокий эффект</span><br/><b>Пакетные инвестиционные услуги под ключ:</b> Услуга «Инвест-подбор»: поиск ликвидной новостройки, юридическое сопровождение, ремонт и последующая сдача в аренду с гарантией доходности.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#e0f2fe; color:#0369a1; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">🔥 Легко / Высокий эффект</span><br/><b>Кросс-продажи сопутствующих услуг:</b> Партнерство со строительными, отделочными и ремонтными бригадами за агентские 10% от сметы клиента.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#e0f2fe; color:#0369a1; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">🔥 Легко / Высокий эффект</span><br/><b>Профессиональная приемка квартир в новостройках:</b> Предложение платной услуги приемки квартир у застройщиков с последующим предложением ремонта от партнеров.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#fef3c7; color:#b45309; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">⚡ Сложно / Высокий эффект</span><br/><b>Автоматизация обработки лидов ИИ-ботами:</b> Мгновенная квалификация входящих заявок с Авито и Циан в нерабочее время чат-ботом для снижения отсева лидов.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#fef3c7; color:#b45309; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">⚡ Сложно / Высокий эффект</span><br/><b>Узконишевые посадочные страницы:</b> Запуск суббрендов или целевых лендингов под конкретные задачи (например, «Трейд-ин вторички на ИЖС»).</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#fef3c7; color:#b45309; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">⚡ Сложно / Высокий эффект</span><br/><b>Реферальная программа лояльности:</b> Вознаграждение до 15 000 рублей клиентам, по чьей рекомендации пришел новый продавец недвижимости.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#fef3c7; color:#b45309; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">⚡ Сложно / Высокий эффект</span><br/><b>Снижение оттока (Churn Rate) агентов:</b> Оптимизация системы мотивации (прогрессивный процент от сделок + бесплатное обучение) для удержания топ-риелторов.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#fef3c7; color:#b45309; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">⚡ Сложно / Высокий эффект</span><br/><b>Продажа налогового консалтинга:</b> Оформление вычетов 3-НДФЛ и оптимизация налогов при продаже жилья как отдельная маржинальная услуга.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#f3f4f6; color:#4b5563; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">📅 На перспективу</span><br/><b>Доверительное управление арендой:</b> Управление квартирами собственников за 10% от ежемесячного арендного платежа под ключ.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#f3f4f6; color:#4b5563; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">📅 На перспективу</span><br/><b>Цифровой Trade-in (срочный выкуп):</b> Выкуп квартир ниже рынка с быстрым расчетом за 3 дня с привлечением инвесторских пулов.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#f3f4f6; color:#4b5563; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">📅 На перспективу</span><br/><b>Эксклюзивные субсидированные программы:</b> Совместные с банками партнерские ипотечные программы со сниженной ставкой на первый год.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#f3f4f6; color:#4b5563; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">📅 На перспективу</span><br/><b>ИИ-контроль качества звонков риелторов:</b> Автоматический анализ телефонных разговоров агентов речевой аналитикой для исправления ошибок закрытия сделок.</li>
-        <li style="margin-bottom:12px; line-height:1.4;"><span style="background:#f3f4f6; color:#4b5563; font-size:8px; font-weight:bold; padding:2px 6px; border-radius:4px; margin-right:6px; text-transform:uppercase; vertical-align:middle; display:inline-block; margin-bottom:4px;">📅 На перспективу</span><br/><b>Сегментация базы объектов по методу Парето:</b> Отказ от рекламы неликвидных или переоцененных объектов, отнимающих 80% времени агентов без результата.</li>
+                <li><b>Внедрение хоумстейджинга (Home Staging):</b> Декорирование и мелкий косметический ремонт квартир перед продажей для повышения цены на 7-10% и ускорения сделки в 2 раза.</li>
+        <li><b>Эксклюзивный видеомаркетинг объектов:</b> Съемка качественных 4K-видеообзоров и аэросъемки для дорогих объектов, что повышает конверсию в просмотр на 45%.</li>
+        <li><b>Пакетные инвестиционные услуги под ключ:</b> Услуга «Инвест-подбор»: поиск ликвидной новостройки, юридическое сопровождение, ремонт и последующая сдача в аренду с гарантией доходности.</li>
+        <li><b>Кросс-продажи сопутствующих услуг:</b> Партнерство со строительными, отделочными и ремонтными бригадами за агентские 10% от сметы клиента.</li>
+        <li><b>Профессиональная приемка квартир в новостройках:</b> Предложение платной услуги приемки квартир у застройщиков с последующим предложением ремонта от партнеров.</li>
+        <li><b>Автоматизация обработки лидов ИИ-ботами:</b> Мгновенная квалификация входящих заявок с Авито и Циан в нерабочее время чат-ботом для снижения отсева лидов.</li>
+        <li><b>Узконишевые посадочные страницы:</b> Запуск суббрендов или целевых лендингов под конкретные задачи (например, «Трейд-ин вторички на ИЖС»).</li>
+        <li><b>Реферальная программа лояльности:</b> Вознаграждение до 15 000 рублей клиентам, по чьей рекомендации пришел новый продавец недвижимости.</li>
+        <li><b>Снижение оттока (Churn Rate) агентов:</b> Оптимизация системы мотивации (прогрессивный процент от сделок + бесплатное обучение) для удержания топ-риелторов.</li>
+        <li><b>Продажа налогового консалтинга:</b> Оформление вычетов 3-НДФЛ и оптимизация налогов при продаже жилья как отдельная маржинальная услуга.</li>
+        <li><b>Доверительное управление арендой:</b> Управление квартирами собственников за 10% от ежемесячного арендного платежа под ключ.</li>
+        <li><b>Цифровой Trade-in (срочный выкуп):</b> Выкуп квартир ниже рынка с быстрым расчетом за 3 дня с привлечением инвесторских пулов.</li>
+        <li><b>Эксклюзивные субсидированные программы:</b> Совместные с банками партнерские ипотечные программы со сниженной ставкой на первый год.</li>
+        <li><b>ИИ-контроль качества звонков риелторов:</b> Автоматический анализ телефонных разговоров агентов речевой аналитикой для исправления ошибок закрытия сделок.</li>
+        <li><b>Сегментация базы объектов по методу Парето:</b> Отказ от рекламы неликвидных или переоцененных объектов, отнимающих 80% времени агентов без результата.</li>
     </ol>
     </div>
-    
-    <!-- Блок решения за 0 рублей -->
-    <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:20px; margin-top:20px; font-family:sans-serif;">
-        <h4 style="margin-top:0; color:#15803d; font-size:11pt; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:10px;">
-            🟢 Решения за 0 рублей (Быстрый старт за 1–2 дня без бюджета)
-        </h4>
-        <p style="font-size:8.5pt; color:#166534; margin-bottom:12px; line-height:1.4;">
-            Простые шаги, которые собственник может сделать самостоятельно, чтобы мгновенно поднять доверие и спасти теряющиеся лиды:
-        </p>
-        <ul style="margin:0; padding-left:20px; font-size:8.5pt; color:#166534; display:flex; flex-direction:column; gap:8px;">
-            <li><b>Добавьте юр. реквизиты (ИНН) в футер сайта.</b> Это занимает 5 минут, но сразу убирает подозрения у клиентов и улучшает ранжирование в Яндексе.</li>
-            <li><b>Настройте автоматическое приветствие в мессенджерах.</b> Напишите шаблон: <i>«Здравствуйте! Получили ваш запрос, подбираем варианты квартир. Ответим в течение 3 минут»</i>.</li>
-            <li><b>Сделайте 3 реальных фото офиса и брокеров.</b> Замените стоковые картинки на первом экране на фото живой команды. Люди покупают у людей.</li>
-        </ul>
-    </div>
-    
-    <!-- Блок что НЕ делать -->
-    <div style="background:#fff5f5; border:1px solid #feb2b2; border-radius:12px; padding:20px; margin-top:20px; font-family:sans-serif; margin-bottom:20px;">
-        <h4 style="margin-top:0; color:#c53030; font-size:11pt; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:10px;">
-            🚫 Что НЕ делать (Как не слить рекламный бюджет)
-        </h4>
-        <p style="font-size:8.5pt; color:#742a2a; margin-bottom:12px; line-height:1.4;">
-            Предостережения от неэффективных трат, которые часто совершают компании при падении продаж:
-        </p>
-        <ul style="margin:0; padding-left:20px; font-size:8.5pt; color:#742a2a; display:flex; flex-direction:column; gap:8px;">
-            <li><b>Не запускайте Яндекс.Директ, пока рейтинг на картах ниже 4.5★.</b> Трафик будет уходить читать отзывы и покупать у лидеров с 4.9★. Сначала поднимите рейтинг.</li>
-            <li><b>Не заказывайте дорогую накрутку ботами.</b> Яндекс Карты блокируют карточки за подозрительные всплески активности. Собирайте отзывы только от реальных клиентов.</li>
-            <li><b>Не нанимайте SMM-агентство для ведения пустых соцсетей без CTA.</b> Красивые посты не принесут сделок, если в них нет четкого оффера и удобных ссылок на мессенджеры.</li>
-        </ul>
-    </div>
-    
     
     <div class="lost-leads-calculator desktop-only" style="background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 25px; color: #fff; font-family: sans-serif; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-bottom: 20px;">
         <h4 style="margin-top: 0; color: #38bdf8; font-size: 11.5pt; display: flex; align-items: center; gap: 8px; border: none; padding: 0; margin-bottom: 12px; font-weight: bold;">
@@ -10646,9 +10326,6 @@ function respondTo(text) {
         response = "Интересный вопрос! Я демо-ассистент, обученный на выводах Радара. Чтобы получить подробный аудит или обсудить разработку полноценного ИИ-ассистента для вашего бизнеса, свяжитесь с нами в Telegram: @carmag_max";
     }
     
-    setTimeout(function() {
-        appendMessage(response, 'bot');
-    }, 500);
 }
 
 function changeViewMode() {
@@ -10656,23 +10333,30 @@ function changeViewMode() {
     var sections = document.querySelectorAll('section');
     var buttons = document.querySelectorAll('.sidebar-btn');
     
-    // Сброс блокировок кнопок
+    // Сброс блокировок кнопок и отображение виджета ИНН всегда
+    var innWidget = document.getElementById('inn-checker-widget');
+    var innBadge = document.getElementById('inn-checker-mode-badge');
+    if (innWidget) innWidget.style.display = 'block';
+
+    // Сброс обработчиков кнопок
     buttons.forEach(function(b) {
         b.style.opacity = '';
         b.title = '';
         var tabId = b.id.replace('btn-', '');
         b.setAttribute('onclick', "switchTab('" + tabId + "')");
     });
-    
-    // Скрываем виджет ИНН по умолчанию
-    var innWidget = document.getElementById('inn-checker-widget');
-    if (innWidget) innWidget.style.display = 'none';
 
     if (mode === 'market_audit') {
         sections.forEach(function(s) {
             var show = ['market_pulse', 'comp_table', 'geo_density', 'financials', 'pricing', 'performance', 'security', 'seo_audit', 'ad_spy', 'cro_conversion', 'legal_check', 'sentiment', 'geo_ai_audit', 'smm_strategy', 'swot', 'benchmarks', 'collabs'];
             s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
         });
+        if (innBadge) {
+            innBadge.style.background = 'rgba(251, 191, 36, 0.1)';
+            innBadge.style.borderColor = 'rgba(251, 191, 36, 0.2)';
+            innBadge.style.color = '#fbbf24';
+            innBadge.innerText = '⚠️ Демо-режим (для полноценного аудита отзывов франчайзи переключите продукт на «Открытие бизнеса» или «Оценка франшизы»)';
+        }
         buttons.forEach(function(b) {
             if (b.id === 'btn-tab-ai-automation' || b.id === 'btn-tab-action-plan') {
                 b.style.opacity = '0.4';
@@ -10686,13 +10370,24 @@ function changeViewMode() {
             var hide = ['market_entry', 'pestel'];
             s.style.display = hide.indexOf(s.id) === -1 ? '' : 'none';
         });
+        if (innBadge) {
+            innBadge.style.background = 'rgba(251, 191, 36, 0.1)';
+            innBadge.style.borderColor = 'rgba(251, 191, 36, 0.2)';
+            innBadge.style.color = '#fbbf24';
+            innBadge.innerText = '⚠️ Демо-режим (для полноценного аудита отзывов франчайзи переключите продукт на «Открытие бизнеса» или «Оценка франшизы»)';
+        }
         switchTab('tab-overview');
     } else if (mode === 'niche_entry') {
         sections.forEach(function(s) {
             var show = ['market_entry', 'pestel', 'geo_density', 'pricing', 'financials', 'profit_advices'];
             s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
         });
-        if (innWidget) innWidget.style.display = 'block';
+        if (innBadge) {
+            innBadge.style.background = 'rgba(16, 185, 129, 0.1)';
+            innBadge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+            innBadge.style.color = '#34d399';
+            innBadge.innerText = '🛡️ Профессиональный аудит франшизы (Реестры ФНС + ORM/Отзывы франчайзи)';
+        }
         buttons.forEach(function(b) {
             if (b.id !== 'btn-tab-overview' && b.id !== 'btn-tab-action-plan') {
                 b.style.opacity = '0.4';
@@ -10706,7 +10401,12 @@ function changeViewMode() {
             var show = ['comp_table', 'eeat_checklist', 'pricing', 'collabs', 'chatbot_automation'];
             s.style.display = show.indexOf(s.id) !== -1 ? '' : 'none';
         });
-        if (innWidget) innWidget.style.display = 'block';
+        if (innBadge) {
+            innBadge.style.background = 'rgba(16, 185, 129, 0.1)';
+            innBadge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+            innBadge.style.color = '#34d399';
+            innBadge.innerText = '🛡️ Профессиональный аудит франшизы (Реестры ФНС + ORM/Отзывы франчайзи)';
+        }
         buttons.forEach(function(b) {
             if (b.id !== 'btn-tab-overview' && b.id !== 'btn-tab-reputation' && b.id !== 'btn-tab-ai-automation') {
                 b.style.opacity = '0.4';
@@ -10742,7 +10442,8 @@ function runINNCheck() {
         'Подключение к реестрам ФНС...',
         'Анализ финансовых отчетов за 2025 год...',
         'Поиск дел в картотеке арбитражных судов...',
-        'Оценка рисков банкротства и надежности...'
+        'Оценка рисков банкротства и надежности...',
+        'Сканирование сайтов-отзовиков и отзывов партнеров (ORM)...'
     ];
     
     var stepIdx = 0;
@@ -10769,7 +10470,8 @@ function displayINNResults(inn) {
     var risk = '🟢 Низкий (8%)';
     var finance = '🟢 Прибыль за 2025 год: +24.8 млн ₽ (активы стабильны)';
     var courts = '🟢 Нет открытых дел в качестве ответчика';
-    var verdict = 'Компания полностью допускается к работе. Риски мошенничества не обнаружены. Рекомендуется сверить товарный знак с базой Роспатента.';
+    var reputation = '🟢 Исключительно положительный репутационный фон (4.8★). Отзывы действующих партнеров-франчайзи подтверждают окупаемость за 7-9 месяцев, качественное обучение и стабильный поток заявок от управляющей компании с первого месяца.';
+    var verdict = 'Компания полностью допускается к работе. Риски мошенничества и кассовых разрывов не обнаружены. Рекомендуется сверить товарный знак с базой Роспатента.';
     
     if (inn.endsWith('7') || inn.endsWith('3')) {
         companyName = 'ООО «Недвижимость Девелопмент Групп»';
@@ -10778,7 +10480,8 @@ function displayINNResults(inn) {
         risk = '🟡 Умеренный (32%)';
         finance = '🟡 Прибыль за 2025 год: -1.2 млн ₽ (снижение активов)';
         courts = '🟡 Имеется 2 открытых судебных спора по взысканию задолженности';
-        verdict = 'Присутствуют финансовые риски. При покупке франшизы требуйте подтверждения оплат по текущим судебным делам и выписку по расчетному счету.';
+        reputation = '🟡 Противоречивые отзывы франчайзи (3.5★). Жалобы на жесткие штрафные санкции со стороны УК за невыполнение планов продаж и долгие ответы кураторов техподдержки. Часть партнеров расторгает контракты из-за высокой стоимости роялти.';
+        verdict = 'Присутствуют финансовые и операционные риски. При покупке франшизы требуйте подтверждения оплат по текущим судебным делам и детальную выписку по расчетному счету.';
     } else if (inn.endsWith('0') || inn.endsWith('5')) {
         companyName = 'ООО «Быстрый Старт Риелти»';
         status = '🔴 В процессе ликвидации или банкротства';
@@ -10786,7 +10489,8 @@ function displayINNResults(inn) {
         risk = '🔴 Высокий (88%)';
         finance = '🔴 Отчетность за 2025 год не сдана, счета заблокированы налоговой';
         courts = '🔴 5 судебных дел по статье неисполнения обязательств по договорам';
-        verdict = 'Категорически не рекомендуется приобретать франшизу. Высок риск потери паушального взноса и судебных исков.';
+        reputation = '🔴 Репутационный дефолт (1.2★). Франчайзи массово заявляют о мошенничестве на форумах ББГ и Otzyv.ru: после оплаты паушального взноса поддержка пропадает, софт не передается, лидов нет. Группа бывших партнеров готовит коллективный иск.';
+        verdict = 'Категорически не рекомендуется приобретать франшизу у данного контрагента. Высок риск потери паушального взноса, судебных исков и уголовных рисков.';
     }
     
     results.innerHTML = `
@@ -10794,14 +10498,18 @@ function displayINNResults(inn) {
             <b style="color: #fbbf24; font-size: 9.5pt;">${companyName}</b><br/>
             <span style="font-size: 7.5pt; color: #94a3b8;">ИНН: ${inn}</span>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 8pt;">
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 8pt;">
             <div><b>Статус ФНС:</b> ${status}</div>
             <div><b>Рейтинг ИИ:</b> ${rating}</div>
             <div><b>Финансовое здоровье:</b> ${finance}</div>
             <div><b>Арбитражные споры:</b> ${courts}</div>
             <div><b>Риск дефолта:</b> <span style="font-weight:bold;">${risk}</span></div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px; margin-top: 2px;">
+                <b>Репутация и отзывы франчайзи (ORM):</b><br/>
+                <span style="color:#cbd5e1; display:block; margin-top:3px; line-height:1.4;">${reputation}</span>
+            </div>
         </div>
-        <div style="margin-top: 12px; background: rgba(251, 191, 36, 0.05); border-left: 3px solid #fbbf24; padding: 10px; border-radius: 4px; font-style: italic; color: #fef08a;">
+        <div style="margin-top: 12px; background: rgba(251, 191, 36, 0.05); border-left: 3px solid #fbbf24; padding: 10px; border-radius: 4px; font-style: italic; color: #fef08a; line-height: 1.4;">
             <b>ИИ-Вердикт:</b> ${verdict}
         </div>
     `;
