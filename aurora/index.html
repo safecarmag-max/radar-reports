@@ -10525,10 +10525,8 @@ function runINNCheck() {
                 var idx = text.indexOf(lbl);
                 if (idx !== -1) {
                     var start = idx + lbl.length;
-                    var end = text.indexOf('
-', start);
-                    if (end === -1) end = text.indexOf('
-', start);
+                    var end = text.indexOf('\n', start);
+                    if (end === -1) end = text.indexOf('\r', start);
                     if (end !== -1) {
                         director = text.substring(start, end).trim();
                     } else {
@@ -10542,10 +10540,8 @@ function runINNCheck() {
             var addrIdx = text.indexOf('Юридический адрес:');
             if (addrIdx !== -1) {
                 var start = addrIdx + 'Юридический адрес:'.length;
-                var end = text.indexOf('
-', start);
-                if (end === -1) end = text.indexOf('
-', start);
+                var end = text.indexOf('\n', start);
+                if (end === -1) end = text.indexOf('\r', start);
                 if (end !== -1) {
                     address = text.substring(start, end).trim();
                 } else {
@@ -10557,10 +10553,8 @@ function runINNCheck() {
             var capIdx = text.indexOf('Уставной капитал:');
             if (capIdx !== -1) {
                 var start = capIdx + 'Уставной капитал:'.length;
-                var end = text.indexOf('
-', start);
-                if (end === -1) end = text.indexOf('
-', start);
+                var end = text.indexOf('\n', start);
+                if (end === -1) end = text.indexOf('\r', start);
                 if (end !== -1) {
                     capital = text.substring(start, end).trim();
                 } else {
@@ -10572,10 +10566,8 @@ function runINNCheck() {
             var ogrnIdx = text.indexOf('ОГРН:');
             if (ogrnIdx !== -1) {
                 var start = ogrnIdx + 'ОГРН:'.length;
-                var end = text.indexOf('
-', start);
-                if (end === -1) end = text.indexOf('
-', start);
+                var end = text.indexOf('\n', start);
+                if (end === -1) end = text.indexOf('\r', start);
                 var rawOgrn = (end !== -1) ? text.substring(start, end) : text.substring(start);
                 ogrn = rawOgrn.replace(/\D/g, '').trim();
             }
@@ -10584,10 +10576,8 @@ function runINNCheck() {
             var revIdx = text.indexOf('Выручка:');
             if (revIdx !== -1) {
                 var start = revIdx + 'Выручка:'.length;
-                var end = text.indexOf('
-', start);
-                if (end === -1) end = text.indexOf('
-', start);
+                var end = text.indexOf('\n', start);
+                if (end === -1) end = text.indexOf('\r', start);
                 if (end !== -1) {
                     revenue = text.substring(start, end).trim();
                 } else {
