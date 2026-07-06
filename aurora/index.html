@@ -8919,15 +8919,15 @@ body:not(.dark-mode) .price-bar-limit {
         container.innerHTML = `
             <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 12px; border-radius: 6px;">
                 <b style="color: #ef4444; font-size: 10pt;">🧠 Истинный страх клиента:</b>
-                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; color: inherit;">\${obj.fear}</p>
+                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; color: inherit;">${obj.fear}</p>
             </div>
             <div style="background: rgba(59, 130, 246, 0.05); border-left: 4px solid #3b82f6; padding: 12px; border-radius: 6px;">
                 <b style="color: #3b82f6; font-size: 10pt;">🗣️ Речевой скрипт отработки:</b>
-                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; font-style: italic; color: inherit;">"\${obj.script}"</p>
+                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; font-style: italic; color: inherit;">"${obj.script}"</p>
             </div>
             <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px;">
                 <b style="color: #10b981; font-size: 10pt;">📊 ИИ-козырь (доказательный аргумент):</b>
-                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; font-weight: bold; color: inherit;">\${obj.proof}</p>
+                <p style="margin: 5px 0 0 0; font-size: 9.5pt; line-height: 1.4; font-weight: bold; color: inherit;">${obj.proof}</p>
             </div>
         `;
         document.getElementById('objection-user-answer').value = '';
@@ -9019,18 +9019,18 @@ body:not(.dark-mode) .price-bar-limit {
         
         const builderDiv = document.getElementById('ad-builder-details');
         builderDiv.innerHTML = `
-            <b style="color: #2563eb; font-size: 9.5pt; display: block; margin-bottom: 5px;">\${temp.title}</b>
+            <b style="color: #2563eb; font-size: 9.5pt; display: block; margin-bottom: 5px;">${temp.title}</b>
             <div style="margin-top: 10px;">
                 <b>🗣️ Заголовок объявления:</b>
-                <p style="margin: 3px 0 10px 0; font-weight: bold; color: #0f172a;">\${temp.headline}</p>
+                <p style="margin: 3px 0 10px 0; font-weight: bold; color: #0f172a;">${temp.headline}</p>
             </div>
             <div>
                 <b>📝 Текст рекламного объявления:</b>
-                <p style="margin: 3px 0 10px 0; color: #475569;">\${temp.body}</p>
+                <p style="margin: 3px 0 10px 0; color: #475569;">${temp.body}</p>
             </div>
             <div style="background: rgba(16, 185, 129, 0.05); border-left: 3px solid #10b981; padding: 10px; border-radius: 4px; margin-top: 5px;">
                 <b style="color: #10b981;">📞 Сценарий захода в диалог для менеджера:</b>
-                <p style="margin: 5px 0 0 0; font-style: italic; color: #064e3b;">\${temp.script}</p>
+                <p style="margin: 5px 0 0 0; font-style: italic; color: #064e3b;">${temp.script}</p>
             </div>
         `;
     }
