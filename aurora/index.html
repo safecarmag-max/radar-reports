@@ -1235,6 +1235,11 @@ body:not(.dark-mode) .price-bar-limit {
 </head>
 
 <body>
+<script>
+const RADAR_NICHE = "Недвижимость";
+const RADAR_CITY = "Магнитогорск";
+const RADAR_TARGET_COMPANY = "Аврора Владис";
+</script>
 <div class="dashboard-layout">
     
     <div class="sidebar">
@@ -1308,8 +1313,8 @@ body:not(.dark-mode) .price-bar-limit {
         
         <div class="tab-content active" id="tab-overview">
             
-<h1>ИИ-Радар конкурентной разведки: Недвижимость (Магнитогорск)</h1>
-<div class="subtitle">Интеграционный аналитический отчет на основе сканирования открытых источников и реестров</div>
+<h1 id="main-report-title">ИИ-Радар конкурентной разведки: Недвижимость (Магнитогорск)</h1>
+<div class="subtitle" id="main-report-subtitle">Интеграционный аналитический отчет на основе сканирования открытых источников и реестров</div>
 
             
     <div class="ceo-summary-container" style="margin-bottom: 25px; font-family: sans-serif;">
@@ -10955,6 +10960,29 @@ function respondTo(text) {
 
 function changeViewMode() {
     var mode = document.getElementById('view-mode-selector').value;
+    var titleEl = document.getElementById('main-report-title');
+    var subtitleEl = document.getElementById('main-report-subtitle');
+    
+    if (titleEl) {
+        var nicheText = typeof RADAR_NICHE !== 'undefined' ? RADAR_NICHE : 'Недвижимость';
+        var cityText = typeof RADAR_CITY !== 'undefined' ? RADAR_CITY : 'Магнитогорск';
+        var targetText = (typeof RADAR_TARGET_COMPANY !== 'undefined' && RADAR_TARGET_COMPANY) ? RADAR_TARGET_COMPANY : 'Аврора Владис';
+        
+        if (mode === 'market_audit') {
+            titleEl.innerText = 'ИИ-Радар конкурентной разведки: ' + nicheText + ' (' + cityText + ')';
+            if (subtitleEl) subtitleEl.innerText = 'Интеграционный аналитический отчет на основе сканирования открытых источников и реестров';
+        } else if (mode === 'target_audit') {
+            titleEl.innerText = 'ИИ-Радар целевого анализа: ' + targetText + ' против рынка ' + nicheText + ' (' + cityText + ')';
+            if (subtitleEl) subtitleEl.innerText = 'Интерактивная сводка сравнения бренда с лидерами рынка, выявление уязвимостей и точек отстройки';
+        } else if (mode === 'niche_entry') {
+            titleEl.innerText = 'ИИ-Радар анализа входа в нишу: ' + nicheText + ' (' + cityText + ')';
+            if (subtitleEl) subtitleEl.innerText = 'Анализ емкости рынка, барьеров входа, CAPEX/OPEX финмодели и сезонности для стартапа';
+        } else if (mode === 'franchise_eval') {
+            titleEl.innerText = 'ИИ-Радар оценки франшизы: ' + nicheText + ' (' + cityText + ')';
+            if (subtitleEl) subtitleEl.innerText = 'Профессиональный экспресс-аудит франшизы на основе реестров ФНС и репутации франчайзи (ORM)';
+        }
+    }
+
     var sections = document.querySelectorAll('section');
     var buttons = document.querySelectorAll('.sidebar-btn');
     
@@ -11361,8 +11389,14 @@ function loadTheme() {
         document.body.classList.add('dark-mode');
     }
 }
-window.addEventListener('DOMContentLoaded', loadTheme);
-setTimeout(loadTheme, 100);
+window.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
+    changeViewMode();
+});
+setTimeout(function() {
+    loadTheme();
+    changeViewMode();
+}, 100);
 
 /* Релиз 3.8: JS функции для управления модальными паспортами брендов */
 function openBrandPassport(idx) {
