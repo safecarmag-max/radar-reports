@@ -10965,9 +10965,16 @@ function respondTo(text) {
             var sections = document.querySelectorAll('section');
             for (var i = 0; i < sections.length; i++) {
                 var sec = sections[i];
-                var title = sec.getAttribute('data-title') || '';
+                var header = sec.querySelector('h2, h3, h4');
+                var titleText = "";
+                if (header) {
+                    titleText = header.textContent || header.innerText || "";
+                } else {
+                    titleText = sec.getAttribute('data-title') || "";
+                }
+                
                 var reg = new RegExp('^\s*' + num + '\s*[\.\)\s]');
-                if (reg.test(title)) {
+                if (reg.test(titleText)) {
                     foundSection = sec;
                     break;
                 }
