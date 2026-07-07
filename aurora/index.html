@@ -1327,19 +1327,19 @@ body:not(.dark-mode) .price-bar-limit {
             
             <!-- Панель KPI боевого управления -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
-                <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 8px; padding: 15px; text-align: center;">
+                <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="navigateToSection('profit_advices')">
                     <div style="font-size: 16pt; font-weight: bold; color: #f87171;" id="panel-lost-revenue">1 800 000 ₽</div>
                     <div style="font-size: 7.5pt; color: #fca5a5; font-weight: bold; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;">💸 Упущенная прибыль / мес</div>
                 </div>
-                <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; padding: 15px; text-align: center;">
+                <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="navigateToSection('false_leader')">
                     <div style="font-size: 16pt; font-weight: bold; color: #fbbf24;">73%</div>
                     <div style="font-size: 7.5pt; color: #fcd34d; font-weight: bold; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;">🛡️ Индекс угроз («Рио-Люкс»)</div>
                 </div>
-                <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 15px; text-align: center;">
+                <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="navigateToSection('benchmarks')">
                     <div style="font-size: 16pt; font-weight: bold; color: #38bdf8;">55%</div>
                     <div style="font-size: 7.5pt; color: #7dd3fc; font-weight: bold; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;">⭐ Сила вашего бренда</div>
                 </div>
-                <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer;" onclick="document.querySelector('[data-tab-btn=action-plan]').click()">
+                <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="navigateToSection('profit_advices')">
                     <div style="font-size: 16pt; font-weight: bold; color: #34d399;">⚡ 3 побед</div>
                     <div style="font-size: 7.5pt; color: #6ee7b7; font-weight: bold; text-transform: uppercase; margin-top: 4px; letter-spacing: 0.5px;">🚀 Быстрых действий за 7 дней</div>
                 </div>
@@ -1347,16 +1347,16 @@ body:not(.dark-mode) .price-bar-limit {
             
             <!-- Плашки с быстыми метриками -->
             <div class="premium-badge-row" style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
-                <div style="border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08); color: #38bdf8; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px;">
+                <div style="border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.08); color: #38bdf8; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="navigateToSection('comp_table')">
                     Сейчас: <b>№2 из 31</b> компаний (по индексу силы бренда)
                 </div>
-                <div style="border: 1px solid rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.08); color: #fb923c; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px;">
+                <div style="border: 1px solid rgba(251, 146, 60, 0.4); background: rgba(251, 146, 60, 0.08); color: #fb923c; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="navigateToSection('benchmarks')">
                     До лидерства: <b>разрыв минимальный, решается через ИИ-видимость и доверие на сайте</b>
                 </div>
-                <div style="border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08); color: #10b981; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px;">
+                <div style="border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.08); color: #10b981; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="navigateToSection('profit_advices')">
                     Окупаемость РАДАРа: <b>+18 181% ROI</b>
                 </div>
-                <div style="border: 1px solid rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.08); color: #a855f7; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px;">
+                <div style="border: 1px solid rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.08); color: #a855f7; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="navigateToSection('market_pulse')">
                     Динамика за 30 дней: <b>+3.7% силы бренда</b>
                 </div>
             </div>
@@ -11316,6 +11316,36 @@ function switchTab(tabId) {
     if (targetBtn) targetBtn.classList.add('active');
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function navigateToSection(sectionId) {
+    var el = document.getElementById(sectionId);
+    if (!el) return;
+    
+    var tabName = el.getAttribute('data-tab');
+    if (tabName) {
+        // Переключаем вкладку
+        switchTab('tab-' + tabName);
+    }
+    
+    setTimeout(function() {
+        var targetEl = document.getElementById(sectionId);
+        if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Временная подсветка секции
+            var origTransition = targetEl.style.transition;
+            var origBg = targetEl.style.backgroundColor;
+            targetEl.style.transition = 'background-color 0.4s ease';
+            targetEl.style.backgroundColor = 'rgba(217, 119, 6, 0.12)';
+            setTimeout(function() {
+                targetEl.style.backgroundColor = origBg;
+                setTimeout(function() {
+                    targetEl.style.transition = origTransition;
+                }, 400);
+            }, 800);
+        }
+    }, 150);
 }
 
 function toggleTheme() {
