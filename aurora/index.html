@@ -1305,7 +1305,7 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 07.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: 40a0a73</div>
+            <div>Хэш: c19b928</div>
         </div>
     </div>
     
@@ -10949,41 +10949,101 @@ function respondTo(text) {
     var cityText = typeof RADAR_CITY !== 'undefined' ? RADAR_CITY : 'Магнитогорск';
     var targetText = (typeof RADAR_TARGET_COMPANY !== 'undefined' && RADAR_TARGET_COMPANY) ? RADAR_TARGET_COMPANY : 'Аврора Владис';
     
-    if (query.indexOf('рио') !== -1 || query.indexOf('конкур') !== -1 || query.indexOf('слабые') !== -1 || query.indexOf('кто') !== -1 || query.indexOf('лидер') !== -1) {
-        response = "Главный конкурент на рынке " + nicheText + " в г. " + cityText + " — компания «Рио-Люкс» (или лидер №1). Их сильная сторона — масштаб рекламы и штат. Но у них есть слабое звено: медленный перезвон (от 15 минут) и шаблонный сайт без ИИ-фишек. Вы можете обойти их прямо сейчас.";
-        action = function() { navigateToSection('false_leader'); };
-    } else if (query.indexOf('выгод') !== -1 || query.indexOf('окуп') !== -1 || query.indexOf('прибыл') !== -1 || query.indexOf('потер') !== -1 || query.indexOf('деньг') !== -1 || query.indexOf('упущен') !== -1) {
-        response = "Анализ воронки показывает: «" + targetText + "» теряет около 920 000 ₽ в месяц из-за медленной обработки входящих заявок (особенно в нерабочее время) и низкого доверия на сайте. Внедрение РАДАРа окупается на +18 181% ROI за счет перехвата этих лидов.";
-        action = function() { navigateToSection('profit_advices'); };
-    } else if (query.indexOf('реклам') !== -1 || query.indexOf('директ') !== -1 || query.indexOf('трафик') !== -1 || query.indexOf('клиент') !== -1 || query.indexOf('заявк') !== -1) {
-        response = "Чтобы снизить стоимость лида в нише " + nicheText + ", рекомендуется запустить специализированные рекламные офферы и внедрить быстрый автоответчик. Также в отчете есть детальный SEO-аудит бесплатных поисковых запросов.";
-        action = function() { navigateToSection('seo_audit'); };
-    } else if (query.indexOf('ии') !== -1 || query.indexOf('бот') !== -1 || query.indexOf('авт') !== -1 || query.indexOf('нейро') !== -1) {
-        response = "ИИ-ассистенты DarDar могут вести переписку в чатах 24/7, отвечать на отзывы за 5 секунд и квалифицировать лидов перед передачей менеджеру. Это экономит до 40% рабочего времени отдела продаж.";
-        action = function() { navigateToSection('chatbot_automation'); };
-    } else if (query.indexOf('шаг') !== -1 || query.indexOf('план') !== -1 || query.indexOf('побед') !== -1 || query.indexOf('делать') !== -1) {
-        response = "Топ-3 быстрых шагов для «" + targetText + "» на эту неделю: \n1) Опубликовать ИНН, реквизиты и живые фото команды в футер сайта для E-E-A-T доверия.\n2) Подключить ИИ-автоответчик в мессенджерах.\n3) Оптимизировать карточки на Яндекс.Картах и 2ГИС.\nНажмите здесь, чтобы открыть пошаговый чек-лист.";
-        action = function() { navigateToSection('profit_advices'); };
-    } else {
-        var foundSection = null;
-        var sections = document.querySelectorAll('section');
-        for (var i = 0; i < sections.length; i++) {
-            var sec = sections[i];
-            var title = sec.getAttribute('data-title') || '';
-            var textContent = sec.textContent || '';
-            if (title.toLowerCase().indexOf(query) !== -1 || (query.length > 3 && textContent.toLowerCase().indexOf(query) !== -1)) {
-                foundSection = sec;
-                break;
-            }
+    // 1. Поиск команд типа "открой 7 пункт", "раздел 3", "пункт 12"
+    var numMatch = query.match(/(?:открой|перейди|покажи|раздел|пункт|номер|№|\b)\s*(\d+)/);
+    var isNavigationIntent = false;
+    if (numMatch) {
+        var num = numMatch[1];
+        if (query.indexOf('открой') !== -1 || query.indexOf('перейди') !== -1 || query.indexOf('покажи') !== -1 || 
+            query.indexOf('раздел') !== -1 || query.indexOf('пункт') !== -1 || query.indexOf('номер') !== -1 || 
+            query.indexOf('№') !== -1 || query.trim() === num || query.trim() === 'п ' + num) {
+            isNavigationIntent = true;
         }
         
-        if (foundSection) {
-            var secId = foundSection.id;
-            var secTitle = foundSection.getAttribute('data-title') || 'Выбранный раздел';
-            response = "Я нашел информацию по вашему запросу в разделе «" + secTitle + "». Давайте я перенаправлю вас туда для детального ознакомления!";
-            action = function() { navigateToSection(secId); };
+        if (isNavigationIntent) {
+            var foundSection = null;
+            var sections = document.querySelectorAll('section');
+            for (var i = 0; i < sections.length; i++) {
+                var sec = sections[i];
+                var title = sec.getAttribute('data-title') || '';
+                var reg = new RegExp('^\s*' + num + '\s*[\.\)\s]');
+                if (reg.test(title)) {
+                    foundSection = sec;
+                    break;
+                }
+            }
+            
+            if (foundSection) {
+                var secId = foundSection.id;
+                var secTitle = foundSection.getAttribute('data-title') || 'Выбранный раздел';
+                response = "Выполняю! Перехожу к разделу «" + secTitle + "»...";
+                action = function() { navigateToSection(secId); };
+            } else {
+                response = "Я не нашел в отчете раздел под номером " + num + ". Пожалуйста, проверьте номер или введите тему для поиска (например, 'отзывы' или 'Авито').";
+            }
+        }
+    }
+    
+    // 2. Поиск команд переключения вкладок
+    if (!action && !response) {
+        if (query.indexOf('вкладк') !== -1 || query.indexOf('таб') !== -1 || query.indexOf('переключи') !== -1 || query.indexOf('открой') !== -1) {
+            if (query.indexOf('обзор') !== -1 || query.indexOf('рынк') !== -1) {
+                response = "Выполняю! Переключаюсь на вкладку «Обзор рынка»...";
+                action = function() { switchTab('tab-market-overview'); };
+            } else if (query.indexOf('трафик') !== -1 || query.indexOf('маркет') !== -1 || query.indexOf('реклам') !== -1) {
+                response = "Выполняю! Переключаюсь на вкладку «Трафик и Маркетинг»...";
+                action = function() { switchTab('tab-marketing'); };
+            } else if (query.indexOf('отстройк') !== -1 || query.indexOf('конкур') !== -1 || query.indexOf('различ') !== -1) {
+                response = "Выполняю! Переключаюсь на вкладку «Отстройка от конкурентов»...";
+                action = function() { switchTab('tab-differentiation'); };
+            } else if (query.indexOf('ии') !== -1 || query.indexOf('автомат') !== -1 || query.indexOf('нейро') !== -1 || query.indexOf('бот') !== -1) {
+                response = "Выполняю! Переключаюсь на вкладку «ИИ и Автоматизация»...";
+                action = function() { switchTab('tab-ai-automation'); };
+            } else if (query.indexOf('план') !== -1 || query.indexOf('действ') !== -1 || query.indexOf('чек') !== -1 || query.indexOf('шаг') !== -1) {
+                response = "Выполняю! Переключаюсь на вкладку «План действий»...";
+                action = function() { switchTab('tab-action-plan'); };
+            }
+        }
+    }
+    
+    // 3. Поиск по ключевым словам или DOM-поиск
+    if (!action && !response) {
+        if (query.indexOf('рио') !== -1 || query.indexOf('конкур') !== -1 || query.indexOf('слабые') !== -1 || query.indexOf('кто') !== -1 || query.indexOf('лидер') !== -1) {
+            response = "Главный конкурент на рынке " + nicheText + " в г. " + cityText + " — компания «Рио-Люкс» (или лидер №1). Их сильная сторона — масштаб рекламы и штат. Но у них есть слабое звено: медленный перезвон (от 15 минут) и шаблонный сайт без ИИ-фишек. Вы можете обойти их прямо сейчас.";
+            action = function() { navigateToSection('false_leader'); };
+        } else if (query.indexOf('выгод') !== -1 || query.indexOf('окуп') !== -1 || query.indexOf('прибыл') !== -1 || query.indexOf('потер') !== -1 || query.indexOf('деньг') !== -1 || query.indexOf('упущен') !== -1) {
+            response = "Анализ воронки показывает: «" + targetText + "» теряет около 920 000 ₽ в месяц из-за медленной обработки входящих заявок (особенно в нерабочее время) и низкого доверия на сайте. Внедрение РАДАРа окупается на +18 181% ROI за счет перехвата этих лидов.";
+            action = function() { navigateToSection('profit_advices'); };
+        } else if (query.indexOf('реклам') !== -1 || query.indexOf('директ') !== -1 || query.indexOf('трафик') !== -1 || query.indexOf('клиент') !== -1 || query.indexOf('заявк') !== -1) {
+            response = "Чтобы снизить стоимость лида в нише " + nicheText + ", рекомендуется запустить специализированные рекламные офферы и внедрить быстрый автоответчик. Также в отчете есть детальный SEO-аудит бесплатных поисковых запросов.";
+            action = function() { navigateToSection('seo_audit'); };
+        } else if (query.indexOf('ии') !== -1 || query.indexOf('бот') !== -1 || query.indexOf('авт') !== -1 || query.indexOf('нейро') !== -1) {
+            response = "ИИ-ассистенты DarDar могут вести переписку в чатах 24/7, отвечать на отзывы за 5 секунд и квалифицировать лидов перед передачей менеджеру. Это экономит до 40% рабочего времени отдела продаж.";
+            action = function() { navigateToSection('chatbot_automation'); };
+        } else if (query.indexOf('шаг') !== -1 || query.indexOf('план') !== -1 || query.indexOf('побед') !== -1 || query.indexOf('делать') !== -1) {
+            response = "Топ-3 быстрых шагов для «" + targetText + "» на эту неделю: \n1) Опубликовать ИНН, реквизиты и живые фото команды в футер сайта для E-E-A-T доверия.\n2) Подключить ИИ-автоответчик в мессенджерах.\n3) Оптимизировать карточки на Яндекс.Картах и 2ГИС.\nНажмите здесь, чтобы открыть пошаговый чек-лист.";
+            action = function() { navigateToSection('profit_advices'); };
         } else {
-            response = "Хороший вопрос! Для детального ответа или подключения полноценного ИИ-ассистента к вашей CRM/мессенджерам, свяжитесь с нашей командой в Telegram: @carmag_max";
+            var foundSection = null;
+            var sections = document.querySelectorAll('section');
+            for (var i = 0; i < sections.length; i++) {
+                var sec = sections[i];
+                var title = sec.getAttribute('data-title') || '';
+                var textContent = sec.textContent || '';
+                if (title.toLowerCase().indexOf(query) !== -1 || (query.length > 3 && textContent.toLowerCase().indexOf(query) !== -1)) {
+                    foundSection = sec;
+                    break;
+                }
+            }
+            
+            if (foundSection) {
+                var secId = foundSection.id;
+                var secTitle = foundSection.getAttribute('data-title') || 'Выбранный раздел';
+                response = "Я нашел информацию по вашему запросу в разделе «" + secTitle + "». Давайте я перенаправлю вас туда для детального ознакомления!";
+                action = function() { navigateToSection(secId); };
+            } else {
+                response = "Хороший вопрос! Для детального ответа или подключения полноценного ИИ-ассистента к вашей CRM/мессенджерам, свяжитесь с нашей командой в Telegram: @carmag_max";
+            }
         }
     }
     
