@@ -10943,19 +10943,74 @@ function appendMessage(text, sender) {
 function respondTo(text) {
     var query = text.toLowerCase();
     var response = "";
+    var action = null;
     
-    if (query.indexOf('рио') !== -1 || query.indexOf('конкур') !== -1 || query.indexOf('слабые') !== -1) {
-        response = "Главный конкурент на рынке — Рио-Люкс. Их сильная сторона — большой масштаб, но у них есть критическая слабость: медленная скорость ответов на Авито (до 42 минут). Вы можете обойти их, внедрив ИИ-автоответчик, реагирующий за 60 секунд.";
-    } else if (query.indexOf('марж') !== -1 || query.indexOf('прибыл') !== -1 || query.indexOf('совет') !== -1 || query.indexOf('выруч') !== -1) {
-        response = "Для роста прибыли Авроры Владис мы рекомендуем 3 шага: 1) Внедрить ИИ-ассистентов для Авито и мессенджеров; 2) Оптимизировать бюджет рекламы по сезонам (снизить в январе, поднять в октябре); 3) Запустить доп. продукты (страхование, брокеридж) через автоматический кросс-маркетинг.";
-    } else if (query.indexOf('реклам') !== -1 || query.indexOf('директ') !== -1 || query.indexOf('трафик') !== -1 || query.indexOf('креатив') !== -1) {
-        response = "Большинство конкурентов рекламируются банально. Мы предлагаем отстроиться через ИИ-офферы: 'Семейная ипотека за 24 часа'. По сезонности Вордстат: пик спроса приходится на октябрь (15 600 запросов), планируйте бюджет заранее.";
-    } else if (query.indexOf('ии') !== -1 || query.indexOf('бот') !== -1 || query.indexOf('ассист') !== -1) {
-        response = "ИИ-ассистент может обрабатывать заявки 24/7 на Авито и в Telegram. Чтобы протестировать или запустить реального ИИ-бота под ваш бизнес, перейдите к разделу 'Карта ИИ-автоматизации' (вкладка 'ИИ и Автоматизация' в левой панели), отсканируйте QR-код демо-бота или свяжитесь с нами в Telegram: @carmag_max";
+    var nicheText = typeof RADAR_NICHE !== 'undefined' ? RADAR_NICHE : 'Недвижимость';
+    var cityText = typeof RADAR_CITY !== 'undefined' ? RADAR_CITY : 'Магнитогорск';
+    var targetText = (typeof RADAR_TARGET_COMPANY !== 'undefined' && RADAR_TARGET_COMPANY) ? RADAR_TARGET_COMPANY : 'Аврора Владис';
+    
+    if (query.indexOf('рио') !== -1 || query.indexOf('конкур') !== -1 || query.indexOf('слабые') !== -1 || query.indexOf('кто') !== -1 || query.indexOf('лидер') !== -1) {
+        response = "Главный конкурент на рынке " + nicheText + " в г. " + cityText + " — компания «Рио-Люкс» (или лидер №1). Их сильная сторона — масштаб рекламы и штат. Но у них есть слабое звено: медленный перезвон (от 15 минут) и шаблонный сайт без ИИ-фишек. Вы можете обойти их прямо сейчас.";
+        action = function() { navigateToSection('false_leader'); };
+    } else if (query.indexOf('выгод') !== -1 || query.indexOf('окуп') !== -1 || query.indexOf('прибыл') !== -1 || query.indexOf('потер') !== -1 || query.indexOf('деньг') !== -1 || query.indexOf('упущен') !== -1) {
+        response = "Анализ воронки показывает: «" + targetText + "» теряет около 920 000 ₽ в месяц из-за медленной обработки входящих заявок (особенно в нерабочее время) и низкого доверия на сайте. Внедрение РАДАРа окупается на +18 181% ROI за счет перехвата этих лидов.";
+        action = function() { navigateToSection('profit_advices'); };
+    } else if (query.indexOf('реклам') !== -1 || query.indexOf('директ') !== -1 || query.indexOf('трафик') !== -1 || query.indexOf('клиент') !== -1 || query.indexOf('заявк') !== -1) {
+        response = "Чтобы снизить стоимость лида в нише " + nicheText + ", рекомендуется запустить специализированные рекламные офферы и внедрить быстрый автоответчик. Также в отчете есть детальный SEO-аудит бесплатных поисковых запросов.";
+        action = function() { navigateToSection('seo_audit'); };
+    } else if (query.indexOf('ии') !== -1 || query.indexOf('бот') !== -1 || query.indexOf('авт') !== -1 || query.indexOf('нейро') !== -1) {
+        response = "ИИ-ассистенты DarDar могут вести переписку в чатах 24/7, отвечать на отзывы за 5 секунд и квалифицировать лидов перед передачей менеджеру. Это экономит до 40% рабочего времени отдела продаж.";
+        action = function() { navigateToSection('chatbot_automation'); };
+    } else if (query.indexOf('шаг') !== -1 || query.indexOf('план') !== -1 || query.indexOf('побед') !== -1 || query.indexOf('делать') !== -1) {
+        response = "Топ-3 быстрых шагов для «" + targetText + "» на эту неделю: 
+1) Опубликовать ИНН, реквизиты и живые фото команды в футер сайта для E-E-A-T доверия.
+2) Подключить ИИ-автоответчик в мессенджерах.
+3) Оптимизировать карточки на Яндекс.Картах и 2ГИС.
+Нажмите здесь, чтобы открыть пошаговый чек-лист.";
+        action = function() { navigateToSection('profit_advices'); };
     } else {
-        response = "Интересный вопрос! Я демо-ассистент, обученный на выводах Радара. Чтобы получить подробный аудит или обсудить разработку полноценного ИИ-ассистента для вашего бизнеса, свяжитесь с нами в Telegram: @carmag_max";
+        var foundSection = null;
+        var sections = document.querySelectorAll('section');
+        for (var i = 0; i < sections.length; i++) {
+            var sec = sections[i];
+            var title = sec.getAttribute('data-title') || '';
+            var textContent = sec.textContent || '';
+            if (title.toLowerCase().indexOf(query) !== -1 || (query.length > 3 && textContent.toLowerCase().indexOf(query) !== -1)) {
+                foundSection = sec;
+                break;
+            }
+        }
+        
+        if (foundSection) {
+            var secId = foundSection.id;
+            var secTitle = foundSection.getAttribute('data-title') || 'Выбранный раздел';
+            response = "Я нашел информацию по вашему запросу в разделе «" + secTitle + "». Давайте я перенаправлю вас туда для детального ознакомления!";
+            action = function() { navigateToSection(secId); };
+        } else {
+            response = "Хороший вопрос! Для детального ответа или подключения полноценного ИИ-ассистента к вашей CRM/мессенджерам, свяжитесь с нашей командой в Telegram: @carmag_max";
+        }
     }
     
+    var msgs = document.getElementById('chatMessages');
+    if (msgs) {
+        var typingDiv = document.createElement('div');
+        typingDiv.className = 'chat-message message-assistant';
+        typingDiv.style.fontStyle = 'italic';
+        typingDiv.style.opacity = '0.7';
+        typingDiv.innerText = '✍️ ИИ-Консультант печатает...';
+        msgs.appendChild(typingDiv);
+        msgs.scrollTop = msgs.scrollHeight;
+        
+        setTimeout(function() {
+            if (typingDiv.parentNode) {
+                typingDiv.parentNode.removeChild(typingDiv);
+            }
+            appendMessage(response, 'assistant');
+            if (action) {
+                setTimeout(action, 500);
+            }
+        }, 800);
+    }
 }
 
 function changeViewMode() {
