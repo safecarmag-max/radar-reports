@@ -1305,7 +1305,7 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
         <div style="margin-top:auto; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); font-family:monospace; font-size:8px; color:#64748b; line-height:1.4;">
             <div>Скан: 07.07.2026</div>
             <div>Движок: v3.6-stable</div>
-            <div>Хэш: c19b928</div>
+            <div>Хэш: 347fb05</div>
         </div>
     </div>
     
@@ -10410,45 +10410,75 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
             <b>ℹ️ Ценность для собственника:</b> Анализ ключевых показателей конкурентов для выработки маркетинговой стратегии.
         </div>
         
-    <div style="font-family: sans-serif; box-sizing: border-box;">
-        <h4 style="margin: 0 0 12px 0; font-size: 10pt; color: #1e293b;">Готовые ТЗ для исполнителей (Скопируйте и отправьте в работу)</h4>
+    <div style="font-family: sans-serif; box-sizing: border-box;" id="task-generator-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h4 style="margin: 0; font-size: 10pt; color: #1e293b;">Готовые ТЗ для исполнителей (Скопируйте и отправьте в работу)</h4>
+            <button onclick="downloadTasksAsFile()" style="background: #2563eb; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 8pt; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: background 0.2s;">
+                💾 Скачать все ТЗ файлом (.txt)
+            </button>
+        </div>
         
     <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 8px;">
             <b style="font-size: 8.5pt; color: #1e293b;">💻 Разработчику (Сайт)</b>
             <span style="font-size: 7.5pt; color: #2563eb; cursor: pointer; font-weight: bold;" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('ТЗ скопировано!');">📋 Копировать ТЗ</span>
-            <span style="display:none;">1. Добавить юридические реквизиты (ИНН, ОГРН, ООО) в футер сайта.
-2. Выложить сканы лицензий и дипломов в высоком качестве.
-3. Оптимизировать изображения на главной странице для повышения скорости мобильной загрузки.</span>
+            <span style="display:none;">1. Разместить юридические реквизиты компании (ИНН, ОГРН, ООО) и живые фото офиса/команды в футер сайта для закрытия E-E-A-T факторов доверия.
+2. Установить интерактивный виджет цен/тарифов с наглядными маркерами для упрощения навигации.
+3. Сжать фоновые баннеры и изображения объектов до формата WebP и настроить Lazy Loading для ускорения мобильной загрузки.</span>
         </div>
-        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Добавить юридические реквизиты (ИНН, ОГРН, ООО) в футер сайта.
-2. Выложить сканы лицензий и дипломов в высоком качестве.
-3. Оптимизировать изображения на главной странице для повышения скорости мобильной загрузки.</pre>
+        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Разместить юридические реквизиты компании (ИНН, ОГРН, ООО) и живые фото офиса/команды в футер сайта для закрытия E-E-A-T факторов доверия.
+2. Установить интерактивный виджет цен/тарифов с наглядными маркерами для упрощения навигации.
+3. Сжать фоновые баннеры и изображения объектов до формата WebP и настроить Lazy Loading для ускорения мобильной загрузки.</pre>
     </div>
     
     <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 8px;">
             <b style="font-size: 8.5pt; color: #1e293b;">✍️ Копирайтеру / SMM</b>
             <span style="font-size: 7.5pt; color: #2563eb; cursor: pointer; font-weight: bold;" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('ТЗ скопировано!');">📋 Копировать ТЗ</span>
-            <span style="display:none;">1. Переписать заголовок на первом экране сайта, добавив твердое УТП: «Риелторы с опытом от 5 лет, аттестованные в РГР».
-2. Написать пост в ВК/Телеграм по отработке главного возражения клиентов: списания долгов без потери имущества.</span>
+            <span style="display:none;">1. Обновить главный баннер сайта, прописав твердое позиционирование: «Официальное агентство недвижимости. База из более чем 1000 проверенных объектов. Опыт брокеров от 5 лет».
+2. Подготовить серию постов для соцсетей ВК/Telegram с разбором клише конкурентов (например, почему фраза 'индивидуальный подход' не работает и как мы гарантируем юридическую чистоту сделки).</span>
         </div>
-        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Переписать заголовок на первом экране сайта, добавив твердое УТП: «Риелторы с опытом от 5 лет, аттестованные в РГР».
-2. Написать пост в ВК/Телеграм по отработке главного возражения клиентов: списания долгов без потери имущества.</pre>
+        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Обновить главный баннер сайта, прописав твердое позиционирование: «Официальное агентство недвижимости. База из более чем 1000 проверенных объектов. Опыт брокеров от 5 лет».
+2. Подготовить серию постов для соцсетей ВК/Telegram с разбором клише конкурентов (например, почему фраза 'индивидуальный подход' не работает и как мы гарантируем юридическую чистоту сделки).</pre>
     </div>
     
     <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px; margin-bottom: 8px;">
-            <b style="font-size: 8.5pt; color: #1e293b;">📞 Руководителю отдела продаж</b>
+            <b style="font-size: 8.5pt; color: #1e293b;">📞 Руководителю отдела продаж (РОП)</b>
             <span style="font-size: 7.5pt; color: #2563eb; cursor: pointer; font-weight: bold;" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('ТЗ скопировано!');">📋 Копировать ТЗ</span>
-            <span style="display:none;">1. Ввести жесткий регламент первичного ответа в чатах ≤ 5 минут.
-2. Настроить интеграцию CRM с WhatsApp для контроля переписок менеджеров.</span>
+            <span style="display:none;">1. Установить жесткий норматив первого ответа в чатах (WhatsApp, Telegram, чат на сайте) в пределах 5 минут в рабочее время.
+2. Настроить ИИ-автоответчик для автоматического перехвата лидов в ночное и нерабочее время с интеграцией в CRM.</span>
         </div>
-        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Ввести жесткий регламент первичного ответа в чатах ≤ 5 минут.
-2. Настроить интеграцию CRM с WhatsApp для контроля переписок менеджеров.</pre>
+        <pre style="margin: 0; font-family: monospace; font-size: 8pt; color: #475569; background: #f8fafc; padding: 8px; border-radius: 4px; white-space: pre-wrap; line-height: 1.4;">1. Установить жесткий норматив первого ответа в чатах (WhatsApp, Telegram, чат на сайте) в пределах 5 минут в рабочее время.
+2. Настроить ИИ-автоответчик для автоматического перехвата лидов в ночное и нерабочее время с интеграцией в CRM.</pre>
     </div>
     
     </div>
+    
+    <script>
+    function downloadTasksAsFile() {
+        var preElements = document.querySelectorAll('#task-generator-container pre');
+        var roles = document.querySelectorAll('#task-generator-container b');
+        var content = "ТЕХНИЧЕСКИЕ ЗАДАНИЯ ДЛЯ ИСПОЛНИТЕЛЕЙ\\n";
+        content += "Сгенерировано автоматически системой ИИ-Радар\\n";
+        content += "==================================================\\n\\n";
+        
+        for (var i = 0; i < preElements.length; i++) {
+            var role = roles[i] ? roles[i].innerText : "Исполнитель";
+            var txt = preElements[i].innerText;
+            content += "РОЛЬ: " + role + "\\n";
+            content += "--------------------------------------------------\\n";
+            content += txt + "\\n\\n";
+        }
+        
+        var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'radar_tasks.txt';
+        link.click();
+        URL.revokeObjectURL(link.href);
+    }
+    </script>
     
     <div class="business-takeaway-card" style="background:#f8fafc; border-left:4px solid #0284c7; padding:10px 12px; margin-top:4mm; border-radius:4px; font-family:sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom:2mm;">
         <div style="font-size:8pt; line-height:1.4;">
@@ -10509,9 +10539,9 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
                 <div>
                     <label style="font-size: 8.5pt; color: #cbd5e1; display: flex; justify-content: space-between; margin-bottom: 3px;">
                         <span>Средний чек (чистая прибыль):</span>
-                        <span style="font-weight: bold; color: #38bdf8;" id="calc-revenue-val">150 000 ₽</span>
+                        <span style="font-weight: bold; color: #38bdf8;" id="calc-revenue-val">150,000 ₽</span>
                     </label>
-                    <input type="range" id="calc-revenue" min="5000" max="1000000" step="5000" value="150000" oninput="updateCalculator()" style="width: 100%; cursor: pointer;">
+                    <input type="range" id="calc-revenue" min="30000" max="750000" step="7500" value="150000" oninput="updateCalculator()" style="width: 100%; cursor: pointer;">
                 </div>
             </div>
             
@@ -10520,9 +10550,9 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
                 <div>
                     <label style="font-size: 8.5pt; color: #cbd5e1; display: flex; justify-content: space-between; margin-bottom: 3px;">
                         <span>Конверсия из лида в сделку:</span>
-                        <span style="font-weight: bold; color: #38bdf8;" id="calc-conv-val">2.5%</span>
+                        <span style="font-weight: bold; color: #38bdf8;" id="calc-conv-val">3.0%</span>
                     </label>
-                    <input type="range" id="calc-conv" min="0.5" max="15" step="0.1" value="2.5" oninput="updateCalculator()" style="width: 100%; cursor: pointer;">
+                    <input type="range" id="calc-conv" min="0.5" max="9.0" step="0.1" value="3.0" oninput="updateCalculator()" style="width: 100%; cursor: pointer;">
                 </div>
                 <div>
                     <label style="font-size: 8.5pt; color: #cbd5e1; display: flex; justify-content: space-between; margin-bottom: 3px;">
@@ -10575,9 +10605,9 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
                 <div>
                     <label style="font-size: 8.5pt; color: #cbd5e1; display: flex; justify-content: space-between; margin-bottom: 3px;">
                         <span>Средний чек (комиссия):</span>
-                        <span style="font-weight: bold; color: #10b981;" id="pred-chk-val">150 000 ₽</span>
+                        <span style="font-weight: bold; color: #10b981;" id="pred-chk-val">150,000 ₽</span>
                     </label>
-                    <input type="range" id="pred-chk" min="20000" max="500000" step="5000" value="150000" oninput="updatePredictor()" style="width: 100%; cursor: pointer;">
+                    <input type="range" id="pred-chk" min="30000" max="750000" step="7500" value="150000" oninput="updatePredictor()" style="width: 100%; cursor: pointer;">
                 </div>
             </div>
             
@@ -10588,7 +10618,7 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
                         <span>Конверсия отдела продаж:</span>
                         <span style="font-weight: bold; color: #10b981;" id="pred-conv-val">3.0%</span>
                     </label>
-                    <input type="range" id="pred-conv" min="1" max="15" step="0.5" value="3" oninput="updatePredictor()" style="width: 100%; cursor: pointer;">
+                    <input type="range" id="pred-conv" min="0.5" max="9.0" step="0.1" value="3.0" oninput="updatePredictor()" style="width: 100%; cursor: pointer;">
                 </div>
                 <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; justify-content: center;">
                     <div style="font-size: 8pt; color: #94a3b8;">Потребуется лидов в месяц:</div>
@@ -10606,7 +10636,7 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
             <div style="border-left: 1px solid rgba(255,255,255,0.1); height: 30px; align-self: center;"></div>
             <div>
                 <span style="font-size: 8pt; color: #cbd5e1; display: block; margin-bottom: 2px;">Бюджет Карты/2ГИС</span>
-                <span style="font-size: 11pt; font-weight: bold; color: #10b981;">20 000 ₽</span>
+                <span style="font-size: 11pt; font-weight: bold; color: #10b981;" id="pred-bud-maps">20,000 ₽</span>
             </div>
             <div style="border-left: 1px solid rgba(255,255,255,0.1); height: 30px; align-self: center;"></div>
             <div>
@@ -10655,7 +10685,6 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
         const leadsReq = Math.ceil(deals / conv);
         document.getElementById('pred-leads-req').innerText = leadsReq + ' шт.';
         
-        // Средняя стоимость лида в недвижимости Магнитогорска в Яндексе ~650 ₽
         const cpl = 650;
         const directBud = leadsReq * cpl;
         const mapsBud = 20000;
@@ -10666,6 +10695,7 @@ const RADAR_TARGET_COMPANY = "Аврора Владис";
         const roi = totalBud > 0 ? Math.round((netProfit / totalBud) * 100) : 0;
         
         document.getElementById('pred-bud-direct').innerText = directBud.toLocaleString('ru-RU') + ' ₽';
+        document.getElementById('pred-bud-maps').innerText = mapsBud.toLocaleString('ru-RU') + ' ₽';
         document.getElementById('pred-net-profit').innerText = netProfit.toLocaleString('ru-RU') + ' ₽';
         document.getElementById('pred-roi-pct').innerText = (roi > 0 ? '+' + roi : roi) + '%';
     }
