@@ -11576,7 +11576,7 @@ function respondTo(text) {
     // 2. Локальный RAG по базе знаний
     if (kb) {
         // Скорость
-        if (query.indexOf('скорост') !== -1 || query.indexOf('быстр') !== -1 || query.indexOf('медлен') !== -1 || query.indexOf('lcp') !== -1 || query.indexOf('загрузк') !== -1) {
+        if (query.indexOf('скорост') !== -1 || query.indexOf('быстр') !== -1 || query.indexOf('медлен') !== -1 || query.indexOf('lcp') !== -1 || query.indexOf('загрузк') !== -1 || query.indexOf('тормоз') !== -1 || query.indexOf('глюч') !== -1) {
             var lcp = kb.target_metrics.lcp || 4.2;
             var score = kb.target_metrics.speed_score || 42;
             var avg = kb.market_benchmarks.avg_lcp || 3.1;
