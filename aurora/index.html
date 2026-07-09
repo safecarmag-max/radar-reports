@@ -11763,8 +11763,10 @@ function changeViewMode() {
         switchTab('tab-overview');
     } else if (mode === 'target_audit') {
         sections.forEach(function(s) {
-            var hide = ['market_entry', 'pestel'];
-            s.style.display = hide.indexOf(s.id) === -1 ? '' : 'none';
+            // Target audit must keep market-risk and forecast sections visible:
+            // owners need PESTEL, entry barriers, seasonality, and 3-5 year scenarios
+            // to understand budget risk and market timing.
+            s.style.display = '';
         });
         if (innBadge) {
             innBadge.style.background = 'rgba(251, 191, 36, 0.1)';
