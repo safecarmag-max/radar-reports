@@ -12421,6 +12421,15 @@ function respondTo(text) {
     var response = "";
     var action = null;
     
+    // Преобразование текстовых числительных на русском языке в цифры
+    var wordNumbers = {
+        'один': '1', 'два': '2', 'три': '3', 'четыре': '4', 'пять': '5',
+        'шесть': '6', 'семь': '7', 'восемь': '8', 'девять': '9', 'десять': '10'
+    };
+    for (var key in wordNumbers) {
+        query = query.replace(new RegExp('\b' + key + '\b', 'g'), wordNumbers[key]);
+    }
+    
     var kb = typeof window.RADAR_KNOWLEDGE_BASE !== 'undefined' ? window.RADAR_KNOWLEDGE_BASE : null;
     var nicheText = typeof RADAR_NICHE !== 'undefined' ? RADAR_NICHE : 'Недвижимость';
     var cityText = typeof RADAR_CITY !== 'undefined' ? RADAR_CITY : 'Магнитогорск';
@@ -12443,11 +12452,13 @@ function respondTo(text) {
     };
 
     // 1. Поиск по номеру раздела
-    var numMatch = query.match(/(?:открой|перейди|покажи|раздел|пункт|номер|команда|№|\b)\s*(\d+)/);
+    var numMatch = query.match(/(?:открой|перейди|покажи|раздел|пункт|номер|команда|диалог|радар|№|\b)\s*(\d+)/);
     if (numMatch) {
         var num = numMatch[1];
         var foundSection = null;
         var sections = document.querySelectorAll('section');
+        
+        // Сначала ищем по динамическому индексу (например, "7.") в заголовке
         for (var i = 0; i < sections.length; i++) {
             var sec = sections[i];
             var header = sec.querySelector('h2, h3, h4');
@@ -12458,6 +12469,24 @@ function respondTo(text) {
                 break;
             }
         }
+        
+        // Если не нашли, ищем по legacy сопоставлению ID
+        if (!foundSection) {
+            var legacyMapping = {
+                '1': 'market_pulse', '2': 'comp_table', '3': 'geo_density', '4': 'financials',
+                '5': 'pricing', '6': 'performance', '7': 'security', '8': 'omnichannel',
+                '9': 'seo_audit', '10': 'ad_spy', '11': 'cro_conversion', '12': 'legal_check',
+                '13': 'sentiment', '14': 'swot', '15': 'benchmarks', '16': 'positioning',
+                '17': 'ai_offers', '18': 'collabs', '19': 'upsells', '20': 'chatbot_automation',
+                '21': 'profit_advices', '22': 'pestel', '23': 'geo_ai_audit', '24': 'eeat_checklist',
+                '25': 'smm_strategy', '26': 'market_entry', '98': 'marketing_simulator', '99': 'anti_blind_zone'
+            };
+            var mappedId = legacyMapping[num];
+            if (mappedId) {
+                foundSection = document.getElementById(mappedId);
+            }
+        }
+        
         if (foundSection) {
             response = "Понял! Перенаправляю вас к разделу №" + num + " («" + foundSection.getAttribute('data-title') + "»)...";
             action = function() { triggerNavigation(foundSection.id); };
