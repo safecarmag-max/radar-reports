@@ -7843,10 +7843,9 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
         document.getElementById('lost-leads-val').innerText = lostLeads;
         document.getElementById('lost-revenue-val').innerText = lostRev.toLocaleString('ru-RU') + ' ₽';
 
-        const panelLost = document.getElementById('panel-lost-revenue');
-        if (panelLost) {
-            panelLost.innerText = lostRev.toLocaleString('ru-RU') + ' ₽';
-        }
+        // Важно: не перезаписываем #panel-lost-revenue.
+        // Пульт управления показывает общий расчет потерь по всему отчету,
+        // а этот калькулятор считает только локальный сценарий скорости ответа.
     }
     window.addEventListener('DOMContentLoaded', updateLostProfit);
     setTimeout(updateLostProfit, 100);
