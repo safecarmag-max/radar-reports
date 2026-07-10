@@ -12363,6 +12363,52 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
     </section>
         </div>
         
+        
+<!-- Форма обратной связи для собственника -->
+<div class="radar-feedback-card" style="margin-top: 40px; margin-bottom: 20px; background: linear-gradient(135deg, #0e1726, #111e35); border: 1px solid #1e293b; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); font-family: sans-serif; color: #fff; text-align: left;">
+    <div style="display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #1e293b; padding-bottom: 15px; margin-bottom: 20px;">
+        <span style="font-size: 24px;">💡</span>
+        <div>
+            <h3 style="margin: 0; color: #38bdf8; font-size: 13pt; font-weight: bold;">
+                Влияйте на развитие РАДАРа: Обратная связь собственника
+            </h3>
+            <p style="margin: 3px 0 0 0; font-size: 9pt; color: #94a3b8; line-height: 1.4;">
+                Напишите разработчикам, какие разделы добавить, какие метрики скорректировать или что исправить. Мы внедрим это в отчет!
+            </p>
+        </div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+            <label style="display: block; font-size: 9pt; color: #cbd5e1; font-weight: bold; margin-bottom: 6px;">Ваше имя или контакт (Telegram/Email):</label>
+            <input type="text" id="radar-fb-contact" placeholder="Например: Стас (@CEO_baskakov)" style="width: 100%; box-sizing: border-box; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px; color: #fff; font-size: 9.5pt; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='#334155'">
+        </div>
+        <div>
+            <label style="display: block; font-size: 9pt; color: #cbd5e1; font-weight: bold; margin-bottom: 6px;">Прикрепить скриншот или файл (опционально):</label>
+            <div style="position: relative;">
+                <input type="file" id="radar-fb-file" style="display: none;" onchange="handleFeedbackFileSelect(this)">
+                <button onclick="document.getElementById('radar-fb-file').click()" style="width: 100%; box-sizing: border-box; background: #1e293b; border: 1px dashed #475569; border-radius: 6px; padding: 9px; color: #cbd5e1; font-size: 9pt; cursor: pointer; text-align: center; transition: background 0.2s; outline: none;" id="radar-fb-file-label">
+                    📎 Выберите файл...
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; font-size: 9pt; color: #cbd5e1; font-weight: bold; margin-bottom: 6px;">Детали предложения / замечания:</label>
+        <textarea id="radar-fb-message" rows="4" placeholder="Опишите ваши идеи или найденные неточности во всех подробностях..." style="width: 100%; box-sizing: border-box; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px; color: #fff; font-size: 9.5pt; outline: none; resize: vertical; transition: border-color 0.2s;" onfocus="this.style.borderColor='#38bdf8'" onblur="this.style.borderColor='#334155'"></textarea>
+    </div>
+    
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+        <div style="font-size: 8.5pt; color: #94a3b8; line-height: 1.4; max-width: 70%;">
+            👉 <b>Куда это уходит:</b> Отзыв моментально записывается в базу проекта и отправляется в Telegram разработчика. Мы изучим ваше предложение в течение 24 часов.
+        </div>
+        <button id="radar-fb-send-btn" onclick="sendRadarFeedback()" style="background: #10b981; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 9.5pt; font-weight: bold; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; gap: 6px; outline: none;">
+            <span>🚀</span> Отправить разработчикам
+        </button>
+    </div>
+</div>
+
     </div>
 </div>
 
@@ -13571,6 +13617,109 @@ function resetScanButton(btn) {
     btn.disabled = false;
     btn.style.background = '#0284c7';
     btn.innerHTML = '<span>🔄</span> Обновить скан рынка';
+}
+
+/* Обработка формы фидбека */
+window.radarFbFileData = null;
+window.radarFbFileName = null;
+
+function handleFeedbackFileSelect(input) {
+    var file = input.files[0];
+    if (!file) return;
+    
+    var label = document.getElementById('radar-fb-file-label');
+    if (label) label.textContent = "⏳ Чтение файла...";
+    
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        window.radarFbFileData = e.target.result;
+        window.radarFbFileName = file.name;
+        if (label) label.textContent = "✅ " + file.name + " (" + Math.round(file.size / 1024) + " KB)";
+    };
+    reader.onerror = function() {
+        alert("Не удалось прочитать выбранный файл.");
+        if (label) label.textContent = "📎 Выберите файл...";
+    };
+    reader.readAsDataURL(file);
+}
+
+function sendRadarFeedback() {
+    var contactInput = document.getElementById('radar-fb-contact');
+    var messageInput = document.getElementById('radar-fb-message');
+    var sendBtn = document.getElementById('radar-fb-send-btn');
+    
+    if (!messageInput || !sendBtn) return;
+    
+    var contactVal = contactInput ? contactInput.value.trim() : "";
+    var messageVal = messageInput.value.trim();
+    
+    if (!messageVal) {
+        alert("Пожалуйста, заполните детали вашего предложения перед отправкой.");
+        return;
+    }
+    
+    var projectKey = "aurora";
+    if (window.RADAR_KNOWLEDGE_BASE) {
+        projectKey = window.RADAR_KNOWLEDGE_BASE.project_key || projectKey;
+    }
+    
+    sendBtn.disabled = true;
+    sendBtn.style.background = '#475569';
+    var originalBtnHtml = sendBtn.innerHTML;
+    sendBtn.innerHTML = '<span>⏳</span> Отправка...';
+    
+    var payload = {
+        project_key: projectKey,
+        sender: contactVal || "Анонимный собственник",
+        message: messageVal,
+        file_name: window.radarFbFileName || null,
+        file_data: window.radarFbFileData || null
+    };
+    
+    var localUrl = 'http://localhost:8000/api/feedback';
+    fetch(localUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+        if (!res.ok) throw new Error("Server error");
+        return res.json();
+    })
+    .then(function(data) {
+        sendBtn.style.background = '#16a34a';
+        sendBtn.innerHTML = '<span>✅</span> Успешно отправлено!';
+        
+        // Сброс полей
+        if (contactInput) contactInput.value = "";
+        messageInput.value = "";
+        window.radarFbFileData = null;
+        window.radarFbFileName = null;
+        var fileLabel = document.getElementById('radar-fb-file-label');
+        if (fileLabel) fileLabel.textContent = "📎 Выберите файл...";
+        var fileInput = document.getElementById('radar-fb-file');
+        if (fileInput) fileInput.value = "";
+        
+        setTimeout(function() {
+            sendBtn.disabled = false;
+            sendBtn.style.background = '#10b981';
+            sendBtn.innerHTML = originalBtnHtml;
+        }, 3000);
+    })
+    .catch(function(err) {
+        console.error(err);
+        // Fallback: Telegram link redirect
+        alert("Локальный сервер РАДАРа не отвечает. Мы перенаправим вас в Telegram для отправки напрямую Стасу.");
+        var tgText = "Фидбек по РАДАРу (" + projectKey + ") от " + (contactVal || "Собственника") + ":
+" + messageVal;
+        window.open("https://t.me/CEO_baskakov?text=" + encodeURIComponent(tgText), "_blank");
+        
+        sendBtn.disabled = false;
+        sendBtn.style.background = '#10b981';
+        sendBtn.innerHTML = originalBtnHtml;
+    });
 }
 </script>
 
