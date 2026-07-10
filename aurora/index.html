@@ -13306,6 +13306,31 @@ function runINNCheck() {
 </div>
 
 
+<!-- Модальное окно ошибки подключения к серверу -->
+<div id="radar-server-error-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px); z-index: 10000; justify-content: center; align-items: center; font-family: sans-serif; text-align: left;">
+    <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; width: 90%; max-width: 480px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden;">
+        
+        <!-- Заголовок -->
+        <div style="background: #1e293b; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155;">
+            <h3 style="margin: 0; color: #fbbf24; font-size: 11pt; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                🔌 Локальное сканирование
+            </h3>
+            <button onclick="closeServerErrorModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 20px; cursor: pointer; line-height: 1; outline: none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">&times;</button>
+        </div>
+        
+        <!-- Содержимое -->
+        <div style="padding: 20px; font-size: 9.5pt; color: #cbd5e1; line-height: 1.5;" id="radar-server-error-body">
+            <!-- Динамический текст ошибки -->
+        </div>
+        
+        <!-- Подвал -->
+        <div style="background: #0f172a; padding: 15px 20px; display: flex; justify-content: flex-end; border-top: 1px solid #1e293b;">
+            <button onclick="closeServerErrorModal()" style="background: #334155; border: 1px solid #475569; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 9pt; font-weight: bold; cursor: pointer;">Понятно</button>
+        </div>
+    </div>
+</div>
+
+
 <script>
 function switchTab(tabId) {
     var contents = document.querySelectorAll('.tab-content');
@@ -13423,6 +13448,9 @@ window.addEventListener('click', function(event) {
     }
     if (event.target.id === 'radar-roadmap-modal') {
         closeRoadmapModal();
+    }
+    if (event.target.id === 'radar-server-error-modal') {
+        closeServerErrorModal();
     }
 });
 
@@ -13714,6 +13742,24 @@ function scrollToEeatRecommendations() {
     }
 }
 
+function openServerErrorModal(htmlContent) {
+    var modal = document.getElementById("radar-server-error-modal");
+    var body = document.getElementById("radar-server-error-body");
+    if (modal && body) {
+        body.innerHTML = htmlContent;
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeServerErrorModal() {
+    var modal = document.getElementById("radar-server-error-modal");
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+}
+
 function triggerRadarScan() {
     var btn = document.getElementById('radar-rescan-btn');
     if (!btn) return;
@@ -13728,6 +13774,17 @@ function triggerRadarScan() {
         niche = window.RADAR_KNOWLEDGE_BASE.niche || niche;
         city = window.RADAR_KNOWLEDGE_BASE.city || city;
         targetCompany = window.RADAR_KNOWLEDGE_BASE.target_company || targetCompany;
+    }
+    
+    if (window.location.protocol === 'https:') {
+        var localPath = 'file:///Users/a111/Desktop/Рабочий стол — MacBook Air — 111/baskakov/projects/' + projectKey + '/' + projectKey + '_report.html';
+        openServerErrorModal(
+            '<b style="color: #f87171; display: block; margin-bottom: 8px;">⚠️ Локальное сканирование недоступно из облака</b>' +
+            'Вы просматриваете отчет через веб-предпросмотр GitHub.<br/><br/>' +
+            'Для запуска сканирования откройте локальный файл на вашем компьютере:<br/>' +
+            '<a href="' + localPath + '" style="color: #38bdf8; word-break: break-all; text-decoration: underline;">' + localPath + '</a>'
+        );
+        return;
     }
     
     btn.disabled = true;
@@ -13755,13 +13812,21 @@ function triggerRadarScan() {
             btn.innerHTML = '<span>⚡</span> Анализ в очереди...';
             pollScanStatus(projectKey, btn);
         } else {
-            alert('Не удалось запустить сканирование.');
+            openServerErrorModal(
+                '<b style="color: #f87171; display: block; margin-bottom: 8px;">❌ Ошибка запуска</b>' +
+                'Сервер отклонил запрос. Проверьте логи в терминале.'
+            );
             resetScanButton(btn);
         }
     })
     .catch(function(err) {
         console.error(err);
-        alert('Не удалось связаться с radar_server.py на порту 8000. Пожалуйста, запустите сервер.');
+        openServerErrorModal(
+            '<b style="color: #f87171; display: block; margin-bottom: 8px;">🔌 Локальный сервер РАДАРа не запущен</b>' +
+            'Не удалось связаться с <code style="background: #1e293b; padding: 2px 4px; border-radius: 4px;">radar_server.py</code> на порту 8000.<br/><br/>' +
+            'Пожалуйста, откройте терминал в папке проекта и запустите локальный веб-интерфейс:<br/>' +
+            '<pre style="background: #0b0f19; padding: 10px; border-radius: 6px; border: 1px solid #334155; margin: 10px 0; font-family: monospace; color: #fbbf24;">python tools/radar_server.py</pre>'
+        );
         resetScanButton(btn);
     });
 }
