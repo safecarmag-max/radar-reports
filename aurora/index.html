@@ -1331,6 +1331,67 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 </p>
             </div>
             
+            
+            <!-- Панель действий собственника -->
+            <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; background: rgba(15, 23, 42, 0.4); padding: 12px 18px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                
+                <!-- 1. Кнопка "Обновить скан" -->
+                <button id="radar-rescan-btn" onclick="triggerRadarScan()" style="background: #0284c7; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 9.5pt; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s; outline: none;">
+                    <span>🔄</span> Обновить скан рынка
+                </button>
+                
+                <!-- 2. Меню выгрузки и скачать отчет -->
+                <div style="position: relative; display: inline-block;" id="radar-export-dropdown-container">
+                    <button onclick="toggleExportDropdown()" style="background: #1e293b; color: #fff; border: 1px solid #475569; padding: 8px 16px; border-radius: 6px; font-size: 9.5pt; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s; outline: none;">
+                        <span>📥</span> Скачать отчет <span style="font-size: 7.5pt; color: #94a3b8; margin-left: 2px;">▼</span>
+                    </button>
+                    <div id="radar-export-menu" style="display: none; position: absolute; left: 0; top: 100%; margin-top: 5px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 1000; min-width: 180px;">
+                        <a href="#" onclick="downloadReportFormat('docx'); return false;" style="display: block; padding: 10px 15px; color: #cbd5e1; font-size: 9pt; text-decoration: none; border-bottom: 1px solid #1e293b; transition: background 0.2s; text-align: left;">📄 Скачать в Word (DOCX)</a>
+                        <a href="#" onclick="downloadReportFormat('csv'); return false;" style="display: block; padding: 10px 15px; color: #cbd5e1; font-size: 9pt; text-decoration: none; border-bottom: 1px solid #1e293b; transition: background 0.2s; text-align: left;">📊 Экспорт в Excel (CSV)</a>
+                        <a href="#" onclick="downloadReportFormat('pdf'); return false;" style="display: block; padding: 10px 15px; color: #cbd5e1; font-size: 9pt; text-decoration: none; transition: background 0.2s; text-align: left;">📑 Скачать в PDF</a>
+                    </div>
+                </div>
+
+                <!-- 3. Сравнить нас с (селектор конкурентов) -->
+                <div style="display: flex; align-items: center; gap: 8px; margin-left: auto; flex-wrap: wrap;">
+                    <label style="font-size: 9pt; color: #94a3b8; font-weight: 500;">⚔️ Сравнить нас с:</label>
+                    <select id="radar-compare-selector" onchange="focusOnCompetitor(this.value)" style="background: #1e293b; border: 1px solid #475569; border-radius: 6px; padding: 7px 12px; color: #fff; font-size: 9pt; font-weight: bold; cursor: pointer; outline: none;">
+                        <option value="">Выберите компанию...</option>
+                        <option value="Рио-Люкс">Рио-Люкс</option>
+<option value="Самолет Плюс">Самолет Плюс</option>
+<option value="Премьера">Премьера</option>
+<option value="Статус-М">Статус-М</option>
+<option value="Единство">Единство</option>
+<option value="Ковчег">Ковчег</option>
+<option value="Визит">Визит</option>
+<option value="Новый дом">Новый дом</option>
+<option value="Агентство 21">Агентство 21</option>
+<option value="История">История</option>
+<option value="Магдом">Магдом</option>
+<option value="Перспектива24">Перспектива24</option>
+<option value="Жилфонд">Жилфонд</option>
+<option value="Форум">Форум</option>
+<option value="Авторитет">Авторитет</option>
+<option value="Недвижка.ру">Недвижка.ру</option>
+<option value="ДДА Риал">ДДА Риал</option>
+<option value="Мегаполис">Мегаполис</option>
+<option value="Этажи">Этажи</option>
+<option value="Альянс">Альянс</option>
+<option value="Гарант">Гарант</option>
+<option value="Монтера группа">Монтера группа</option>
+<option value="Центральное">Центральное</option>
+<option value="На трёх китах">На трёх китах</option>
+<option value="Brend Realty">Brend Realty</option>
+<option value="Квадратный метр">Квадратный метр</option>
+<option value="Тандем">Тандем</option>
+<option value="Ключи">Ключи</option>
+<option value="Стратегия">Стратегия</option>
+<option value="Родной дом">Родной дом</option>
+                    </select>
+                </div>
+            </div>
+    
+            
             <!-- Панель KPI боевого управления -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
                 <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="navigateToSection('money_on_table')">
@@ -1365,6 +1426,11 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <div style="border: 1px solid rgba(168, 85, 247, 0.4); background: rgba(168, 85, 247, 0.08); color: #a855f7; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="navigateToSection('market_pulse')">
                     Динамика за 30 дней: <b>+3.7% силы бренда</b>
                 </div>
+                
+                <div style="border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); color: #f87171; font-size: 9.5pt; font-weight: bold; padding: 6px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" onclick="scrollToEeatRecommendations()">
+                    ⚠️ Найдено уязвимостей E-E-A-T: цены (нажмите для ТЗ)
+                </div>
+        
             </div>
             
             <!-- Сетка из 3-х колонок -->
@@ -13098,6 +13164,195 @@ window.addEventListener('click', function(event) {
         document.body.style.overflow = '';
     }
 });
+
+/* Интерактивные функции пульта управления */
+function toggleExportDropdown() {
+    var menu = document.getElementById('radar-export-menu');
+    if (menu) {
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+}
+document.addEventListener('click', function(e) {
+    var container = document.getElementById('radar-export-dropdown-container');
+    var menu = document.getElementById('radar-export-menu');
+    if (container && menu && !container.contains(e.target)) {
+        menu.style.display = 'none';
+    }
+});
+
+function downloadReportFormat(format) {
+    var projectKey = "aurora";
+    if (window.RADAR_KNOWLEDGE_BASE && window.RADAR_KNOWLEDGE_BASE.project_key) {
+        projectKey = window.RADAR_KNOWLEDGE_BASE.project_key;
+    } else {
+        var pathParts = window.location.pathname.split('/');
+        for (var i = 0; i < pathParts.length; i++) {
+            if (pathParts[i].indexOf('_report') !== -1) {
+                projectKey = pathParts[i].split('_report')[0];
+            }
+        }
+    }
+    
+    if (window.location.protocol === 'file:') {
+        var filename = projectKey + "_market_insights.docx";
+        if (format === 'csv') filename = projectKey + "_report.csv";
+        else if (format === 'pdf') filename = projectKey + "_market_insights.pdf";
+        window.location.href = "./" + filename;
+    } else {
+        window.location.href = "/api/download-" + format + "/" + projectKey;
+    }
+}
+
+function focusOnCompetitor(compName) {
+    if (!compName) return;
+    switchTab('tab-overview');
+    
+    // Clear highlights
+    var highlighted = document.querySelectorAll('.highlighted-competitor-row');
+    highlighted.forEach(function(el) {
+        el.classList.remove('highlighted-competitor-row');
+        el.style.outline = '';
+        el.style.boxShadow = '';
+        el.style.background = '';
+    });
+    
+    var tables = document.querySelectorAll('table');
+    var foundRow = null;
+    
+    for (var t = 0; t < tables.length; t++) {
+        var rows = tables[t].querySelectorAll('tr');
+        for (var r = 0; r < rows.length; r++) {
+            var firstCell = rows[r].querySelector('td');
+            if (firstCell) {
+                var cellText = firstCell.innerText.trim();
+                if (cellText === compName || cellText.indexOf(compName) !== -1 || compName.indexOf(cellText) !== -1) {
+                    foundRow = rows[r];
+                    break;
+                }
+            }
+        }
+        if (foundRow) break;
+    }
+    
+    if (foundRow) {
+        foundRow.classList.add('highlighted-competitor-row');
+        foundRow.style.outline = '3px solid #fb923c';
+        foundRow.style.boxShadow = '0 0 15px rgba(251, 146, 60, 0.4)';
+        foundRow.style.background = 'rgba(251, 146, 60, 0.08)';
+        foundRow.style.transition = 'all 0.3s ease';
+        foundRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+        var headings = document.querySelectorAll('h2, h3, h4');
+        for (var h = 0; h < headings.length; h++) {
+            if (headings[h].innerText.indexOf(compName) !== -1) {
+                headings[h].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                break;
+            }
+        }
+    }
+}
+
+function scrollToEeatRecommendations() {
+    switchTab('tab-overview');
+    var el = document.getElementById('eeat_checklist');
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.style.outline = '3px solid #ef4444';
+        el.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.4)';
+        el.style.transition = 'all 0.3s ease';
+        setTimeout(function() {
+            el.style.outline = '';
+            el.style.boxShadow = '';
+        }, 3000);
+    }
+}
+
+function triggerRadarScan() {
+    var btn = document.getElementById('radar-rescan-btn');
+    if (!btn) return;
+    
+    var projectKey = "aurora";
+    var niche = "Недвижимость";
+    var city = "Магнитогорск";
+    var targetCompany = "";
+    
+    if (window.RADAR_KNOWLEDGE_BASE) {
+        projectKey = window.RADAR_KNOWLEDGE_BASE.project_key || projectKey;
+        niche = window.RADAR_KNOWLEDGE_BASE.niche || niche;
+        city = window.RADAR_KNOWLEDGE_BASE.city || city;
+        targetCompany = window.RADAR_KNOWLEDGE_BASE.target_company || targetCompany;
+    }
+    
+    btn.disabled = true;
+    btn.style.background = '#475569';
+    btn.innerHTML = '<span>⏳</span> Запуск сканирования...';
+    
+    var localUrl = 'http://localhost:8000/api/run';
+    fetch(localUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            project_key: projectKey,
+            niche: niche,
+            city: city,
+            competitors: window.RADAR_KNOWLEDGE_BASE ? window.RADAR_KNOWLEDGE_BASE.competitors || [] : [],
+            profile: {},
+            target_company: targetCompany
+        })
+    })
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+        if (data.status === 'queued') {
+            btn.innerHTML = '<span>⚡</span> Анализ в очереди...';
+            pollScanStatus(projectKey, btn);
+        } else {
+            alert('Не удалось запустить сканирование.');
+            resetScanButton(btn);
+        }
+    })
+    .catch(function(err) {
+        console.error(err);
+        alert('Не удалось связаться с radar_server.py на порту 8000. Пожалуйста, запустите сервер.');
+        resetScanButton(btn);
+    });
+}
+
+function pollScanStatus(projectKey, btn) {
+    var interval = setInterval(function() {
+        var localUrl = 'http://localhost:8000/api/status/' + projectKey;
+        fetch(localUrl)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if (data.status === 'completed') {
+                clearInterval(interval);
+                btn.style.background = '#16a34a';
+                btn.innerHTML = '<span>✅</span> Готово! Перезагрузка...';
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else if (data.status === 'failed') {
+                clearInterval(interval);
+                alert('Сканирование завершилось ошибкой.');
+                resetScanButton(btn);
+            } else {
+                btn.innerHTML = '<span>⏳</span> Анализ (' + (data.progress || 'выполняется') + ')...';
+            }
+        })
+        .catch(function(err) {
+            clearInterval(interval);
+            console.error(err);
+            resetScanButton(btn);
+        });
+    }, 3000);
+}
+
+function resetScanButton(btn) {
+    btn.disabled = false;
+    btn.style.background = '#0284c7';
+    btn.innerHTML = '<span>🔄</span> Обновить скан рынка';
+}
 </script>
 
 </body>
