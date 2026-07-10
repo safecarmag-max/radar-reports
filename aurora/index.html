@@ -13188,6 +13188,9 @@ window.addEventListener('click', function(event) {
         event.target.style.display = 'none';
         document.body.style.overflow = '';
     }
+    if (event.target.id === 'radar-vs-modal') {
+        closeVsModal();
+    }
 });
 
 /* Интерактивные функции пульта управления */
@@ -13265,13 +13268,24 @@ function focusOnCompetitor(compName) {
     
     // Форматирование значений
     var formatRevenue = function(val) {
-        if (!val) return "Н/Д";
+        if (val === undefined || val === null || val === 0) return "Н/Д";
         return val + " млн ₽/год";
     };
     
     var formatStaff = function(val) {
         if (!val) return "Н/Д";
         return val + " чел.";
+    };
+    
+    var formatAdBudget = function(val) {
+        if (val === undefined || val === null || val === 0) return "Н/Д";
+        return val + " млн ₽/год";
+    };
+    
+    var formatBrandStrength = function(val) {
+        if (!val) return "0%";
+        var color = val >= 70 ? "#10b981" : (val >= 40 ? "#fbbf24" : "#ef4444");
+        return '<span style="color:' + color + '; font-weight:bold;">' + Math.round(val) + '%</span>';
     };
     
     var formatLcp = function(val) {
@@ -13290,60 +13304,142 @@ function focusOnCompetitor(compName) {
         if (!val) return "Н/Д";
         return '⭐ <b>' + val + '</b> <span style="color:#94a3b8; font-size:8pt;">(' + (count || 0) + ' отз.)</span>';
     };
+    
+    var formatPrice = function(val) {
+        return val ? '<span style="color:#10b981; font-weight:bold;">🟢 Размещен</span>' : '<span style="color:#ef4444; font-weight:bold;">🔴 Не найден</span>';
+    };
+    
+    var formatSocials = function(val) {
+        return val ? '<span style="color:#10b981; font-weight:bold;">🟢 Подключены</span>' : '<span style="color:#ef4444; font-weight:bold;">🔴 Не найдены</span>';
+    };
+    
+    var formatAge = function(val) {
+        if (!val) return "Н/Д";
+        return val + " лет";
+    };
 
     var ourRev = targetCompData ? targetCompData.revenue : 119.0;
     var ourStaff = targetCompData ? targetCompData.staff : 72;
+    var ourAd = targetCompData ? targetCompData.ad_budget : 8.4;
 
     // Сборка таблицы сравнения
     var tableHtml = `
+        <style>
+        #radar-vs-table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            text-align: left !important;
+            font-size: 9.5pt !important;
+            color: #cbd5e1 !important;
+            border: 1px solid #334155 !important;
+            background: #0f172a !important;
+        }
+        #radar-vs-table th {
+            padding: 12px !important;
+            border: 1px solid #334155 !important;
+            background: #1e293b !important;
+            color: #fff !important;
+            font-weight: bold !important;
+        }
+        #radar-vs-table td {
+            padding: 12px !important;
+            border: 1px solid #334155 !important;
+            color: #cbd5e1 !important;
+            background: transparent !important;
+        }
+        #radar-vs-table tr.vs-row-even {
+            background: #1e293b !important;
+        }
+        #radar-vs-table tr.vs-row-odd {
+            background: #0f172a !important;
+        }
+        #radar-vs-table td.vs-metric-label {
+            font-weight: bold !important;
+            color: #38bdf8 !important;
+        }
+        #radar-vs-table td.vs-our-value {
+            font-weight: bold !important;
+            color: #fff !important;
+        }
+        </style>
         <div style="font-size: 9.5pt; color: #94a3b8; margin-bottom: 15px; line-height: 1.4;">
             Сравнение ключевых показателей эффективности вашей компании и выбранного конкурента.
         </div>
-        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 9.5pt; color: #cbd5e1; border: 1px solid #334155;">
+        <table id="radar-vs-table">
             <thead>
-                <tr style="background: #1e293b; border-bottom: 2px solid #334155;">
-                    <th style="padding: 12px; border: 1px solid #334155;">Критерий / Метрика</th>
-                    <th style="padding: 12px; border: 1px solid #334155; color: #34d399; font-weight: bold;">🎯 ${targetName}</th>
-                    <th style="padding: 12px; border: 1px solid #334155; color: #38bdf8; font-weight: bold;">⚔️ ${compName}</th>
+                <tr>
+                    <th style="width: 40%;">Критерий / Метрика</th>
+                    <th style="width: 30%; color: #34d399;">🎯 ${targetName}</th>
+                    <th style="width: 30%; color: #38bdf8;">⚔️ ${compName}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold; background: rgba(255,255,255,0.01);">Оценочная выручка</td>
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold; color: #fff;">${formatRevenue(ourRev)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatRevenue(comp.revenue)}</td>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Оценочная выручка</td>
+                    <td class="vs-our-value">${formatRevenue(ourRev)}</td>
+                    <td>${formatRevenue(comp.revenue)}</td>
                 </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold;">Оценочный штат</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatStaff(ourStaff)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatStaff(comp.staff)}</td>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Оценочный штат</td>
+                    <td class="vs-our-value">${formatStaff(ourStaff)}</td>
+                    <td>${formatStaff(comp.staff)}</td>
                 </tr>
-                <tr style="background: rgba(255,255,255,0.02);">
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold; background: rgba(255,255,255,0.01);">Рейтинг на картах</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatRating(target.rating, target.reviews_count)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatRating(comp.rating, comp.reviews_count)}</td>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Бюджет на рекламу</td>
+                    <td class="vs-our-value">${formatAdBudget(ourAd)}</td>
+                    <td>${formatAdBudget(comp.ad_budget)}</td>
                 </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold;">Скорость загрузки (LCP)</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatLcp(target.lcp)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatLcp(comp.lcp)}</td>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Сила бренда</td>
+                    <td class="vs-our-value">${formatBrandStrength(target.brand_strength)}</td>
+                    <td>${formatBrandStrength(comp.brand_strength)}</td>
                 </tr>
-                <tr style="background: rgba(255,255,255,0.02);">
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold; background: rgba(255,255,255,0.01);">Индекс ИИ-видимости (GEO)</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatScore(target.geo_score)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatScore(comp.geo_score)}</td>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Рейтинг на картах</td>
+                    <td class="vs-our-value">${formatRating(target.rating, target.reviews_count)}</td>
+                    <td>${formatRating(comp.rating, comp.reviews_count)}</td>
                 </tr>
-                <tr>
-                    <td style="padding: 12px; border: 1px solid #334155; font-weight: bold;">Эффективность воронки</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatScore(target.funnel_score)}</td>
-                    <td style="padding: 12px; border: 1px solid #334155;">${formatScore(comp.funnel_score)}</td>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Скорость сайта (LCP)</td>
+                    <td class="vs-our-value">${formatLcp(target.lcp)}</td>
+                    <td>${formatLcp(comp.lcp)}</td>
+                </tr>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Оценка тех. оптимизации</td>
+                    <td class="vs-our-value">${formatScore(target.speed_score)}</td>
+                    <td>${formatScore(comp.speed_score)}</td>
+                </tr>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Социальные сети (VK/TG)</td>
+                    <td class="vs-our-value">${formatSocials(target.has_socials)}</td>
+                    <td>${formatSocials(comp.has_socials)}</td>
+                </tr>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Прайс-лист (E-E-A-T)</td>
+                    <td class="vs-our-value">${formatPrice(target.has_price)}</td>
+                    <td>${formatPrice(comp.has_price)}</td>
+                </tr>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Индекс GEO (видимость)</td>
+                    <td class="vs-our-value">${formatScore(target.geo_score)}</td>
+                    <td>${formatScore(comp.geo_score)}</td>
+                </tr>
+                <tr class="vs-row-odd">
+                    <td class="vs-metric-label">Эффективность воронки</td>
+                    <td class="vs-our-value">${formatScore(target.funnel_score)}</td>
+                    <td>${formatScore(comp.funnel_score)}</td>
+                </tr>
+                <tr class="vs-row-even">
+                    <td class="vs-metric-label">Возраст компании</td>
+                    <td class="vs-our-value">${formatAge(target.age)}</td>
+                    <td>${formatAge(comp.age)}</td>
                 </tr>
             </tbody>
         </table>
         
         <!-- Анализ разрывов -->
-        <div style="margin-top: 18px; padding: 15px; background: rgba(56, 189, 248, 0.05); border-left: 4px solid #38bdf8; border-radius: 6px; font-size: 9pt; color: #93c5fd; line-height: 1.5;">
-            <b style="color: #38bdf8; font-size: 9.5pt; display: block; margin-bottom: 6px;">💡 Ключевые точки разрыва:</b>
+        <div style="margin-top: 18px; padding: 15px; background: rgba(56, 189, 248, 0.05); border-left: 4px solid #38bdf8; border-radius: 6px; font-size: 9.5pt; color: #93c5fd; line-height: 1.55;">
+            <b style="color: #38bdf8; font-size: 10pt; display: block; margin-bottom: 6px;">💡 Ключевые точки разрыва:</b>
             ${comp.lcp < target.lcp ? '• <b>Потери на сайте:</b> У этого конкурента сайт загружается быстрее на ' + Math.round((target.lcp - comp.lcp)*10)/10 + ' сек. Медленная загрузка LCP режет вашу конверсию в заявки.' : '• <b>Скорость сайта:</b> Вы опережаете конкурента по скорости загрузки LCP.'}<br/>
             ${comp.rating > target.rating ? '• <b>Репутационный разрыв:</b> Рейтинг оппонента выше вашей оценки (' + comp.rating + '★ против ' + target.rating + '★). Это перераспределяет часть вашей горячей органики на картах в их пользу.' : '• <b>Репутация:</b> Ваш рейтинг на картах не уступает оппоненту.'}<br/>
             ${comp.geo_score > target.geo_score ? '• <b>ИИ-присутствие:</b> Конкурент сильнее оптимизирован под Яндекс Нейро и ИИ-помощники. Рекомендуется дополнить сайт FAQ блоком.' : '• <b>ИИ-поиск:</b> Ваша видимость в ИИ-поиске и ответах нейросетей выше конкурента.'}
