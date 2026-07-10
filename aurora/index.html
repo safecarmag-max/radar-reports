@@ -13712,8 +13712,7 @@ function sendRadarFeedback() {
         console.error(err);
         // Fallback: Telegram link redirect
         alert("Локальный сервер РАДАРа не отвечает. Мы перенаправим вас в Telegram для отправки напрямую Стасу.");
-        var tgText = "Фидбек по РАДАРу (" + projectKey + ") от " + (contactVal || "Собственника") + ":
-" + messageVal;
+        var tgText = "Фидбек по РАДАРу (" + projectKey + ") от " + (contactVal || "Собственника") + ":\n" + messageVal;
         window.open("https://t.me/CEO_baskakov?text=" + encodeURIComponent(tgText), "_blank");
         
         sendBtn.disabled = false;
