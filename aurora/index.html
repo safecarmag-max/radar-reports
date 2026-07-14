@@ -1329,7 +1329,7 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
 
 
     <style>
-        body.radar-reading-decision section[data-tab]:not(#director-decisions):not(#market_pulse):not(#chain_bottleneck):not(#next_best_action):not(#task_generator) { display:none !important; }
+        body.radar-reading-decision section[data-tab]:not(#director-decisions) { display:none !important; }
         body.radar-reading-decision .report-chapter-banner { display:none !important; }
     </style>
     
@@ -1507,6 +1507,7 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <button type="button" data-reading-mode="decision" onclick="setRadarReadingMode('decision')" style="border:1px solid #fbbf24; border-radius:6px; padding:7px 10px; background:#fbbf24; color:#0f172a; font-weight:900; cursor:pointer;">Решение за 10 минут</button>
                 <button type="button" data-reading-mode="evidence" onclick="setRadarReadingMode('evidence')" style="border:1px solid #64748b; border-radius:6px; padding:7px 10px; background:transparent; color:#e2e8f0; font-weight:900; cursor:pointer;">Все доказательства</button>
             </div>
+            <div data-reading-mode-note="true" style="font-size:8pt; color:#cbd5e1; margin-top:9px; line-height:1.4;">Сейчас открыт полный отчёт: можно читать все разделы и источники.</div>
         </div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin-top:12px;">
     <article data-director-decision="1" style="background:#ffffff; border:1px solid #cbd5e1; border-radius:10px; padding:15px; min-width:0; box-shadow:0 3px 10px rgba(15,23,42,.07);">
@@ -21207,7 +21208,7 @@ function switchTab(tabId) {
 }
 
 function navigateToSection(sectionId) {
-    setRadarReadingMode('evidence');
+    setRadarReadingMode('evidence', { keepPosition: true });
     var el = document.getElementById(sectionId);
     if (!el) return;
     
@@ -21237,7 +21238,8 @@ function navigateToSection(sectionId) {
     }, 150);
 }
 
-function setRadarReadingMode(mode) {
+function setRadarReadingMode(mode, options) {
+    options = options || {};
     var body = document.body;
     var decisionMode = mode === 'decision';
     body.classList.toggle('radar-reading-decision', decisionMode);
@@ -21248,14 +21250,27 @@ function setRadarReadingMode(mode) {
         controls[i].style.background = isActive ? '#fbbf24' : 'transparent';
         controls[i].style.color = isActive ? '#0f172a' : '#e2e8f0';
         controls[i].style.borderColor = isActive ? '#fbbf24' : '#64748b';
+        controls[i].setAttribute('aria-pressed', isActive ? 'true' : 'false');
     }
-    if (decisionMode) switchTab('tab-overview');
+    var note = document.querySelector('[data-reading-mode-note]');
+    if (note) {
+        note.innerText = decisionMode
+            ? 'Короткий режим: только 3 решения директора. Нажмите «Все доказательства», чтобы открыть весь отчёт.'
+            : 'Полный режим: доступны все разделы, источники и подробные доказательства.';
+    }
+    if (options.keepPosition) return;
+    switchTab('tab-overview');
+    var targetId = decisionMode ? 'director-decisions' : 'market_pulse';
+    setTimeout(function() {
+        var target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
 }
 
 function loadRadarReadingMode() {
     var saved = null;
     try { saved = localStorage.getItem('radar_reading_mode'); } catch (err) {}
-    setRadarReadingMode(saved === 'decision' ? 'decision' : 'evidence');
+    setRadarReadingMode(saved === 'decision' ? 'decision' : 'evidence', { keepPosition: true });
 }
 
 function toggleTheme() {
