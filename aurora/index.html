@@ -16830,23 +16830,46 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
     </div>
 
     
+    <div class="sentiment-tabs-container" style="font-family: sans-serif; box-sizing: border-box; margin-top: 15px;">
+        <!-- Заголовки вкладок -->
+        <div style="display: flex; gap: 8px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px;">
+            <button class="sentiment-tab-btn active" onclick="switchSentimentTab('tab-target', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #0284c7; border-bottom: 3px solid #0284c7; cursor: pointer; transition: all 0.2s; outline: none;">
+                🎯 Репутация Аврора Владис (SWOT)
+            </button>
+            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-competitors', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #64748b; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.2s; outline: none;">
+                👥 Репутация конкурентов
+            </button>
+            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-cliches', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #64748b; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.2s; outline: none;">
+                🚫 Штампы и клише на рынке
+            </button>
+        </div>
+
+        <!-- Содержимое вкладки 1: Наша репутация -->
+        <div id="tab-target" class="sentiment-tab-content" style="display: block;">
+            
         <div class="cols" style="margin-bottom: 4mm;">
-            <div style="background: #fcf8e3; border-left: 4px solid #f0ad4e; padding: 12px; border-radius: 6px; flex: 1;">
+            <div style="background: #fffdf5; border: 1px solid #fef3c7; border-left: 5px solid #fbbf24; padding: 18px; border-radius: 12px; flex: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.01); box-sizing: border-box;">
                 <h3 style="margin-top:0; color:#b7791f; font-size:9.5pt;">🔍 Сводный ORM-аудит репутации компании «Аврора Владис»:</h3>
-                <ul style="margin: 0; padding-left: 15px; line-height: 1.45; font-size: 7.5pt;">
+                <ul style="margin: 0; padding-left: 15px; line-height: 1.45; font-size: 8.8pt; color: #334155; line-height: 1.5;">
                     <li><b>Сильные зоны (положительные триггеры):</b> Высокий профессионализм и грамотность; Забота и сопровождение 'за ручку'; Комфортная коммуникация и поддержка 24/7. Лидеры похвалы среди агентов: Швецовой Юлии, Ксения Казакова, Фрицлер Евгения, Раита Левашова, Валентина Сергеевна.</li>
                     <li><b>Слабые зоны (точки оттока):</b> Низкий профессионализм / Ошибки в документах; Непунктуальность / Сорванные просмотры; Фейковые объявления / Обман по цене.</li>
                     <li><b>Оценка репутации:</b> 4.9/5.0 (NPS: Очень высокий).</li>
                 </ul>
             </div>
             
-            <div style="background: #eef7f9; border-left: 4px solid #17a2b8; padding: 12px; border-radius: 6px; flex: 1;">
-                <h3 style="margin-top:0; color:#17a2b8; font-size:9.5pt;">📊 Тональность отзывов на картах (Яндекс / 2ГИС / Zoon):</h3>
+            <div style="background: #f0f9ff; border: 1px solid #e0f2fe; border-left: 5px solid #0284c7; padding: 18px; border-radius: 12px; flex: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.01); box-sizing: border-box;">
+                <b style="color:#0369a1; font-size:10.5pt; font-weight: bold; margin-bottom: 12px; display: block;">📊 Тональность отзывов на картах (Яндекс / 2ГИС / Zoon)</b>
                 <p style="margin:0; font-size:7.5pt; line-height:1.4;">Средний рейтинг удовлетворенности по отзывам составляет <b>4.35★</b>. Главные боли клиентов на рынке: Мелкие технические замечания к сайту/сервису, Высокая комиссия / Скрытые платежи, Низкий профессионализм / Ошибки в документах. Главные сильные стороны: Общее присутствие на рынке, Высокий профессионализм и грамотность, Оперативность и скорость сделок.</p>
             </div>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        
+        </div>
+
+        <!-- Содержимое вкладки 2: Репутация конкурентов -->
+        <div id="tab-competitors" class="sentiment-tab-content" style="display: none;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Рио-Люкс</b> (Оценка: 4.2/5.0 (NPS: Высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 80%</span>
@@ -16854,18 +16877,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 10%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Оперативность и скорость сделок</li><li>Комфортная коммуникация и поддержка 24/7</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li><li>Низкий профессионализм / Ошибки в документах</li><li>Плохая коммуникация / Игнорирование</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Аврора Владис</b> (Оценка: 4.9/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 97%</span>
@@ -16873,18 +16896,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Забота и сопровождение 'за ручку'</li><li>Комфортная коммуникация и поддержка 24/7</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Низкий профессионализм / Ошибки в документах</li><li>Непунктуальность / Сорванные просмотры</li><li>Фейковые объявления / Обман по цене</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Самолет Плюс</b> (Оценка: 4.9/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 97%</span>
@@ -16892,18 +16915,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Оперативность и скорость сделок</li><li>Высокий профессионализм и грамотность</li><li>Комфортная коммуникация и поддержка 24/7</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Низкий профессионализм / Ошибки в документах</li><li>Высокая комиссия / Скрытые платежи</li><li>Непунктуальность / Сорванные просмотры</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Единство</b> (Оценка: 4.9/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 97%</span>
@@ -16911,18 +16934,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Оперативность и скорость сделок</li><li>Забота и сопровождение 'за ручку'</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Низкий профессионализм / Ошибки в документах</li><li>Непунктуальность / Сорванные просмотры</li><li>Сложные или сорванные сделки</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Статус-М</b> (Оценка: 5.0/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 100%</span>
@@ -16930,18 +16953,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Оперативность и скорость сделок</li><li>Забота и сопровождение 'за ручку'</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Низкий профессионализм / Ошибки в документах</li><li>Непунктуальность / Сорванные просмотры</li><li>Плохая коммуникация / Игнорирование</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Магдом</b> (Оценка: 4.8/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 95%</span>
@@ -16949,18 +16972,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Оперативность и скорость сделок</li><li>Комфортная коммуникация и поддержка 24/7</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Фейковые объявления / Обман по цене</li><li>Низкий профессионализм / Ошибки в документах</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Авторитет</b> (Оценка: 4.3/5.0 (NPS: Высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 82%</span>
@@ -16968,18 +16991,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 8%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Оперативность и скорость сделок</li><li>Комфортная коммуникация и поддержка 24/7</li><li>Высокий профессионализм и грамотность</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li><li>Непунктуальность / Сорванные просмотры</li><li>Плохая коммуникация / Игнорирование</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Визит</b> (Оценка: 4.8/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 95%</span>
@@ -16987,18 +17010,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Комфортная коммуникация и поддержка 24/7</li><li>Высокий профессионализм и грамотность</li><li>Оперативность и скорость сделок</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li><li>Низкий профессионализм / Ошибки в документах</li><li>Плохая коммуникация / Игнорирование</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>На трёх китах</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17006,18 +17029,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Ковчег</b> (Оценка: 4.6/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 89%</span>
@@ -17025,18 +17048,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 1%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Комфортная коммуникация и поддержка 24/7</li><li>Оперативность и скорость сделок</li><li>Высокий профессионализм и грамотность</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Непунктуальность / Сорванные просмотры</li><li>Высокая комиссия / Скрытые платежи</li><li>Сложные или сорванные сделки</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Форум</b> (Оценка: 4.5/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 87%</span>
@@ -17044,18 +17067,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 3%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Комфортная коммуникация и поддержка 24/7</li><li>Оперативность и скорость сделок</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li><li>Непунктуальность / Сорванные просмотры</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Недвижка.ру</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17063,18 +17086,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Квадратный метр</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17082,18 +17105,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>ДДА Риал</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17101,18 +17124,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Перспектива24</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17120,18 +17143,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Ключи</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17139,18 +17162,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>История</b> (Оценка: 5.0/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 100%</span>
@@ -17158,18 +17181,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Brend Realty</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17177,18 +17200,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Монтера группа</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17196,18 +17219,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Жилфонд</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17215,18 +17238,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Альянс</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17234,18 +17257,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Новый дом</b> (Оценка: 5.0/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 100%</span>
@@ -17253,18 +17276,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Оперативность и скорость сделок</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Мегаполис</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17272,18 +17295,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Премьера</b> (Оценка: 4.7/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 92%</span>
@@ -17291,18 +17314,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Оперативность и скорость сделок</li><li>Высокий профессионализм и грамотность</li><li>Комфортная коммуникация и поддержка 24/7</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Высокая комиссия / Скрытые платежи</li><li>Сложные или сорванные сделки</li><li>Фейковые объявления / Обман по цене</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Тандем</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17310,18 +17333,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Агентство 21</b> (Оценка: 4.7/5.0 (NPS: Очень высокий))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 92%</span>
@@ -17329,18 +17352,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 0%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Высокий профессионализм и грамотность</li><li>Комфортная коммуникация и поддержка 24/7</li><li>Забота и сопровождение 'за ручку'</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Гарант</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17348,18 +17371,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Центральное</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17367,18 +17390,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Родной дом</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17386,18 +17409,18 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
-        <div class="niche" style="background:#f9f9f9; border-left:3px solid #0056b3; margin-bottom:4mm; padding:8px 12px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); display: flex; flex-direction: column; box-sizing: border-box;">
             <b>Стратегия</b> (Оценка: 4.0/5.0 (NPS: Нейтральный))<br/>
             <div style="display:flex; gap:10px; margin:2mm 0; font-size:7.5pt;">
                 <span style="color:green;">● Позитив: 75%</span>
@@ -17405,46 +17428,84 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
                 <span style="color:red;">● Негатив: 15%</span>
             </div>
             
-            <span style="font-size: 7.5pt; color: green; font-weight: bold;">Преимущества:</span>
-            <ul style="margin: 1mm 0 2mm 0; padding-left: 15px; font-size: 7.5pt; color: green;">
+            <span style="font-size: 8.8pt; color: green; font-weight: bold;">Преимущества:</span>
+            <ul style="margin: 6px 0 10px 0; padding-left: 18px; font-size: 8.8pt; color: #16a34a; line-height: 1.45;">
                 <li>Общее присутствие на рынке</li>
             </ul>
             
-            <span style="font-size: 7.5pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
-            <ul style="margin: 1mm 0 0 0; padding-left: 15px; font-size: 7.5pt; color: #a94442;">
+            <span style="font-size: 8.8pt; color: #a94442; font-weight: bold;">Основные жалобы:</span>
+            <ul style="margin: 6px 0 0 0; padding-left: 18px; font-size: 8.8pt; color: #dc2626; line-height: 1.45;">
                 <li>Мелкие технические замечания к сайту/сервису</li>
             </ul>
         </div>
         
+            </div>
+        </div>
+
+        <!-- Содержимое вкладки 3: Штампы и клише -->
+        <div id="tab-cliches" class="sentiment-tab-content" style="display: none;">
+            <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.03);">
+                <h3 style="margin-top:0; color:#0f172a; font-size:11pt; border-bottom:1px solid #f1f5f9; padding-bottom:10px;">
+                    Сравнительный анализ типичных рыночных клише и сильных альтернатив для отстройки:
+                </h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                    <thead>
+                        <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0; text-align: left;">
+                            <th style="width: 30%; padding: 12px 16px; font-size: 9pt; font-weight: 800; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px;">Типичное клише конкурентов</th>
+                            <th style="width: 30%; padding: 12px 16px; font-size: 9pt; font-weight: 800; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px;">Эффект на клиента</th>
+                            <th style="width: 40%; padding: 12px 16px; font-size: 9pt; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px;">Сильная альтернатива для отстройки</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+    <tr style="border-bottom: 1px solid #f1f5f9;">
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e293b; line-height: 1.45; vertical-align: middle;">«Команда профессионалов с многолетним опытом»</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #dc2626; font-weight: bold; line-height: 1.45; vertical-align: middle;">Размытый штамп, не вызывает доверия</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e3a8a; font-weight: bold; background: #eff6ff; line-height: 1.45; vertical-align: middle;">«Риелторы с опытом от 5 лет, аттестованные в Российской Гильдии Риелторов (РГР)»</td>
+    </tr>
     
-    <h3>Сравнительный анализ типичных рыночных клише и сильных альтернатив для отстройки:</h3>
-    <table>
-        <tr>
-            <th>Типичное клише конкурентов</th>
-            <th>Эффект на клиента</th>
-            <th>Сильная альтернатива для отстройки</th>
-        </tr>
+    <tr style="border-bottom: 1px solid #f1f5f9;">
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e293b; line-height: 1.45; vertical-align: middle;">«Индивидуальный подход и забота о клиенте»</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #dc2626; font-weight: bold; line-height: 1.45; vertical-align: middle;">Клиент не верит общим словам</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e3a8a; font-weight: bold; background: #eff6ff; line-height: 1.45; vertical-align: middle;">«Личный агент на связи 24/7 + юридическая экспертиза сделки и страхование ответственности»</td>
+    </tr>
+    
+    <tr style="border-bottom: 1px solid #f1f5f9;">
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e293b; line-height: 1.45; vertical-align: middle;">«База эксклюзивных объектов по лучшим ценам»</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #dc2626; font-weight: bold; line-height: 1.45; vertical-align: middle;">Воспринимается как приманка с фейками</td>
+        <td style="padding: 14px 16px; font-size: 8.8pt; color: #1e3a8a; font-weight: bold; background: #eff6ff; line-height: 1.45; vertical-align: middle;">«100% реальные объекты от собственников, прошедшие проверку»</td>
+    </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function switchSentimentTab(tabId, btn) {
+        // Скрываем всё содержимое
+        const contents = document.querySelectorAll('.sentiment-tab-content');
+        contents.forEach(c => c.style.display = 'none');
         
-    <tr>
-        <td>«Команда профессионалов с многолетним опытом»</td>
-        <td style="color:#d9534f; font-weight:bold;">Размытый штамп, не вызывает доверия</td>
-        <td style="color:#5cb85c; font-weight:bold;">«Риелторы с опытом от 5 лет, аттестованные в Российской Гильдии Риелторов (РГР)»</td>
-    </tr>
+        // Сбрасываем стили у всех кнопок
+        const buttons = document.querySelectorAll('.sentiment-tab-btn');
+        buttons.forEach(b => {
+            b.style.color = '#64748b';
+            b.style.borderBottomColor = 'transparent';
+        });
+        
+        // Показываем активную вкладку
+        document.getElementById(tabId).style.display = 'block';
+        
+        // Подсвечиваем активную кнопку
+        btn.style.color = '#0284c7';
+        btn.style.borderBottomColor = '#0284c7';
+    }
+    </script>
     
-    <tr>
-        <td>«Индивидуальный подход и забота о клиенте»</td>
-        <td style="color:#d9534f; font-weight:bold;">Клиент не верит общим словам</td>
-        <td style="color:#5cb85c; font-weight:bold;">«Личный агент на связи 24/7 + юридическая экспертиза сделки и страхование ответственности»</td>
-    </tr>
     
-    <tr>
-        <td>«База эксклюзивных объектов по лучшим ценам»</td>
-        <td style="color:#d9534f; font-weight:bold;">Воспринимается как приманка с фейками</td>
-        <td style="color:#5cb85c; font-weight:bold;">«100% реальные объекты от собственников, прошедшие проверку»</td>
-    </tr>
-    
-    </table>
-    <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45;">
+    <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 12px; border-radius: 6px; font-family: sans-serif; font-size: 9pt; line-height: 1.45; box-sizing: border-box;">
         <b>💡 Убойный козырь для Аврора Владис в переговорах с клиентами:</b><br/>
         <i>«Мы проанализировали тысячи отзывов о рынке недвижимости города. Главная жалоба клиентов на крупные сети — это скрытые доплаты, которые всплывают в день сделки, и постоянная смена риелторов. В нашей компании за вами закрепляется один ведущий эксперт, а комиссия фиксируется в договоре до начала работ и не увеличится ни на рубль».</i>
     </div>
