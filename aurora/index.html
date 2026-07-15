@@ -14969,38 +14969,118 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
         </div>
     </div>
 
+    <!-- CSS Стилизация для премиальных слайдеров и элементов управления -->
+    <style>
+    .premium-slider-container {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .premium-slider-container:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;
+    }
+    .mksim-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+        margin: 12px 0 6px 0;
+    }
+    .mksim-slider:focus {
+        outline: none;
+    }
+    .mksim-slider::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        background: #e2e8f0;
+        border-radius: 999px;
+        border: none;
+    }
+    
+    /* Стилизация ползунка бюджета (Синий) */
+    #mksim_budget_range::-webkit-slider-thumb {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #0284c7;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -6px;
+        box-shadow: 0 3px 8px rgba(2, 132, 199, 0.35);
+        transition: transform 0.15s, background-color 0.15s;
+    }
+    #mksim_budget_range::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        background: #e0f2fe;
+    }
+    
+    /* Стилизация ползунка SEO (Зеленый) */
+    #mksim_seo_range::-webkit-slider-thumb {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #10b981;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -6px;
+        box-shadow: 0 3px 8px rgba(16, 185, 129, 0.35);
+        transition: transform 0.15s, background-color 0.15s;
+    }
+    #mksim_seo_range::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        background: #dcfce7;
+    }
+    
+    /* Поддержка Firefox */
+    #mksim_budget_range::-moz-range-thumb {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #0284c7;
+        cursor: pointer;
+        box-shadow: 0 3px 8px rgba(2, 132, 199, 0.35);
+    }
+    #mksim_seo_range::-moz-range-thumb {
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 4px solid #10b981;
+        cursor: pointer;
+        box-shadow: 0 3px 8px rgba(16, 185, 129, 0.35);
+    }
+    </style>
+
     <!-- Интерактивный интерактивный пульт управления -->
-    <div style="background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 100%); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 12px; padding: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.02); backdrop-filter: blur(10px); font-family: sans-serif;">
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); font-family: sans-serif; box-sizing: border-box;">
         
         <!-- Слайдеры управления -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 25px;">
             
             <!-- Слайдер Бюджета -->
-            <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.01);">
-                <label for="mksim_budget_range" style="font-size: 9.5pt; font-weight: bold; color: inherit; display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <div class="premium-slider-container" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);">
+                <label for="mksim_budget_range" style="font-size: 9.5pt; font-weight: bold; color: #1e293b; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                     <span>💵 1. Выберите рекламный бюджет в месяц:</span>
-                    <span id="mksim_budget_label" style="color: #0284c7; font-size: 11pt;">200 000 ₽</span>
+                    <span id="mksim_budget_label" style="background: #e0f2fe; color: #0369a1; font-size: 11pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.1);">200 000 ₽</span>
                 </label>
-                <input type="range" id="mksim_budget_range" min="50000" max="1000000" step="50000" value="200000" 
-                       style="width: 100%; height: 6px; border-radius: 4px; accent-color: #0284c7; cursor: pointer; outline: none;" 
-                       oninput="mksim_update()"/>
-                <div style="display: flex; justify-content: space-between; font-size: 7.5pt; color: inherit; opacity: 0.6; margin-top: 5px;">
+                <input type="range" id="mksim_budget_range" min="50000" max="1000000" step="50000" value="200000" class="mksim-slider" oninput="mksim_update()"/>
+                <div style="display: flex; justify-content: space-between; font-size: 7.5pt; color: #64748b; font-weight: 600;">
                     <span>50 000 ₽</span>
                     <span>1 000 000 ₽</span>
                 </div>
             </div>
             
             <!-- Слайдер сплита на SEO -->
-            <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.01);">
-                <label for="mksim_seo_range" style="font-size: 9.5pt; font-weight: bold; color: inherit; display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <div class="premium-slider-container" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);">
+                <label for="mksim_seo_range" style="font-size: 9.5pt; font-weight: bold; color: #1e293b; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                     <span>📈 2. Сколько направить на SEO-продвижение:</span>
-                    <span id="mksim_seo_label" style="color: #10b981; font-size: 11pt;">30%</span>
+                    <span id="mksim_seo_label" style="background: #dcfce7; color: #15803d; font-size: 11pt; font-weight: 800; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.1);">30%</span>
                 </label>
-                <input type="range" id="mksim_seo_range" min="0" max="100" step="5" value="30" 
-                       style="width: 100%; height: 6px; border-radius: 4px; accent-color: #10b981; cursor: pointer; outline: none;" 
-                       oninput="mksim_update()"/>
-                <div style="display: flex; justify-content: space-between; font-size: 7.5pt; color: inherit; opacity: 0.6; margin-top: 5px;">
-                    <span>0% (Только платная реклама)</span>
+                <input type="range" id="mksim_seo_range" min="0" max="100" step="5" value="30" class="mksim-slider" oninput="mksim_update()"/>
+                <div style="display: flex; justify-content: space-between; font-size: 7.5pt; color: #64748b; font-weight: 600;">
+                    <span>0% (Только платный Директ)</span>
                     <span>100% (Только бесплатное SEO)</span>
                 </div>
             </div>
@@ -15008,62 +15088,65 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
         </div>
         
         <!-- Диаграмма распределения (Сплит-бар) -->
-        <div style="margin-bottom: 25px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px;">
-            <div style="font-size: 8.5pt; font-weight: bold; margin-bottom: 8px; display: flex; justify-content: space-between;">
+        <div style="margin-bottom: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+            <div style="font-size: 9pt; font-weight: bold; color: #334155; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
                 <span>📊 Сплит бюджета: Контекстная реклама Директ vs SEO</span>
-                <span id="mksim_split_desc" style="color: #0f172a; font-weight: bold;">140 000 ₽ / 60 000 ₽</span>
+                <span id="mksim_split_desc" style="color: #0f172a; font-weight: 800; font-size: 10.5pt; background: #fff; padding: 4px 10px; border-radius: 6px; border: 1px solid #e2e8f0;">140 000 ₽ / 60 000 ₽</span>
             </div>
-            <div style="width: 100%; height: 16px; border-radius: 8px; display: flex; overflow: hidden; background: #f1f5f9; border: 1px solid #e2e8f0;">
-                <div id="mksim_bar_ppc" style="width: 70%; background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%); transition: width 0.2s; position: relative;"></div>
-                <div id="mksim_bar_seo" style="width: 30%; background: linear-gradient(90deg, #10b981 0%, #34d399 100%); transition: width 0.2s;"></div>
+            <div style="width: 100%; height: 20px; border-radius: 999px; display: flex; overflow: hidden; background: #e2e8f0; border: 1px solid #cbd5e1; box-sizing: border-box; box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);">
+                <div id="mksim_bar_ppc" style="width: 70%; background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%); transition: width 0.2s; display: flex; align-items: center; justify-content: center; font-size: 7.5pt; color: #ffffff; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">Директ 70%</div>
+                <div id="mksim_bar_seo" style="width: 30%; background: linear-gradient(90deg, #10b981 0%, #34d399 100%); transition: width 0.2s; display: flex; align-items: center; justify-content: center; font-size: 7.5pt; color: #ffffff; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">SEO 30%</div>
             </div>
         </div>
         
         <!-- Показатели расчета -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
             
-            <div style="background: rgba(2, 132, 199, 0.03); border: 1px solid rgba(2, 132, 199, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
-                <div style="font-size: 8.5pt; color: inherit; opacity: 0.7; margin-bottom: 4px; font-weight: bold;">Будет куплено кликов (Директ)</div>
-                <div id="mksim_ppc_clicks" style="font-size: 16pt; font-weight: bold; color: #0284c7;">3 111</div>
-                <div style="font-size: 7.5pt; opacity: 0.6; margin-top: 2px;">по 45 ₽ за клик</div>
+            <!-- Директ клики -->
+            <div style="background: linear-gradient(to bottom right, #ffffff, #f0f9ff); border: 1px solid #e0f2fe; border-left: 5px solid #0284c7; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <div style="font-size: 8.5pt; color: #0369a1; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Будет куплено кликов (Директ)</div>
+                <div id="mksim_ppc_clicks" style="font-size: 20pt; font-weight: 900; color: #0284c7; margin-bottom: 4px;">3 111</div>
+                <div style="font-size: 8pt; color: #64748b;">по 45 ₽ за клик</div>
             </div>
             
-            <div style="background: rgba(16, 185, 129, 0.03); border: 1px solid rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
-                <div style="font-size: 8.5pt; color: inherit; opacity: 0.7; margin-bottom: 4px; font-weight: bold;">Ожидаемый объем заявок (всего)</div>
-                <div id="mksim_total_leads" style="font-size: 16pt; font-weight: bold; color: #10b981;">79 шт.</div>
-                <div style="font-size: 7.5pt; opacity: 0.6; margin-top: 2px;">заявки с рекламы + с SEO</div>
+            <!-- Объем заявок -->
+            <div style="background: linear-gradient(to bottom right, #ffffff, #f0fdf4); border: 1px solid #dcfce7; border-left: 5px solid #10b981; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <div style="font-size: 8.5pt; color: #14532d; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Ожидаемый объем заявок (всего)</div>
+                <div id="mksim_total_leads" style="font-size: 20pt; font-weight: 900; color: #10b981; margin-bottom: 4px;">79 шт.</div>
+                <div style="font-size: 8pt; color: #64748b;">заявки с рекламы + с SEO</div>
             </div>
             
-            <div style="background: rgba(245, 158, 11, 0.03); border: 1px solid rgba(245, 158, 11, 0.1); border-radius: 8px; padding: 12px; text-align: center;">
-                <div style="font-size: 8.5pt; color: inherit; opacity: 0.7; margin-bottom: 4px; font-weight: bold;">Итоговая цена заявки (CPA)</div>
-                <div id="mksim_average_cpa" style="font-size: 16pt; font-weight: bold; color: #f59e0b;">2 531 ₽</div>
-                <div style="font-size: 7.5pt; opacity: 0.6; margin-top: 2px;">средняя стоимость привлечения</div>
+            <!-- Цена заявки (CPA) -->
+            <div style="background: linear-gradient(to bottom right, #ffffff, #fffdf5); border: 1px solid #fef3c7; border-left: 5px solid #fbbf24; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+                <div style="font-size: 8.5pt; color: #78350f; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Итоговая цена заявки (CPA)</div>
+                <div id="mksim_average_cpa" style="font-size: 20pt; font-weight: 900; color: #d97706; margin-bottom: 4px;">2 531 ₽</div>
+                <div style="font-size: 8pt; color: #64748b;">средняя стоимость привлечения</div>
             </div>
             
         </div>
         
         <!-- Уязвимость / Слив бюджета -->
-        <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.03) 0%, rgba(239, 68, 68, 0.08) 100%); border: 1px solid rgba(239, 68, 68, 0.15); border-radius: 8px; padding: 15px; margin-bottom: 25px;">
+        <div style="background: #fef2f2; border: 1px solid #fee2e2; border-left: 5px solid #ef4444; border-radius: 12px; padding: 18px; margin-bottom: 25px; box-sizing: border-box;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <div style="font-size: 9.5pt; font-weight: bold; color: #ef4444; display: flex; align-items: center; gap: 6px;">
+                <div style="font-size: 9.5pt; font-weight: 800; color: #991b1b; display: flex; align-items: center; gap: 6px;">
                     <span>🛑</span> Ваша прямая денежная потеря (Слив в Яндексе):
                 </div>
-                <span id="mksim_wasted_label" style="font-size: 12pt; font-weight: bold; color: #ef4444;">-36 960 ₽/мес</span>
+                <span id="mksim_wasted_label" style="font-size: 13pt; font-weight: 900; color: #ef4444; background: #fff; padding: 2px 8px; border-radius: 6px; border: 1px solid #fca5a5;">-36 960 ₽/мес</span>
             </div>
-            <div style="width: 100%; height: 8px; border-radius: 4px; background: #e2e8f0; overflow: hidden; margin-bottom: 8px;">
-                <div id="mksim_wasted_bar" style="width: 26.4%; height: 100%; background: #ef4444; transition: width 0.2s;"></div>
+            <div style="width: 100%; height: 10px; border-radius: 999px; background: #fee2e2; border: 1px solid #fca5a5; overflow: hidden; margin-bottom: 10px; box-sizing: border-box;">
+                <div id="mksim_wasted_bar" style="width: 26.4%; height: 100%; background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%); border-radius: 999px; transition: width 0.2s;"></div>
             </div>
-            <p id="mksim_wasted_desc" style="font-size: 8.5pt; margin: 0; line-height: 1.4; color: inherit; opacity: 0.85;">
+            <p id="mksim_wasted_desc" style="font-size: 8.8pt; margin: 0; line-height: 1.45; color: #7f1d1d;">
                 При текущей скорости загрузки сайта <b>4.2 сек.</b> вы теряете <b>26.4%</b> посетителей с телефонов. Это те люди, которые кликнули по рекламе (вы за них заплатили), но закрыли вкладку до того, как сайт открылся.
             </p>
         </div>
         
         <!-- Бизнес-выжимка -->
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px;">
-            <div style="font-size: 9.5pt; font-weight: bold; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; color: #0f172a;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+            <div style="font-size: 9.5pt; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; color: #0f172a;">
                 <span>🎯</span> Простые шаги для спасения вашего бюджета:
             </div>
-            <ul style="font-size: 8.5pt; margin: 0; padding-left: 20px; line-height: 1.5; color: inherit; opacity: 0.95; display: flex; flex-direction: column; gap: 6px;">
+            <ul style="font-size: 8.8pt; margin: 0; padding-left: 20px; line-height: 1.55; color: #334155; display: flex; flex-direction: column; gap: 8px;">
                 <li><b>Шаг 1. Оптимизировать скорость сайта:</b> Сокращение времени загрузки сайта до 2 секунд вернет вам обратно <span id="mksim_save_text" style="color: #ef4444; font-weight: bold;">36 960 ₽</span> в месяц чистой экономии рекламного бюджета (вы получите эти лиды бесплатно).</li>
                 <li><b>Шаг 2. Развивать SEO-канал:</b> Сдвигая сплит в сторону SEO (зеленая зона), вы снижаете среднюю стоимость лида (CPA) на <b>35-50%</b> на долгой дистанции, так как органический трафик из поиска не требует оплаты за каждый клик.</li>
             </ul>
@@ -15100,19 +15183,24 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
             ppcBudget.toLocaleString("ru-RU") + " ₽ / " + seoBudget.toLocaleString("ru-RU") + " ₽";
             
         // Bars
-        document.getElementById("mksim_bar_ppc").style.width = ppcPercent + "%";
-        document.getElementById("mksim_bar_seo").style.width = seoPercent + "%";
+        const ppcBar = document.getElementById("mksim_bar_ppc");
+        const seoBar = document.getElementById("mksim_bar_seo");
+        
+        ppcBar.style.width = ppcPercent + "%";
+        seoBar.style.width = seoPercent + "%";
+        
+        ppcBar.innerText = ppcPercent >= 15 ? "Директ " + ppcPercent + "%" : "";
+        seoBar.innerText = seoPercent >= 15 ? "SEO " + seoPercent + "%" : "";
         
         // calculations
         const wastedSpend = ppcBudget * mksim_penalty;
         document.getElementById("mksim_wasted_label").innerText = "-" + Math.round(wastedSpend).toLocaleString("ru-RU") + " ₽/мес";
         
         // Update wasted text
-        const penaltyPercent = (mksim_penalty * 100).toFixed(1);
         document.getElementById("mksim_save_text").innerText = Math.round(wastedSpend).toLocaleString("ru-RU") + " ₽";
         
         // Wasted progress bar (based on penalty but scaled to budget)
-        document.getElementById("mksim_wasted_bar").style.width = (ppcPercent * mksim_penalty) + "%";
+        document.getElementById("mksim_wasted_bar").style.width = (mksim_penalty * 100) + "%";
         
         // Leads
         const ppcClicks = ppcBudget / mksim_CPC;
