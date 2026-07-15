@@ -16831,16 +16831,44 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
 
     
     <div class="sentiment-tabs-container" style="font-family: sans-serif; box-sizing: border-box; margin-top: 15px;">
-        <!-- Заголовки вкладок -->
-        <div style="display: flex; gap: 8px; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px;">
-            <button class="sentiment-tab-btn active" onclick="switchSentimentTab('tab-target', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #0284c7; border-bottom: 3px solid #0284c7; cursor: pointer; transition: all 0.2s; outline: none;">
+        <!-- CSS для стилизации интерактивных кнопок-вкладок -->
+        <style>
+        .sentiment-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 22px;
+            font-size: 9.5pt;
+            font-weight: 800;
+            color: #475569;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sentiment-tab-btn:hover {
+            background: rgba(255, 255, 255, 0.6);
+            color: #0f172a;
+        }
+        .sentiment-tab-btn.active {
+            background: #ffffff !important;
+            color: #0284c7 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+        }
+        </style>
+
+        <!-- Заголовки вкладок в виде премиум капсулы -->
+        <div style="background: #e2e8f0; border-radius: 999px; padding: 5px; display: inline-flex; gap: 4px; margin-bottom: 25px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.04); border: 1px solid #cbd5e1; box-sizing: border-box;">
+            <button class="sentiment-tab-btn active" onclick="switchSentimentTab('tab-target', this)">
                 🎯 Репутация Аврора Владис (SWOT)
             </button>
-            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-competitors', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #64748b; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.2s; outline: none;">
+            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-competitors', this)">
                 👥 Репутация конкурентов
             </button>
-            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-cliches', this)" style="background: none; border: none; padding: 12px 20px; font-size: 9.5pt; font-weight: 800; color: #64748b; border-bottom: 3px solid transparent; cursor: pointer; transition: all 0.2s; outline: none;">
-                🚫 Штампы и клише на рынке
+            <button class="sentiment-tab-btn" onclick="switchSentimentTab('tab-cliches', this)">
+                🚫 Штампы и клише
             </button>
         </div>
 
@@ -17488,19 +17516,15 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
         const contents = document.querySelectorAll('.sentiment-tab-content');
         contents.forEach(c => c.style.display = 'none');
         
-        // Сбрасываем стили у всех кнопок
+        // Сбрасываем активный класс у всех кнопок
         const buttons = document.querySelectorAll('.sentiment-tab-btn');
-        buttons.forEach(b => {
-            b.style.color = '#64748b';
-            b.style.borderBottomColor = 'transparent';
-        });
+        buttons.forEach(b => b.classList.remove('active'));
         
         // Показываем активную вкладку
         document.getElementById(tabId).style.display = 'block';
         
-        // Подсвечиваем активную кнопку
-        btn.style.color = '#0284c7';
-        btn.style.borderBottomColor = '#0284c7';
+        // Добавляем класс активной кнопке
+        btn.classList.add('active');
     }
     </script>
     
