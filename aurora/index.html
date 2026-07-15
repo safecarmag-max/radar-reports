@@ -1336,6 +1336,31 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
     <style>
         body.radar-reading-decision section[data-tab]:not(#director-decisions) { display:none !important; }
         body.radar-reading-decision .report-chapter-banner { display:none !important; }
+        
+        /* Стилизация режима чтения в стиле iPhone-капсулы */
+        .reading-mode-btn {
+            background: transparent !important;
+            border: none !important;
+            padding: 8px 18px !important;
+            font-size: 9.5pt !important;
+            font-weight: 800 !important;
+            color: #94a3b8 !important;
+            border-radius: 999px !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .reading-mode-btn:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+        .reading-mode-btn[aria-pressed="true"] {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+        }
     </style>
     
             
@@ -1508,9 +1533,11 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
             <div style="font-size:8pt; font-weight:900; color:#fbbf24; letter-spacing:.3px; margin-bottom:6px;">ЭКРАН ДЛЯ ДИРЕКТОРА</div>
             <div style="font-size:16pt; font-weight:900; line-height:1.2; margin-bottom:7px;">3 решения на ближайшие 7 дней</div>
             <div style="font-size:9pt; line-height:1.45; color:#cbd5e1; max-width:900px;">Не новая аналитика, а короткий управленческий вывод из текущего среза. Ниже каждого решения есть владелец, срок, измеримый результат и переход к доказательствам.</div>
-            <div data-reading-mode-controls="true" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:13px;">
-                <button type="button" data-reading-mode="decision" onclick="setRadarReadingMode('decision')" style="border:1px solid #fbbf24; border-radius:6px; padding:7px 10px; background:#fbbf24; color:#0f172a; font-weight:900; cursor:pointer;">Решение за 10 минут</button>
-                <button type="button" data-reading-mode="evidence" onclick="setRadarReadingMode('evidence')" style="border:1px solid #64748b; border-radius:6px; padding:7px 10px; background:transparent; color:#e2e8f0; font-weight:900; cursor:pointer;">Все доказательства</button>
+            
+            <!-- Переключатель в виде капсулы -->
+            <div data-reading-mode-controls="true" style="background: rgba(255,255,255,0.06); border-radius: 999px; padding: 5px; display: inline-flex; gap: 4px; margin-top: 13px; border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box;">
+                <button type="button" class="reading-mode-btn" data-reading-mode="decision" onclick="setRadarReadingMode('decision')">Решение за 10 минут</button>
+                <button type="button" class="reading-mode-btn" data-reading-mode="evidence" onclick="setRadarReadingMode('evidence')">Все доказательства</button>
             </div>
             <div data-reading-mode-note="true" style="font-size:8pt; color:#cbd5e1; margin-top:9px; line-height:1.4;">Сейчас открыт полный отчёт: можно читать все разделы и источники.</div>
         </div>
@@ -17950,18 +17977,47 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
             Нажмите на любой этап воронки продаж, чтобы увидеть, где ваши конкуренты совершают критические ошибки, теряя клиентов, и как перехватить сделку:
         </p>
         
-        <div style="display:flex; justify-content:space-between; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
-            <button onclick="selectFunnelStep(1)" class="funnel-step-btn" id="f-btn-1" style="flex:1; min-width:110px; background:#3b82f6; color:#fff; border:none; padding:10px; border-radius:6px; font-size:8pt; font-weight:bold; cursor:pointer; text-align:center; transition: all 0.2s;">
-                1. Входящий трафик<br/><span style="font-size:7pt; font-weight:normal; opacity:0.8;">Директ и Карты</span>
+        <!-- CSS для стилизации шагов воронки в стиле iPhone-капсулы -->
+        <style>
+        .funnel-step-btn {
+            background: transparent !important;
+            border: none !important;
+            padding: 10px 16px !important;
+            font-size: 8.5pt !important;
+            font-weight: 800 !important;
+            color: #475569 !important;
+            border-radius: 999px !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none !important;
+            flex: 1;
+            min-width: 130px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .funnel-step-btn:hover {
+            color: #0f172a !important;
+            background: rgba(255, 255, 255, 0.4) !important;
+        }
+        .funnel-step-btn.active {
+            background: #ffffff !important;
+            color: #2563eb !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+        }
+        </style>
+
+        <div style="background: #e2e8f0; border-radius: 999px; padding: 5px; display: flex; gap: 4px; margin-bottom: 20px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.04); border: 1px solid #cbd5e1; box-sizing: border-box; flex-wrap: wrap;">
+            <button onclick="selectFunnelStep(1)" class="funnel-step-btn active" id="f-btn-1">
+                1. Входящий трафик<br/><span style="font-size:7.5pt; font-weight:normal; opacity:0.8;">Директ и Карты</span>
             </button>
-            <button onclick="selectFunnelStep(2)" class="funnel-step-btn" id="f-btn-2" style="flex:1; min-width:110px; background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; padding:10px; border-radius:6px; font-size:8pt; font-weight:bold; cursor:pointer; text-align:center; transition: all 0.2s;">
-                2. Первый звонок<br/><span style="font-size:7pt; font-weight:normal; opacity:0.8;">Скорость и скрипт</span>
+            <button onclick="selectFunnelStep(2)" class="funnel-step-btn" id="f-btn-2">
+                2. Первый звонок<br/><span style="font-size:7.5pt; font-weight:normal; opacity:0.8;">Скорость и скрипт</span>
             </button>
-            <button onclick="selectFunnelStep(3)" class="funnel-step-btn" id="f-btn-3" style="flex:1; min-width:110px; background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; padding:10px; border-radius:6px; font-size:8pt; font-weight:bold; cursor:pointer; text-align:center; transition: all 0.2s;">
-                3. Квалификация<br/><span style="font-size:7pt; font-weight:normal; opacity:0.8;">Поиск потребностей</span>
+            <button onclick="selectFunnelStep(3)" class="funnel-step-btn" id="f-btn-3">
+                3. Квалификация<br/><span style="font-size:7.5pt; font-weight:normal; opacity:0.8;">Поиск потребностей</span>
             </button>
-            <button onclick="selectFunnelStep(4)" class="funnel-step-btn" id="f-btn-4" style="flex:1; min-width:110px; background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; padding:10px; border-radius:6px; font-size:8pt; font-weight:bold; cursor:pointer; text-align:center; transition: all 0.2s;">
-                4. Подбор объектов<br/><span style="font-size:7pt; font-weight:normal; opacity:0.8;">Презентация и КП</span>
+            <button onclick="selectFunnelStep(4)" class="funnel-step-btn" id="f-btn-4">
+                4. Подбор объектов<br/><span style="font-size:7.5pt; font-weight:normal; opacity:0.8;">Презентация и КП</span>
             </button>
         </div>
         
@@ -17990,15 +18046,11 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
     <script>
     function selectFunnelStep(stepNum) {
         document.querySelectorAll('.funnel-step-btn').forEach(btn => {
-            btn.style.background = '#f1f5f9';
-            btn.style.color = '#475569';
-            btn.style.border = '1px solid #cbd5e1';
+            btn.classList.remove('active');
         });
         const activeBtn = document.getElementById('f-btn-' + stepNum);
         if (activeBtn) {
-            activeBtn.style.background = '#3b82f6';
-            activeBtn.style.color = '#fff';
-            activeBtn.style.border = 'none';
+            activeBtn.classList.add('active');
         }
         
         document.querySelectorAll('.funnel-step-desc').forEach(desc => {
@@ -20261,12 +20313,39 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
             </label>
         </div>
 
+        <!-- Стилизация сценариев калькулятора в стиле iPhone-капсулы -->
+        <style>
+        .owner-scenario-option {
+            background: transparent !important;
+            border: none !important;
+            padding: 8px 18px !important;
+            font-size: 9.5pt !important;
+            font-weight: 800 !important;
+            color: #94a3b8 !important;
+            border-radius: 999px !important;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none !important;
+            display: inline-flex;
+            align-items: center;
+        }
+        .owner-scenario-option:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+        .owner-scenario-option.is-selected {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+        }
+        </style>
+
         <div style="margin:4px 0 16px;">
             <div style="font-size:8.5pt; color:#cbd5e1; margin-bottom:7px;">4. Какую долю потерянных обращений реально вернуть после исправления?</div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;" role="group" aria-label="Сценарий возврата обращений">
-                <button type="button" class="owner-scenario-option" data-rate="5" onclick="setOwnerScenarioRate(5)" style="cursor:pointer; padding:8px 12px; border:1px solid #38bdf8; border-radius:5px; background:#082f49; color:#e0f2fe; font-weight:800;">Осторожно: 5%</button>
-                <button type="button" class="owner-scenario-option is-selected" data-rate="10" onclick="setOwnerScenarioRate(10)" style="cursor:pointer; padding:8px 12px; border:1px solid #38bdf8; border-radius:5px; background:#0284c7; color:#fff; font-weight:800;">Рабочая гипотеза: 10%</button>
-                <button type="button" class="owner-scenario-option" data-rate="20" onclick="setOwnerScenarioRate(20)" style="cursor:pointer; padding:8px 12px; border:1px solid #38bdf8; border-radius:5px; background:#082f49; color:#e0f2fe; font-weight:800;">Сильный результат: 20%</button>
+            <div style="background: rgba(255,255,255,0.06); border-radius: 999px; padding: 5px; display: inline-flex; gap: 4px; border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box;" role="group" aria-label="Сценарий возврата обращений">
+                <button type="button" class="owner-scenario-option" data-rate="5" onclick="setOwnerScenarioRate(5)">Осторожно: 5%</button>
+                <button type="button" class="owner-scenario-option is-selected" data-rate="10" onclick="setOwnerScenarioRate(10)">Рабочая гипотеза: 10%</button>
+                <button type="button" class="owner-scenario-option" data-rate="20" onclick="setOwnerScenarioRate(20)">Сильный результат: 20%</button>
             </div>
         </div>
 
@@ -20292,8 +20371,6 @@ window.RADAR_KNOWLEDGE_BASE = {"niche": "Недвижимость", "city": "М�
             document.querySelectorAll('.owner-scenario-option').forEach(function(button) {
                 var selected = Number(button.dataset.rate) === rate;
                 button.classList.toggle('is-selected', selected);
-                button.style.background = selected ? '#0284c7' : '#082f49';
-                button.style.color = selected ? '#fff' : '#e0f2fe';
             });
             window.updateOwnerScenario();
         };
