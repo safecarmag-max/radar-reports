@@ -175,6 +175,21 @@
     .metric-tag { display: inline-block; padding: 3px 6px; border-radius: 5px; font-size: 10px; font-weight: 700; margin-bottom: 3px; }
     .metric-tag.rating { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
     .metric-tag.revenue { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); display: block; }
+    .tax-risk-card {
+      margin-top: 6px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      line-height: 1.32;
+      font-weight: 700;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(148, 163, 184, 0.08);
+      color: #CBD5E1;
+    }
+    .tax-risk-card.tax-red { border-color: rgba(248, 113, 113, 0.55); background: rgba(127, 29, 29, 0.32); color: #FECACA; }
+    .tax-risk-card.tax-orange { border-color: rgba(251, 146, 60, 0.55); background: rgba(124, 45, 18, 0.28); color: #FED7AA; }
+    .tax-risk-card.tax-yellow { border-color: rgba(250, 204, 21, 0.45); background: rgba(113, 63, 18, 0.24); color: #FEF08A; }
+    .tax-risk-card.tax-neutral { color: #94A3B8; }
     
     .pain-box { background: rgba(239, 68, 68, 0.1); border: 1px dashed rgba(239, 68, 68, 0.3); padding: 6px 8px; border-radius: 6px; font-size: 11px; color: #FCA5A5; line-height: 1.3; }
     
@@ -286,11 +301,11 @@
         <div>
           <div class="zone-row red" onclick="triggerFilter('hot')">
             <span>🔴 SOS-Зона:</span>
-            <b>2 компаний</b>
+            <b>5 компаний</b>
           </div>
           <div class="zone-row yellow" onclick="triggerFilter('warm')">
             <span>🟡 Желтая зона:</span>
-            <b>8 компаний</b>
+            <b>5 компаний</b>
           </div>
           <div class="zone-row green" onclick="triggerFilter('healthy')">
             <span>🟢 Зеленая зона:</span>
@@ -338,8 +353,8 @@
     <div class="sticky-search-bar">
       <div class="filter-tabs">
         <button class="tab-btn active" id="tab-all" onclick="filterZone('all', this)">Все (10)</button>
-        <button class="tab-btn" id="tab-hot" onclick="filterZone('hot', this)">🔴 SOS (2)</button>
-        <button class="tab-btn" id="tab-warm" onclick="filterZone('warm', this)">🟡 Средняя (8)</button>
+        <button class="tab-btn" id="tab-hot" onclick="filterZone('hot', this)">🔴 SOS (5)</button>
+        <button class="tab-btn" id="tab-warm" onclick="filterZone('warm', this)">🟡 Средняя (5)</button>
         <button class="tab-btn" id="tab-healthy" onclick="filterZone('healthy', this)">🟢 Зеленая (0)</button>
       </div>
 
@@ -372,8 +387,8 @@
           
         <tr class="lead-row hot" data-zone="hot" data-search="металлург-магнитогорск челябинская область, магнитогорск, набережная улица, 5 жалобы не подтверждены источником — нужен свежий сбор отзывов управление пао &quot;ммк&quot;">
           <td class="col-rank">
-            <div class="badge-score score-hot" title="Индекс уязвимости: 52%">
-              52%
+            <div class="badge-score score-hot" title="Индекс уязвимости: 56%">
+              56%
             </div>
             <div class="rank-num">Лид #1</div>
           </td>
@@ -391,6 +406,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 210.0 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -412,8 +428,8 @@
         
         <tr class="lead-row hot" data-zone="hot" data-search="ddx fitness челябинская область, магнитогорск, улица грязнова, 57/1 жалобы не подтверждены источником — нужен свежий сбор отзывов иванов и.в. (ооо &quot;ддх&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-hot" title="Индекс уязвимости: 50%">
-              50%
+            <div class="badge-score score-hot" title="Индекс уязвимости: 54%">
+              54%
             </div>
             <div class="rank-num">Лид #2</div>
           </td>
@@ -431,6 +447,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 142.5 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -450,10 +467,10 @@
           </td>
         </tr>
         
-        <tr class="lead-row warm" data-zone="warm" data-search="другое измерение челябинская область, магнитогорск, проспект ленина, 88/2 жалобы не подтверждены источником — нужен свежий сбор отзывов петров с.а. (ооо &quot;фитнес-центр&quot;)">
+        <tr class="lead-row hot" data-zone="hot" data-search="другое измерение челябинская область, магнитогорск, проспект ленина, 88/2 жалобы не подтверждены источником — нужен свежий сбор отзывов петров с.а. (ооо &quot;фитнес-центр&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 49%">
-              49%
+            <div class="badge-score score-hot" title="Индекс уязвимости: 53%">
+              53%
             </div>
             <div class="rank-num">Лид #3</div>
           </td>
@@ -471,6 +488,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 86.4 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -490,10 +508,10 @@
           </td>
         </tr>
         
-        <tr class="lead-row warm" data-zone="warm" data-search="world class челябинская область, магнитогорск, парк притяжение жалобы не подтверждены источником — нужен свежий сбор отзывов волков м.ю. (ооо &quot;управляющая компания world class&quot;)">
+        <tr class="lead-row hot" data-zone="hot" data-search="world class челябинская область, магнитогорск, парк притяжение жалобы не подтверждены источником — нужен свежий сбор отзывов волков м.ю. (ооо &quot;управляющая компания world class&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 48%">
-              48%
+            <div class="badge-score score-hot" title="Индекс уязвимости: 52%">
+              52%
             </div>
             <div class="rank-num">Лид #4</div>
           </td>
@@ -511,6 +529,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 120.0 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -530,10 +549,10 @@
           </td>
         </tr>
         
-        <tr class="lead-row warm" data-zone="warm" data-search="bwt челябинская область, магнитогорск, проспект ленина, 77 жалобы не подтверждены источником — нужен свежий сбор отзывов зайцев к.в. (ооо &quot;бвт-спорт&quot;)">
+        <tr class="lead-row hot" data-zone="hot" data-search="bwt челябинская область, магнитогорск, проспект ленина, 77 жалобы не подтверждены источником — нужен свежий сбор отзывов зайцев к.в. (ооо &quot;бвт-спорт&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 46%">
-              46%
+            <div class="badge-score score-hot" title="Индекс уязвимости: 50%">
+              50%
             </div>
             <div class="rank-num">Лид #5</div>
           </td>
@@ -551,6 +570,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 48.6 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -572,8 +592,8 @@
         
         <tr class="lead-row warm" data-zone="warm" data-search="атмосфера, центр фитнеса и спа челябинская область, магнитогорск, проспект ленина, 132/3 жалобы не подтверждены источником — нужен свежий сбор отзывов сидоров а.б. (ооо &quot;атмосфера-магнитогорск&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 45%">
-              45%
+            <div class="badge-score score-warm" title="Индекс уязвимости: 49%">
+              49%
             </div>
             <div class="rank-num">Лид #6</div>
           </td>
@@ -591,6 +611,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 64.2 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -612,8 +633,8 @@
         
         <tr class="lead-row warm" data-zone="warm" data-search="спортивная школа динамо челябинская область, магнитогорск, советская улица, 174 жалобы не подтверждены источником — нужен свежий сбор отзывов дирекция (му &quot;сш динамо&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 42%">
-              42%
+            <div class="badge-score score-warm" title="Индекс уязвимости: 46%">
+              46%
             </div>
             <div class="rank-num">Лид #7</div>
           </td>
@@ -631,6 +652,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 32.1 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -652,8 +674,8 @@
         
         <tr class="lead-row warm" data-zone="warm" data-search="форум-фитнес челябинская область, магнитогорск, проспект ленина, 130 (бц форум) жалобы не подтверждены источником — нужен свежий сбор отзывов морозов д.а. (ооо &quot;форум-спк&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 41%">
-              41%
+            <div class="badge-score score-warm" title="Индекс уязвимости: 45%">
+              45%
             </div>
             <div class="rank-num">Лид #8</div>
           </td>
@@ -671,6 +693,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 29.4 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -692,8 +715,8 @@
         
         <tr class="lead-row warm" data-zone="warm" data-search="дворец спорта имени и. х. ромазана челябинская область, магнитогорск, проспект ленина, 97а жалобы не подтверждены источником — нужен свежий сбор отзывов администрация (му &quot;дворец спорта&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 40%">
-              40%
+            <div class="badge-score score-warm" title="Индекс уязвимости: 44%">
+              44%
             </div>
             <div class="rank-num">Лид #9</div>
           </td>
@@ -711,6 +734,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 54.3 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (23/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -732,8 +756,8 @@
         
         <tr class="lead-row warm" data-zone="warm" data-search="studio fitness челябинская область, магнитогорск, проспект ленина, 160 жалобы не подтверждены источником — нужен свежий сбор отзывов смирнов н.п. (ооо &quot;студия фитнеса&quot;)">
           <td class="col-rank">
-            <div class="badge-score score-warm" title="Индекс уязвимости: 38%">
-              38%
+            <div class="badge-score score-warm" title="Индекс уязвимости: 42%">
+              42%
             </div>
             <div class="rank-num">Лид #10</div>
           </td>
@@ -751,6 +775,7 @@
           <td class="col-metrics">
             <div class="metric-tag rating">⭐ нет рейтинга в источнике</div>
             <div class="metric-tag revenue">📊 ФНС: 38.9 млн ₽/год</div>
+            <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
           </td>
           <td class="col-pains">
             <div class="pain-box">🔥 жалобы не подтверждены источником — нужен свежий сбор отзывов</div>
@@ -780,7 +805,7 @@
         <div class="mobile-lead-card hot" data-zone="hot" data-search="металлург-магнитогорск челябинская область, магнитогорск, набережная улица, 5 жалобы не подтверждены источником — нужен свежий сбор отзывов управление пао &quot;ммк&quot;">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-hot">52%</span>
+              <span class="badge-score score-hot">56%</span>
               <span class="m-rank-num">Лид #1</span>
             </div>
             <div class="m-card-title-box">
@@ -793,6 +818,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 210.0 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Управление ПАО &quot;ММК&quot;</div>
@@ -820,7 +846,7 @@
         <div class="mobile-lead-card hot" data-zone="hot" data-search="ddx fitness челябинская область, магнитогорск, улица грязнова, 57/1 жалобы не подтверждены источником — нужен свежий сбор отзывов иванов и.в. (ооо &quot;ддх&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-hot">50%</span>
+              <span class="badge-score score-hot">54%</span>
               <span class="m-rank-num">Лид #2</span>
             </div>
             <div class="m-card-title-box">
@@ -833,6 +859,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 142.5 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Иванов И.В. (ООО &quot;ДДХ&quot;)</div>
@@ -857,10 +884,10 @@
           </div>
         </div>
         
-        <div class="mobile-lead-card warm" data-zone="warm" data-search="другое измерение челябинская область, магнитогорск, проспект ленина, 88/2 жалобы не подтверждены источником — нужен свежий сбор отзывов петров с.а. (ооо &quot;фитнес-центр&quot;)">
+        <div class="mobile-lead-card hot" data-zone="hot" data-search="другое измерение челябинская область, магнитогорск, проспект ленина, 88/2 жалобы не подтверждены источником — нужен свежий сбор отзывов петров с.а. (ооо &quot;фитнес-центр&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">49%</span>
+              <span class="badge-score score-hot">53%</span>
               <span class="m-rank-num">Лид #3</span>
             </div>
             <div class="m-card-title-box">
@@ -873,6 +900,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 86.4 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Петров С.А. (ООО &quot;Фитнес-Центр&quot;)</div>
@@ -897,10 +925,10 @@
           </div>
         </div>
         
-        <div class="mobile-lead-card warm" data-zone="warm" data-search="world class челябинская область, магнитогорск, парк притяжение жалобы не подтверждены источником — нужен свежий сбор отзывов волков м.ю. (ооо &quot;управляющая компания world class&quot;)">
+        <div class="mobile-lead-card hot" data-zone="hot" data-search="world class челябинская область, магнитогорск, парк притяжение жалобы не подтверждены источником — нужен свежий сбор отзывов волков м.ю. (ооо &quot;управляющая компания world class&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">48%</span>
+              <span class="badge-score score-hot">52%</span>
               <span class="m-rank-num">Лид #4</span>
             </div>
             <div class="m-card-title-box">
@@ -913,6 +941,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 120.0 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Волков М.Ю. (ООО &quot;Управляющая компания World Class&quot;)</div>
@@ -937,10 +966,10 @@
           </div>
         </div>
         
-        <div class="mobile-lead-card warm" data-zone="warm" data-search="bwt челябинская область, магнитогорск, проспект ленина, 77 жалобы не подтверждены источником — нужен свежий сбор отзывов зайцев к.в. (ооо &quot;бвт-спорт&quot;)">
+        <div class="mobile-lead-card hot" data-zone="hot" data-search="bwt челябинская область, магнитогорск, проспект ленина, 77 жалобы не подтверждены источником — нужен свежий сбор отзывов зайцев к.в. (ооо &quot;бвт-спорт&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">46%</span>
+              <span class="badge-score score-hot">50%</span>
               <span class="m-rank-num">Лид #5</span>
             </div>
             <div class="m-card-title-box">
@@ -953,6 +982,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 48.6 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Зайцев К.В. (ООО &quot;БВТ-Спорт&quot;)</div>
@@ -980,7 +1010,7 @@
         <div class="mobile-lead-card warm" data-zone="warm" data-search="атмосфера, центр фитнеса и спа челябинская область, магнитогорск, проспект ленина, 132/3 жалобы не подтверждены источником — нужен свежий сбор отзывов сидоров а.б. (ооо &quot;атмосфера-магнитогорск&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">45%</span>
+              <span class="badge-score score-warm">49%</span>
               <span class="m-rank-num">Лид #6</span>
             </div>
             <div class="m-card-title-box">
@@ -993,6 +1023,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 64.2 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Сидоров А.Б. (ООО &quot;Атмосфера-Магнитогорск&quot;)</div>
@@ -1020,7 +1051,7 @@
         <div class="mobile-lead-card warm" data-zone="warm" data-search="спортивная школа динамо челябинская область, магнитогорск, советская улица, 174 жалобы не подтверждены источником — нужен свежий сбор отзывов дирекция (му &quot;сш динамо&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">42%</span>
+              <span class="badge-score score-warm">46%</span>
               <span class="m-rank-num">Лид #7</span>
             </div>
             <div class="m-card-title-box">
@@ -1033,6 +1064,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 32.1 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Дирекция (МУ &quot;СШ Динамо&quot;)</div>
@@ -1060,7 +1092,7 @@
         <div class="mobile-lead-card warm" data-zone="warm" data-search="форум-фитнес челябинская область, магнитогорск, проспект ленина, 130 (бц форум) жалобы не подтверждены источником — нужен свежий сбор отзывов морозов д.а. (ооо &quot;форум-спк&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">41%</span>
+              <span class="badge-score score-warm">45%</span>
               <span class="m-rank-num">Лид #8</span>
             </div>
             <div class="m-card-title-box">
@@ -1073,6 +1105,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 29.4 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Морозов Д.А. (ООО &quot;Форум-СПК&quot;)</div>
@@ -1100,7 +1133,7 @@
         <div class="mobile-lead-card warm" data-zone="warm" data-search="дворец спорта имени и. х. ромазана челябинская область, магнитогорск, проспект ленина, 97а жалобы не подтверждены источником — нужен свежий сбор отзывов администрация (му &quot;дворец спорта&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">40%</span>
+              <span class="badge-score score-warm">44%</span>
               <span class="m-rank-num">Лид #9</span>
             </div>
             <div class="m-card-title-box">
@@ -1113,6 +1146,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 54.3 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (23/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Администрация (МУ &quot;Дворец Спорта&quot;)</div>
@@ -1140,7 +1174,7 @@
         <div class="mobile-lead-card warm" data-zone="warm" data-search="studio fitness челябинская область, магнитогорск, проспект ленина, 160 жалобы не подтверждены источником — нужен свежий сбор отзывов смирнов н.п. (ооо &quot;студия фитнеса&quot;)">
           <div class="m-card-header">
             <div class="m-card-score-box">
-              <span class="badge-score score-warm">38%</span>
+              <span class="badge-score score-warm">42%</span>
               <span class="m-rank-num">Лид #10</span>
             </div>
             <div class="m-card-title-box">
@@ -1153,6 +1187,7 @@
             <span class="metric-tag rating">⭐ нет рейтинга в источнике</span>
             <span class="metric-tag revenue">📊 ФНС: 38.9 млн ₽/год</span>
           </div>
+          <div class="tax-risk-card tax-yellow">🧾 🟡 Есть мягкие признаки для проверки (29/100). Заход: аккуратно объяснить, что это зона профилактики, а не проблема. Основание: есть юридический/ФНС-контур для проверки; ИНН найден: можно проверить структуру официально; руководитель найден: можно искать связанные юрлица.</div>
 
           <div class="m-card-info-row">
             <div class="director-name">👤 Смирнов Н.П. (ООО &quot;Студия Фитнеса&quot;)</div>
